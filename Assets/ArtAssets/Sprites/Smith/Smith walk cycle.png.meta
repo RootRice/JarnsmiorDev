@@ -1,23 +1,23 @@
 fileFormatVersion: 2
-guid: c6fe4e3a42640564aa3fcf3e933e77c1
+guid: 5646fa02b4e82fb4f830cc90561be066
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Smith walk cycle_0
-    21300002: Smith walk cycle_1
-    21300004: Smith walk cycle_2
-    21300006: Smith walk cycle_3
-    21300008: Smith walk cycle_4
-    21300010: Smith walk cycle_5
-    21300012: Smith walk cycle_6
-    21300014: Smith walk cycle_7
-    21300016: Smith walk cycle_8
-    21300018: Smith walk cycle_9
-    21300020: Smith walk cycle_10
-    21300022: Smith walk cycle_11
-    21300024: Smith walk cycle_12
-    21300026: Smith walk cycle_13
-    21300028: Smith walk cycle_14
-    21300030: Smith walk cycle_15
+    21300000: Smith walk cycle (1)_0
+    21300002: Smith walk cycle (1)_1
+    21300004: Smith walk cycle (1)_2
+    21300006: Smith walk cycle (1)_3
+    21300008: Smith walk cycle (1)_4
+    21300010: Smith walk cycle (1)_5
+    21300012: Smith walk cycle (1)_6
+    21300014: Smith walk cycle (1)_7
+    21300016: Smith walk cycle (1)_8
+    21300018: Smith walk cycle (1)_9
+    21300020: Smith walk cycle (1)_10
+    21300022: Smith walk cycle (1)_11
+    21300024: Smith walk cycle (1)_12
+    21300026: Smith walk cycle (1)_13
+    21300028: Smith walk cycle (1)_14
+    21300030: Smith walk cycle (1)_15
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Smith walk cycle_0
+      name: Smith walk cycle (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,13 +114,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79d49c87f91054c44875b55be8ff49b5
+      spriteID: 6d3b6685f56980a42976777d375213d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_1
+      name: Smith walk cycle (1)_1
       rect:
         serializedVersion: 2
         x: 448
@@ -134,13 +134,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dde8c7f22b3a22458cd4afae04c5ccc
+      spriteID: 85fb91a33660f854c95e725902c00afd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_2
+      name: Smith walk cycle (1)_2
       rect:
         serializedVersion: 2
         x: 896
@@ -154,13 +154,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2976d82f7cd34940b17504a033abbcd
+      spriteID: 24905d23e63fde841b631302bc42b25b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_3
+      name: Smith walk cycle (1)_3
       rect:
         serializedVersion: 2
         x: 1344
@@ -174,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 780a701948e1bd74c84757d5faaae294
+      spriteID: 8c3d9161067f64f4196cac3e5e20c401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_4
+      name: Smith walk cycle (1)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -194,13 +194,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 178aee2a645c65a4fa70af05408e086e
+      spriteID: 9c6ce1e435f2f73498438890b4ef1c24
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_5
+      name: Smith walk cycle (1)_5
       rect:
         serializedVersion: 2
         x: 448
@@ -214,13 +214,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69db422d08b0114fbca53857962be91
+      spriteID: 8aa2498a81238494f8698774e10cea31
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_6
+      name: Smith walk cycle (1)_6
       rect:
         serializedVersion: 2
         x: 896
@@ -234,13 +234,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4a35cdf027f6304d8a892c60c2056c0
+      spriteID: 43fee20f75bc25a4e8d9058d020a2126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_7
+      name: Smith walk cycle (1)_7
       rect:
         serializedVersion: 2
         x: 1344
@@ -254,13 +254,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1189e600045a74ea84b61ef46c3899
+      spriteID: 3cdd4419f957c594393c1af695c50faf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_8
+      name: Smith walk cycle (1)_8
       rect:
         serializedVersion: 2
         x: 0
@@ -274,13 +274,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d99f9c723b54644938da74f5455b2c
+      spriteID: 8538f20c5081a5642a215a00c7c07f67
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_9
+      name: Smith walk cycle (1)_9
       rect:
         serializedVersion: 2
         x: 448
@@ -294,13 +294,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f882a0e44b9fe18498e2a442c982688a
+      spriteID: 763393b418a07684eaaa8d9c625c47b5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_10
+      name: Smith walk cycle (1)_10
       rect:
         serializedVersion: 2
         x: 896
@@ -314,13 +314,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae655448c190bc429586e91eb91e298
+      spriteID: 8ca8e2f69ebffbe4ca5585bc0254da86
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_11
+      name: Smith walk cycle (1)_11
       rect:
         serializedVersion: 2
         x: 1344
@@ -334,13 +334,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dc61ac3dcc682b4c8f84f3916333ade
+      spriteID: 35e926a777f5f8347bc293d337f318aa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_12
+      name: Smith walk cycle (1)_12
       rect:
         serializedVersion: 2
         x: 0
@@ -354,13 +354,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 895af4e8189b52d40b92d507420bef7c
+      spriteID: 1990908046923e647860a5a8d4c415ec
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_13
+      name: Smith walk cycle (1)_13
       rect:
         serializedVersion: 2
         x: 448
@@ -374,13 +374,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12ae8a366b564ed42bd5b90fb4e3792e
+      spriteID: bb09349e1b0fc2f4eae24348552bdef4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_14
+      name: Smith walk cycle (1)_14
       rect:
         serializedVersion: 2
         x: 896
@@ -394,13 +394,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acd24b7b754cb7e4e9c29f1b5a422edf
+      spriteID: 5c38308b2aed1ba46895b0626e82832a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith walk cycle_15
+      name: Smith walk cycle (1)_15
       rect:
         serializedVersion: 2
         x: 1344
@@ -414,7 +414,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a553d619a4015824b8290acb5776a03d
+      spriteID: 315ac24923ff5384abcfe15503279037
       vertices: []
       indices: 
       edges: []
@@ -422,7 +422,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 99f01caf2fe6d124aa60665f1da97529
+    spriteID: 6d3388d8451dbd948b1c3664e2b41bf9
     vertices: []
     indices: 
     edges: []
