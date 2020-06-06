@@ -7,7 +7,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
     //Movement variables
     int speed = 5;
-    Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
+    Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
     int numberOfTargets;
     bool isMoving = false;
 
@@ -16,6 +16,9 @@ public class MainCharacterSmithy : MonoBehaviour
     bool canControl = true;
 
     GameObject anvilSmith;
+    GameObject elongateUI;
+
+    CameraScript cameraScript;
 
 	// Use this for initialization
 	void Start ()
@@ -25,6 +28,8 @@ public class MainCharacterSmithy : MonoBehaviour
         SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.18f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         anvilSmith.SetActive(false);
+        GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 
     }
 
@@ -38,6 +43,17 @@ public class MainCharacterSmithy : MonoBehaviour
             {
 
                 numberOfTargets -= 1;
+                if (targets[numberOfTargets].x < transform.position.x)
+                {
+
+                    transform.localScale = new Vector3(-1f, 1, 1);
+                }
+                else
+                {
+
+                    transform.localScale = new Vector3(1f, 1, 1);
+
+                }
                 if (numberOfTargets == 0)
                 {
                     myAnimator.SetBool("Walking", false);
@@ -45,7 +61,10 @@ public class MainCharacterSmithy : MonoBehaviour
                     canControl = true;
                     targets[0] = gameObject.transform.position;
                     CheckTask();
-
+                }
+                else if (targets[numberOfTargets] == new Vector3(11.48f, 10.02f, 0f) && targets[1] == new Vector3(2.65f, 10.04f, 0f))// checks if the player is headed for the door
+                {
+                    cameraScript.SetTarget(new Vector3(4.13f, 11.09f, -10f), 2f);
                 }
 
             }
@@ -72,17 +91,7 @@ public class MainCharacterSmithy : MonoBehaviour
     {
         
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if(target.x < transform.position.x)
-        {
-
-            transform.localScale = new Vector3(-1f, 1, 1);
-        }
-        else
-        {
-
-            transform.localScale = new Vector3(1f, 1, 1);
-
-        }
+        
         if (transform.position == target)
         {
 
