@@ -47,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -96,50 +96,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -148,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 64
-        height: 64
+        y: 1344
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,7 +114,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0367afe2c32075f4e900642abf53a681
+      spriteID: 79d49c87f91054c44875b55be8ff49b5
       vertices: []
       indices: 
       edges: []
@@ -167,10 +123,10 @@ TextureImporter:
       name: Smith walk cycle_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
+        x: 448
+        y: 1344
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d18b9b0b81462546bac167770d787c7
+      spriteID: 4dde8c7f22b3a22458cd4afae04c5ccc
       vertices: []
       indices: 
       edges: []
@@ -187,10 +143,10 @@ TextureImporter:
       name: Smith walk cycle_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
+        x: 896
+        y: 1344
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91aec68e8344b744b938e8d7e51644fd
+      spriteID: d2976d82f7cd34940b17504a033abbcd
       vertices: []
       indices: 
       edges: []
@@ -207,10 +163,10 @@ TextureImporter:
       name: Smith walk cycle_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
+        x: 1344
+        y: 1344
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b34a58f67258ba74e805842a4c6c253f
+      spriteID: 780a701948e1bd74c84757d5faaae294
       vertices: []
       indices: 
       edges: []
@@ -228,9 +184,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
+        y: 896
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 651b7017224d9224589525164a9473a4
+      spriteID: 178aee2a645c65a4fa70af05408e086e
       vertices: []
       indices: 
       edges: []
@@ -247,10 +203,10 @@ TextureImporter:
       name: Smith walk cycle_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 448
+        y: 896
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,7 +214,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f41bcdc29c25ed46a546cd7f83dd871
+      spriteID: b69db422d08b0114fbca53857962be91
       vertices: []
       indices: 
       edges: []
@@ -267,10 +223,10 @@ TextureImporter:
       name: Smith walk cycle_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
+        x: 896
+        y: 896
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,7 +234,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19118ba164ef67441876021d395ce985
+      spriteID: c4a35cdf027f6304d8a892c60c2056c0
       vertices: []
       indices: 
       edges: []
@@ -287,10 +243,10 @@ TextureImporter:
       name: Smith walk cycle_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
+        x: 1344
+        y: 896
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,7 +254,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0ba54875aec2a74194ba6858820a066
+      spriteID: 6f1189e600045a74ea84b61ef46c3899
       vertices: []
       indices: 
       edges: []
@@ -308,9 +264,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
+        y: 448
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,7 +274,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2d1244ba060ab419d910c025f51074
+      spriteID: 69d99f9c723b54644938da74f5455b2c
       vertices: []
       indices: 
       edges: []
@@ -327,10 +283,10 @@ TextureImporter:
       name: Smith walk cycle_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 448
+        y: 448
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,7 +294,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 290a84acf46f34541bdf6faec9f3e586
+      spriteID: f882a0e44b9fe18498e2a442c982688a
       vertices: []
       indices: 
       edges: []
@@ -347,10 +303,10 @@ TextureImporter:
       name: Smith walk cycle_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 896
+        y: 448
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,7 +314,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5197fdf0598b3324eb0a3b429420e3b0
+      spriteID: aae655448c190bc429586e91eb91e298
       vertices: []
       indices: 
       edges: []
@@ -367,10 +323,10 @@ TextureImporter:
       name: Smith walk cycle_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
+        x: 1344
+        y: 448
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,7 +334,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 147992e5c098abd499e6d11e4cf921f2
+      spriteID: 0dc61ac3dcc682b4c8f84f3916333ade
       vertices: []
       indices: 
       edges: []
@@ -389,8 +345,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,7 +354,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e699c6929befd44b9d960b610b842d
+      spriteID: 895af4e8189b52d40b92d507420bef7c
       vertices: []
       indices: 
       edges: []
@@ -407,10 +363,10 @@ TextureImporter:
       name: Smith walk cycle_13
       rect:
         serializedVersion: 2
-        x: 64
+        x: 448
         y: 0
-        width: 64
-        height: 64
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,7 +374,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2396ae62c77667a4c95dcb60b82fc17d
+      spriteID: 12ae8a366b564ed42bd5b90fb4e3792e
       vertices: []
       indices: 
       edges: []
@@ -427,10 +383,10 @@ TextureImporter:
       name: Smith walk cycle_14
       rect:
         serializedVersion: 2
-        x: 128
+        x: 896
         y: 0
-        width: 64
-        height: 64
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,7 +394,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7274bac30b05994986299699345c128
+      spriteID: acd24b7b754cb7e4e9c29f1b5a422edf
       vertices: []
       indices: 
       edges: []
@@ -447,10 +403,10 @@ TextureImporter:
       name: Smith walk cycle_15
       rect:
         serializedVersion: 2
-        x: 192
+        x: 1344
         y: 0
-        width: 64
-        height: 64
+        width: 448
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,7 +414,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba72f5c073d9f49438569f77c6d53f4a
+      spriteID: a553d619a4015824b8290acb5776a03d
       vertices: []
       indices: 
       edges: []
@@ -466,7 +422,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 99f01caf2fe6d124aa60665f1da97529
     vertices: []
     indices: 
     edges: []

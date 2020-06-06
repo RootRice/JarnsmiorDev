@@ -12,18 +12,16 @@ public class CameraScript : MonoBehaviour {
 
     Vector3 defaultPosition = new Vector3(11.45f, 7.31f, -10);
 
-    float cameraZoom = 1;
+    float toZoom;
+    bool zoomDir;
 
     private Camera gameCamera;
 
-    float speed = 1;
 
     void Start ()
     {
         gameCamera = gameObject.GetComponent<Camera>();
-        SetTarget(new Vector3(11.45f, 7.31f, -10));
-
-
+        SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
     }
 	
 	// Update is called once per frame
@@ -32,68 +30,71 @@ public class CameraScript : MonoBehaviour {
 		if(toMove)
         {
 
-            MoveTowards(targets[1], 6);
+            transform.position = Vector3.MoveTowards(transform.position, targets[numberOfTargets], 3f * Time.deltaTime);
 
+        }
+        if (Mathf.Abs(toZoom - gameCamera.orthographicSize) > 0.02f)
+        {
+
+            if(zoomDir)
+            {
+
+                gameCamera.orthographicSize -= 0.02f;
+
+            }
+            else
+            {
+
+                gameCamera.orthographicSize += 0.02f;
+
+            }
+        }
+        else
+        {
+            gameCamera.orthographicSize = toZoom;
         }
 	}
 
-    public void SetTarget(Vector3 target)
+    public void SetTarget(Vector3 target, float zoom)
     {
         targets[1] = target;
         toMove = true;
+        toZoom = zoom;
+        if (toZoom > gameCamera.orthographicSize)
+        {
+
+            zoomDir = false;
+
+        }
+        else
+        {
+
+            zoomDir = true;
+
+        }
         numberOfTargets = 1;
     }
-    public void SetTarget(Vector3 target1, Vector3 target2)
+    public void SetTarget(Vector3 target1, Vector3 target2, float zoom)
     {
 
         targets[1] = target2;
         targets[2] = target1;
         toMove = true;
+        toZoom = zoom;
+        if(toZoom > gameCamera.orthographicSize)
+        {
+
+            zoomDir = false;
+
+        }
+        else
+        {
+
+            zoomDir = true;
+
+        }
         numberOfTargets = 2;
     }
 
-    void MoveTowards(Vector3 target, float zoom)
-    {
-        //Movement control
-        speed = Mathf.Abs((target.x + target.y) - (transform.position.x + transform.position.y));
-        if (speed < 1f)
-        {
 
-            speed = 1f;
-
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * 1.5f * Time.deltaTime);
-
-        //Zoom control
-        speed = Mathf.Abs(zoom - cameraZoom);
-        if (speed < 0.5f)
-        {
-
-            speed = 0.5f;
-
-        }
-
-        if (transform.position == target)
-        {
-
-            cameraZoom = zoom;
-        }
-        else if (cameraZoom < zoom)
-        {
-
-            cameraZoom += speed = speed * Time.deltaTime;
-
-        }
-        else if (cameraZoom > zoom)
-        {
-            cameraZoom -= speed = speed * Time.deltaTime;
-        }
-
-
-
-        gameCamera.orthographicSize = cameraZoom;
-        
-
-    }
 }
