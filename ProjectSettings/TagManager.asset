@@ -10,6 +10,7 @@ TagManager:
   - Book
   - MCBook
   - SF_Table
+  - SF_NPCharacter
   layers:
   - Default
   - TransparentFX
