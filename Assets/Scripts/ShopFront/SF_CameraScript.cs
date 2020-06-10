@@ -27,7 +27,7 @@ public class SF_CameraScript : MonoBehaviour {
         //SetTarget(new Vector3(13.27f, 4f, -10f), new Vector3(11.4f, 7.2f, -10f), 6);
 
         gameCamera.transform.position = new Vector3(11.4f, 7.2f, -10f);
-        gameCamera.orthographicSize = 8f;
+        gameCamera.orthographicSize = 7f;
     }
 
     // Update is called once per frame

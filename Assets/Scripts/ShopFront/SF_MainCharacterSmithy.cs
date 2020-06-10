@@ -121,6 +121,12 @@ public class SF_MainCharacterSmithy : MonoBehaviour
 
     }
 
+    public void DoorToTable()
+    {
+        SetTarget(pathDoorTable[0], pathDoorTable[1], pathDoorTable[2]);
+
+    }
+
     public void TableToDoor()
     {
         SetTarget(pathDoorTable[2], pathDoorTable[1], pathDoorTable[0]);
