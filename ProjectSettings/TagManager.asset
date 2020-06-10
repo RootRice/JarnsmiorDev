@@ -9,6 +9,7 @@ TagManager:
   - MCFurnace
   - Book
   - MCBook
+  - SF_Table
   layers:
   - Default
   - TransparentFX
