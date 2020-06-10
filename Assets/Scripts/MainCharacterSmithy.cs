@@ -15,7 +15,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
     bool canControl = false;
 
-    GameObject table;
+    GameObject anvilSmith;
     GameObject furnaceSmith;
     GameObject bookSmith;
     GameObject elongateUI;
@@ -28,7 +28,7 @@ public class MainCharacterSmithy : MonoBehaviour
         isMoving = true;
         myAnimator = GetComponent<Animator>();
         SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
-        table = GameObject.FindGameObjectWithTag("SF_Table");
+        anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
         bookSmith.SetActive(false);

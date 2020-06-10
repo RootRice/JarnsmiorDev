@@ -10,7 +10,7 @@ public class SF_CameraScript : MonoBehaviour {
     int numberOfTargets;
     Vector3[] targets = { new Vector3(0f, 0f, -10f), new Vector3(0f, 0f, -10f), new Vector3(0f, 0f, -10f) };
 
-    Vector3 defaultPosition = new Vector3(11.45f, 7.31f, -10);
+    Vector3 defaultPosition = new Vector3(15.71f, 4.99f, -10);
 
     float toZoom;
     bool zoomDir;
@@ -22,9 +22,9 @@ public class SF_CameraScript : MonoBehaviour {
     void Start ()
     {
         gameCamera = gameObject.GetComponent<Camera>();
-        gameCamera.transform.position = new Vector3(3.02f, 11.05f, -10f);
-        gameCamera.orthographicSize = 1.354f;
-        SetTarget(new Vector3(11.45f, 7.31f, -10f), 6);
+        gameCamera.transform.position = new Vector3(15.96f, 5.17f, -10f);
+        gameCamera.orthographicSize = 2f;
+        SetTarget(new Vector3(13.27f, 4f, -10f), new Vector3(11.4f, 7.2f, -10f), 6);
     }
 	
 	// Update is called once per frame

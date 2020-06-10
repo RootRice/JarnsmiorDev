@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Smithy.unity
+- path: Assets/Scenes/ShopFront.unity
   isLoaded: 1
   isActive: 1
