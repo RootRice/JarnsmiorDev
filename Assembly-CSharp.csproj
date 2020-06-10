@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\MCFrunaceSmithy.cs" />
     <Compile Include="Assets\Scripts\ShopFront\SF_CameraScript.cs" />
     <Compile Include="Assets\Scripts\ShopFront\SF_MainCharacterSmithy.cs" />
+    <Compile Include="Assets\Scripts\ShopFront\SF_SmithyDoor.cs" />
     <Compile Include="Assets\Scripts\SmithyDoor.cs" />
     <Compile Include="Assets\Scripts\TroughSmithy.cs" />
     <Compile Include="Assets\Scripts\TurnLeftBook.cs" />

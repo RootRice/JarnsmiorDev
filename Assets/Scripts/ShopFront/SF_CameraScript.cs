@@ -22,14 +22,18 @@ public class SF_CameraScript : MonoBehaviour {
     void Start ()
     {
         gameCamera = gameObject.GetComponent<Camera>();
-        gameCamera.transform.position = new Vector3(15.96f, 5.17f, -10f);
-        gameCamera.orthographicSize = 2f;
-        SetTarget(new Vector3(13.27f, 4f, -10f), new Vector3(11.4f, 7.2f, -10f), 6);
+        //gameCamera.transform.position = new Vector3(15.96f, 5.17f, -10f);
+        //gameCamera.orthographicSize = 2f;
+        //SetTarget(new Vector3(13.27f, 4f, -10f), new Vector3(11.4f, 7.2f, -10f), 6);
+
+        gameCamera.transform.position = new Vector3(11.4f, 7.2f, -10f);
+        gameCamera.orthographicSize = 8f;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
+        /*
 		if(toMove)
         {
 
@@ -65,7 +69,7 @@ public class SF_CameraScript : MonoBehaviour {
         else
         {
             gameCamera.orthographicSize = toZoom;
-        }
+        }*/
 	}
 
     public void SetTarget(Vector3 target, float zoom)

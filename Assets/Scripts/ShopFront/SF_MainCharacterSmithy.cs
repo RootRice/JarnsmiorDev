@@ -30,7 +30,7 @@ public class SF_MainCharacterSmithy : MonoBehaviour
     {
         isMoving = true;
         myAnimator = GetComponent<Animator>();
-        SetTarget(new Vector3(15.68f, 4.93f, 0f), new Vector3(14.22f, 4.27f, 0f), new Vector3(9.56f, 4.27f, 0f));
+        SetTarget(pathDoorTable[0], pathDoorTable[1], pathDoorTable[2]);
         table = GameObject.FindGameObjectWithTag("SF_Table");
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
@@ -118,6 +118,12 @@ public class SF_MainCharacterSmithy : MonoBehaviour
             gameObject.SetActive(false);
 
         }
+
+    }
+
+    public void TableToDoor()
+    {
+        SetTarget(pathDoorTable[2], pathDoorTable[1], pathDoorTable[0]);
 
     }
 
