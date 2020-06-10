@@ -9,6 +9,7 @@ public class WallHanger : MonoBehaviour {
     CameraScript cameraScript;
     MainCharacterSmithy mainCharacterScript;
 
+
     // Use this for initialization
     void Start ()
     {
@@ -31,8 +32,22 @@ public class WallHanger : MonoBehaviour {
     void OnMouseDown()
     {
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
-        anvilSmith.SetActive(false);
+        GameObject furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         mainCharacter.SetActive(true);
+        mainCharacterScript.SetControl(true);
+        if (mainCharacterScript.GetTask() == 9.26f)
+        {
+
+            anvilSmith.SetActive(false);
+        }
+        else if (mainCharacterScript.GetTask() == 7f)
+        {
+            furnaceSmith.SetActive(false);
+        }
+
+        
+        
+        
         cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
          
     }

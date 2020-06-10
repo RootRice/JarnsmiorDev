@@ -25,9 +25,11 @@ public class SmithyDoor : MonoBehaviour {
 
     void OnMouseDown()
     {
-        
-        
-        mainCharacterScript.SetTarget(new Vector3(19.18f, 5.04f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(11.48f, 10.02f, 0f), new Vector3(2.65f, 10.04f, 0f));
 
+        if (mainCharacterScript != null && mainCharacterScript.GetControl())
+        {
+
+            mainCharacterScript.SetTarget(new Vector3(19.18f, 5.04f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(11.48f, 10.02f, 0f), new Vector3(2.65f, 10.04f, 0f));
+        }
     }
 }

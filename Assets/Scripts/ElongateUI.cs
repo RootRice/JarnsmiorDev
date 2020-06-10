@@ -25,8 +25,8 @@ public class ElongateUI : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        topPosition = new Vector3(4.258f, 5.28f);
-        bottomPosition = new Vector3(4.258f, 3.38f);
+        topPosition = new Vector3(7.68f, 5.28f);
+        bottomPosition = new Vector3(7.68f, 3.38f);
 	}
 	
 	// Update is called once per frame

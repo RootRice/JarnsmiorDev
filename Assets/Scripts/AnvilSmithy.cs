@@ -27,12 +27,12 @@ public class AnvilSmithy : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (mainCharacterScript != null)
+        if (mainCharacterScript != null && mainCharacterScript.GetControl())
         {
 
             //mainCharacterScript.SetTarget;
-            mainCharacterScript.SetTarget(new Vector3(5.93f, 5.04f, 0));
-            cameraScript.SetTarget(new Vector3(6.86f, 4.91f, -10f), 3.0f);
+            mainCharacterScript.SetTarget(new Vector3(9.26f, 5.04f, 0));
+            cameraScript.SetTarget(new Vector3(9.64f, 4.91f, -10f), 3.0f);
 
         }
     }

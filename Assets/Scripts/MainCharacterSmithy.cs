@@ -13,33 +13,36 @@ public class MainCharacterSmithy : MonoBehaviour
 
     Animator myAnimator;
 
-    bool canControl = true;
+    bool canControl = false;
 
     GameObject anvilSmith;
+    GameObject furnaceSmith;
     GameObject elongateUI;
 
     CameraScript cameraScript;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         isMoving = true;
         myAnimator = GetComponent<Animator>();
-        SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.18f, 5.04f, 0f));
+        SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
+        furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         anvilSmith.SetActive(false);
+        furnaceSmith.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-		if (isMoving)
+        if (isMoving)
         {
-            
-            if(MoveTowards(targets[numberOfTargets]))
+
+            if (MoveTowards(targets[numberOfTargets]))
             {
 
                 numberOfTargets -= 1;
@@ -70,19 +73,44 @@ public class MainCharacterSmithy : MonoBehaviour
             }
 
         }
-        
-	}
+
+    }
+
+    public bool GetControl()
+    {
+
+        return canControl;
+
+    }
+    public void SetControl(bool toSet)
+    {
+
+        canControl = toSet;
+
+    }
+    public float GetTask()
+    {
+
+        return transform.position.x;
+
+    }
 
     void CheckTask()
     {
 
-        if (transform.position.x == 5.93f)
+        if (transform.position.x == 9.26f)
         {
 
             canControl = false;
             anvilSmith.SetActive(true);
             gameObject.SetActive(false);
 
+        }
+        else if(transform.position.x == 7f)
+        {
+            canControl = false;
+            furnaceSmith.SetActive(true);
+            gameObject.SetActive(false);
         }
 
     }
@@ -114,6 +142,18 @@ public class MainCharacterSmithy : MonoBehaviour
         isMoving = true;
         canControl = false;
         numberOfTargets = 1;
+
+        if (targets[numberOfTargets].x < transform.position.x)
+        {
+
+            transform.localScale = new Vector3(-1f, 1, 1);
+        }
+        else
+        {
+
+            transform.localScale = new Vector3(1f, 1, 1);
+
+        }
     }
     public void SetTarget(Vector3 target1, Vector3 target2)
     {
@@ -123,6 +163,18 @@ public class MainCharacterSmithy : MonoBehaviour
         isMoving = true;
         canControl = false;
         numberOfTargets = 2;
+
+        if (targets[numberOfTargets].x < transform.position.x)
+        {
+
+            transform.localScale = new Vector3(-1f, 1, 1);
+        }
+        else
+        {
+
+            transform.localScale = new Vector3(1f, 1, 1);
+
+        }
     }
     public void SetTarget(Vector3 target1, Vector3 target2, Vector3 target3)
     {
@@ -133,6 +185,18 @@ public class MainCharacterSmithy : MonoBehaviour
         isMoving = true;
         canControl = false;
         numberOfTargets = 3;
+
+        if (targets[numberOfTargets].x < transform.position.x)
+        {
+
+            transform.localScale = new Vector3(-1f, 1, 1);
+        }
+        else
+        {
+
+            transform.localScale = new Vector3(1f, 1, 1);
+
+        }
     }
     public void SetTarget(Vector3 target1, Vector3 target2, Vector3 target3, Vector3 target4)
     {
@@ -144,5 +208,17 @@ public class MainCharacterSmithy : MonoBehaviour
         isMoving = true;
         canControl = false;
         numberOfTargets = 4;
+
+        if (targets[numberOfTargets].x < transform.position.x)
+        {
+
+            transform.localScale = new Vector3(-1f, 1, 1);
+        }
+        else
+        {
+
+            transform.localScale = new Vector3(1f, 1, 1);
+
+        }
     }
 }
