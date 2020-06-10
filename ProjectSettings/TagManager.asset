@@ -7,6 +7,8 @@ TagManager:
   - MainCharacterSmithy
   - MCAnvil
   - MCFurnace
+  - Book
+  - MCBook
   layers:
   - Default
   - TransparentFX

@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MCBookSmithy.cs" />
      <Compile Include="Assets\Scripts\AnvilSmithy.cs" />
+     <Compile Include="Assets\Scripts\Book.cs" />
      <Compile Include="Assets\Scripts\BookCaseSmithy.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ElongateBar.cs" />
@@ -66,6 +68,8 @@
      <Compile Include="Assets\Scripts\MCFrunaceSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyDoor.cs" />
      <Compile Include="Assets\Scripts\TroughSmithy.cs" />
+     <Compile Include="Assets\Scripts\TurnLeftBook.cs" />
+     <Compile Include="Assets\Scripts\TurnRightBook.cs" />
      <Compile Include="Assets\Scripts\WallHanger.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>E:/Unity/JarnsmiorDev/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -22,7 +22,9 @@ public class CameraScript : MonoBehaviour {
     void Start ()
     {
         gameCamera = gameObject.GetComponent<Camera>();
-        SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
+        gameCamera.transform.position = new Vector3(3.02f, 11.05f, -10f);
+        gameCamera.orthographicSize = 1.354f;
+        SetTarget(new Vector3(11.45f, 7.31f, -10f), 6);
     }
 	
 	// Update is called once per frame
@@ -107,5 +109,12 @@ public class CameraScript : MonoBehaviour {
         numberOfTargets = 2;
     }
 
+    public void SetPosition(Vector3 position, float toZoom)
+    {
+
+        gameCamera.transform.position = position;
+        gameCamera.orthographicSize = toZoom;
+
+    }
 
 }

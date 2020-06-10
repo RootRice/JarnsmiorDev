@@ -17,6 +17,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
     GameObject anvilSmith;
     GameObject furnaceSmith;
+    GameObject bookSmith;
     GameObject elongateUI;
 
     CameraScript cameraScript;
@@ -29,6 +30,8 @@ public class MainCharacterSmithy : MonoBehaviour
         SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
+        bookSmith = GameObject.FindGameObjectWithTag("MCBook");
+        bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
@@ -111,6 +114,14 @@ public class MainCharacterSmithy : MonoBehaviour
             canControl = false;
             furnaceSmith.SetActive(true);
             gameObject.SetActive(false);
+        }
+        else if(transform.position.x == 3.34f)
+        {
+
+            canControl = false;
+            bookSmith.SetActive(true);
+            gameObject.SetActive(false);
+
         }
 
     }
