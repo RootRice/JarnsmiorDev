@@ -24,11 +24,22 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(StoryLive) {
+		if(StoryLive && SLItemID != -1) {
 			TextChoice mTextChoice = getItemByID(SLItemID);
 			if(SLItemID != mTextChoice.child[0]) {
 				SLItemID = mTextChoice.child[0];
-				SendStoryMessage(mTextChoice.text);
+				if(!mTextChoice.choicePick) {
+					SendStoryMessage(mTextChoice.text, false);
+				}
+				if(mTextChoice.child.Capacity == 3) {
+                    TextChoice mTextChoice1 = getItemByID(mTextChoice.child[0]);
+                    TextChoice mTextChoice2 = getItemByID(mTextChoice.child[1]);
+                    TextChoice mTextChoice3 = getItemByID(mTextChoice.child[2]);
+					SendStoryMessage(mTextChoice1.text, true);
+					SendStoryMessage(mTextChoice2.text, true);
+					SendStoryMessage(mTextChoice3.text, true);
+					StoryLive = false;
+				}
 			} else {
 				StoryLive = false;
 			}
@@ -43,7 +54,7 @@ public class GameManager : MonoBehaviour {
 		StoryLive = true;
 	}
 
-	public void SendStoryMessage(string text)
+	public void SendStoryMessage(string text, bool isChoice)
 	{
 		Message mMessage = new Message();
 		mMessage.text = text;
@@ -51,6 +62,10 @@ public class GameManager : MonoBehaviour {
 		GameObject newText = Instantiate(textObject, storyPanel.transform);
 		mMessage.textObject = newText.GetComponent<Text>();
 		mMessage.textObject.text = mMessage.text;
+
+		if(isChoice) {
+			mMessage.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
+		}
 
 		messageList.Add(mMessage);
 	}

@@ -96,6 +96,7 @@ public class SF_MainCharacterSmithy : MonoBehaviour
                 rangeWaiting -= Time.deltaTime;
                 if (rangeWaiting < 0 && npcScript.IsStaying())
                 {
+                    SetControl(false);
                     npcScript.DoorToTable();
                 }
             }
