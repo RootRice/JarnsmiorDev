@@ -19,21 +19,36 @@ public class SF_MainCharacterSmithy : MonoBehaviour
 
     CameraScript cameraScript;
 
+    private float rangeWaiting;
+
     public List<Vector3> pathDoorTable = new List<Vector3>(new Vector3[] {
         new Vector3(15.68f, 4.93f, 0f),
         new Vector3(14.22f, 4.27f, 0f),
         new Vector3(9.56f, 4.27f, 0f)
     });
 
+    enum Targets : ushort
+    {
+        door = 0,
+        table = 1
+    }
+
+    private Targets target;
+
+    private SF_NPC npcScript;
+
+    private bool npcComing = false;
+
     // Use this for initialization
     void Start()
     {
-        isMoving = true;
         myAnimator = GetComponent<Animator>();
-        SetTarget(pathDoorTable[0], pathDoorTable[1], pathDoorTable[2]);
+        DoorToTable();
         table = GameObject.FindGameObjectWithTag("SF_Table");
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
+        npcScript = (SF_NPC)GameObject.FindGameObjectWithTag("SF_NPCharacter").GetComponent(typeof(SF_NPC));
+        rangeWaiting = Random.Range(3, 6);
 
     }
 
@@ -73,6 +88,14 @@ public class SF_MainCharacterSmithy : MonoBehaviour
 
             }
 
+        } else {
+            if(target == Targets.table && npcScript.IsStaying()) {
+                rangeWaiting -= Time.deltaTime;
+                if (rangeWaiting < 0 && npcScript.IsStaying())
+                {
+                    npcScript.DoorToTable();
+                }
+            }
         }
 
     }
@@ -124,13 +147,13 @@ public class SF_MainCharacterSmithy : MonoBehaviour
     public void DoorToTable()
     {
         SetTarget(pathDoorTable[0], pathDoorTable[1], pathDoorTable[2]);
-
+        target = Targets.table;
     }
 
     public void TableToDoor()
     {
         SetTarget(pathDoorTable[2], pathDoorTable[1], pathDoorTable[0]);
-
+        target = Targets.door;
     }
 
     bool MoveTowards(Vector3 target)
