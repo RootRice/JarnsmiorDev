@@ -28,9 +28,4 @@ public class SF_MessageItemScript : MonoBehaviour {
 		GetComponent<TextMesh>().text = "tgsbshs";
 	}
 
-	public void ChoiceSelected()
-	{
-		
-	}
-
 }

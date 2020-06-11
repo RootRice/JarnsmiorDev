@@ -46,6 +46,14 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void OptionSelected(int msgID)
+	{
+		TextChoice mTextChoice = getItemByID(msgID);
+		SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
+		SLItemID = mTextChoice.child[0];
+		StoryLive = true;
+	}
+
 	public void ContinueStory()
 	{
 		if(StoryLive) {
@@ -68,6 +76,7 @@ public class GameManager : MonoBehaviour {
 
 		if(isChoice) {
 			mMessage.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
+			mClick.SetID(msgID);
 		}
 
 		messageList.Add(mMessage);
