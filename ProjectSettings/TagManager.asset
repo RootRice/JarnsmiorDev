@@ -9,6 +9,9 @@ TagManager:
   - MCFurnace
   - Book
   - MCBook
+  - SF_Table
+  - SF_NPCharacter
+  - SF_GameManager
   layers:
   - Default
   - TransparentFX
