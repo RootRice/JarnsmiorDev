@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\MainCharacterSmithy.cs" />
      <Compile Include="Assets\Scripts\MCAnvilSmithy.cs" />
      <Compile Include="Assets\Scripts\MCFrunaceSmithy.cs" />
+     <Compile Include="Assets\Scripts\ShopFront\GameManager.cs" />
      <Compile Include="Assets\Scripts\ShopFront\SF_CameraScript.cs" />
      <Compile Include="Assets\Scripts\ShopFront\SF_MainCharacterSmithy.cs" />
      <Compile Include="Assets\Scripts\ShopFront\SF_NPC.cs" />

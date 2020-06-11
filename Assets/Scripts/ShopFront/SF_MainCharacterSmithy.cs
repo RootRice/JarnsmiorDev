@@ -39,6 +39,8 @@ public class SF_MainCharacterSmithy : MonoBehaviour
 
     private bool npcComing = false;
 
+    private GameManager mGameManager;
+
     // Use this for initialization
     void Start()
     {
@@ -48,6 +50,7 @@ public class SF_MainCharacterSmithy : MonoBehaviour
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
         npcScript = (SF_NPC)GameObject.FindGameObjectWithTag("SF_NPCharacter").GetComponent(typeof(SF_NPC));
+        mGameManager = (GameManager)GameObject.FindGameObjectWithTag("SF_GameManager").GetComponent(typeof(GameManager));
         rangeWaiting = Random.Range(3, 6);
 
     }

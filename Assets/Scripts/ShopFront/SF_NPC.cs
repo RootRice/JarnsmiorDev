@@ -15,6 +15,8 @@ public class SF_NPC : MonoBehaviour
 
     bool canControl = false;
 
+    private bool npcInteractionStarted = false;
+
     GameObject table;
 
     CameraScript cameraScript;
@@ -33,6 +35,8 @@ public class SF_NPC : MonoBehaviour
 
     private Targets npcTarget = Targets.idle;
 
+    private GameManager mGameManager;
+
     public bool IsStaying()
     {
         return npcTarget == Targets.idle;
@@ -45,7 +49,7 @@ public class SF_NPC : MonoBehaviour
         table = GameObject.FindGameObjectWithTag("SF_Table");
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
-        // DoorToTable();
+        mGameManager = (GameManager)GameObject.FindGameObjectWithTag("SF_GameManager").GetComponent(typeof(GameManager));
     }
 
     // Update is called once per frame
@@ -87,6 +91,10 @@ public class SF_NPC : MonoBehaviour
         } else {
             if(npcTarget == Targets.table) {
                 transform.localScale = new Vector3(1f, 1, 1);
+                if(!npcInteractionStarted) {
+                    npcInteractionStarted = true;
+                    mGameManager.ContinueStory();
+                }
             } else if(npcTarget == Targets.npcDoor) {
                 transform.localScale = new Vector3(-1f, 1, 1);
             }
