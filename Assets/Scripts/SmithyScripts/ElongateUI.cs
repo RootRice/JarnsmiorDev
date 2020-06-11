@@ -22,6 +22,10 @@ public class ElongateUI : MonoBehaviour {
     float totalVal;
     float totalScore;
 
+    public GameObject worldParticles;
+    public GameObject UIParticles;
+    bool particlesSpawned= false;
+
     // Use this for initialization
     void Start ()
     {
@@ -106,11 +110,22 @@ public class ElongateUI : MonoBehaviour {
             {
                 transform.position = Vector3.MoveTowards(transform.position, bottomPosition, speed * Time.deltaTime);
             }
+            else if(!particlesSpawned)
+            {
+
+                particlesSpawned = true;
+                Instantiate(worldParticles, new Vector3(9.93f, 4.49f, 0f), worldParticles.transform.rotation);
+                Instantiate(UIParticles, new Vector3(7.68f, 4.31f, 0f), worldParticles.transform.rotation);
+                //Instantiate(particles, new Vector3(7.68f, 4.31f, 0f), transform.rotation);
+                //particles.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
+
+            }
 
             if (animationTimer >= 0.63)
             {
                 slam = false;
                 animationTimer = 0;
+                particlesSpawned = false;
             }
 
         }

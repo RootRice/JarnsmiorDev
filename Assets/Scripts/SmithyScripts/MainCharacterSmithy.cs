@@ -22,12 +22,15 @@ public class MainCharacterSmithy : MonoBehaviour
 
     CameraScript cameraScript;
 
+    Renderer myRenderer;
+
     // Use this for initialization
     void Start()
     {
         isMoving = true;
         myAnimator = GetComponent<Animator>();
-        SetTarget(new Vector3(11.48f, 10.02f, 0f), new Vector3(16.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
+        myRenderer = GetComponent<Renderer>();
+        SetTarget(new Vector3(12.48f, 10.02f, 0f), new Vector3(17.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
@@ -68,9 +71,25 @@ public class MainCharacterSmithy : MonoBehaviour
                     targets[0] = gameObject.transform.position;
                     CheckTask();
                 }
-                else if (targets[numberOfTargets] == new Vector3(11.48f, 10.02f, 0f) && targets[1] == new Vector3(2.65f, 10.04f, 0f))// checks if the player is headed for the door
+                else if (targets[numberOfTargets] == new Vector3(12.98f, 10.02f, 0f) && targets[1] == new Vector3(2.65f, 10.04f, 0f))// checks if the player is headed for the door
                 {
                     cameraScript.SetTarget(new Vector3(4.13f, 11.09f, -10f), 2f);
+                }
+
+                if(transform.position == new Vector3(19.68f, 5.04f, 0f))
+                {
+                    if (numberOfTargets == 0)
+                    {
+
+                        myRenderer.sortingOrder = 5;
+
+                    }
+                    else
+                    {
+                        myRenderer.sortingOrder = 0;
+
+                    }
+
                 }
 
             }

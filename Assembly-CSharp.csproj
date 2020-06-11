@@ -79,6 +79,25 @@
      <Compile Include="Assets\Scripts\TurnLeftBook.cs" />
      <Compile Include="Assets\Scripts\TurnRightBook.cs" />
      <Compile Include="Assets\Scripts\WallHanger.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\AnvilSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\Book.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\BookCaseSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\ElongateBar.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\ElongateUI.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\FurnaceSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\GrindstoneSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\HeatTrackerSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\MainCharacterSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\MCAnvilSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\MCBookSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\MCFrunaceSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\ParticleDestroy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\SmithyDoor.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\TroughSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\TurnLeftBook.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\TurnRightBook.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\WallHanger.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/teo/Documents/Github/JarnsmiorDev/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
