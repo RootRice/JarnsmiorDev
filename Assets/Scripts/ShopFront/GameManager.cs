@@ -29,15 +29,15 @@ public class GameManager : MonoBehaviour {
 			if(SLItemID != mTextChoice.child[0]) {
 				SLItemID = mTextChoice.child[0];
 				if(!mTextChoice.choicePick) {
-					SendStoryMessage(mTextChoice.text, false);
+					SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
 				}
 				if(mTextChoice.child.Capacity == 3) {
                     TextChoice mTextChoice1 = getItemByID(mTextChoice.child[0]);
                     TextChoice mTextChoice2 = getItemByID(mTextChoice.child[1]);
                     TextChoice mTextChoice3 = getItemByID(mTextChoice.child[2]);
-					SendStoryMessage(mTextChoice1.text, true);
-					SendStoryMessage(mTextChoice2.text, true);
-					SendStoryMessage(mTextChoice3.text, true);
+					SendStoryMessage(mTextChoice1.text, true, mTextChoice1.id);
+					SendStoryMessage(mTextChoice2.text, true, mTextChoice2.id);
+					SendStoryMessage(mTextChoice3.text, true, mTextChoice3.id);
 					StoryLive = false;
 				}
 			} else {
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
 		StoryLive = true;
 	}
 
-	public void SendStoryMessage(string text, bool isChoice)
+	public void SendStoryMessage(string text, bool isChoice, int msgID)
 	{
 		Message mMessage = new Message();
 		mMessage.text = text;
@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour {
 		GameObject newText = Instantiate(textObject, storyPanel.transform);
 		mMessage.textObject = newText.GetComponent<Text>();
 		mMessage.textObject.text = mMessage.text;
+		mMessage.textObject.name = "StoryLine_MSG_" + msgID;
+        SF_Click mClick = (SF_Click)mMessage.textObject.GetComponent(typeof(SF_Click));
+		mClick.setChoice(isChoice);
 
 		if(isChoice) {
 			mMessage.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);

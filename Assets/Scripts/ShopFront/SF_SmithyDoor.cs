@@ -25,7 +25,6 @@ public class SF_SmithyDoor : MonoBehaviour {
 
     void OnMouseDown()
     {
-
         if (mainCharacterScript != null && mainCharacterScript.GetControl())
         {
             mainCharacterScript.TableToDoor();
