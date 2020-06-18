@@ -17,7 +17,7 @@ public class SF_MainCharacterSmithy : MonoBehaviour
 
     GameObject table;
 
-    CameraScript cameraScript;
+    SF_CameraScript cameraScript;
 
     private float rangeWaiting;
 
@@ -45,14 +45,13 @@ public class SF_MainCharacterSmithy : MonoBehaviour
     void Start()
     {
         myAnimator = GetComponent<Animator>();
-        DoorToTable();
-        table = GameObject.FindGameObjectWithTag("SF_Table");
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
-        cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
+        cameraScript = (SF_CameraScript)cameraObj.GetComponent(typeof(SF_CameraScript)); 
+        table = GameObject.FindGameObjectWithTag("SF_Table");  
         npcScript = (SF_NPC)GameObject.FindGameObjectWithTag("SF_NPCharacter").GetComponent(typeof(SF_NPC));
         mGameManager = (GameManager)GameObject.FindGameObjectWithTag("SF_GameManager").GetComponent(typeof(GameManager));
         rangeWaiting = Random.Range(3, 6);
-
+        DoorToTable();
     }
 
     // Update is called once per frame
@@ -158,6 +157,7 @@ public class SF_MainCharacterSmithy : MonoBehaviour
     {
         SetTarget(pathDoorTable[2], pathDoorTable[1], pathDoorTable[0]);
         target = Targets.door;
+        cameraScript.SetTarget(new Vector3(15.6f, 5.8f, -10f), 0.7f);
     }
 
     bool MoveTowards(Vector3 target)
