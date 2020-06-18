@@ -56,7 +56,10 @@ public class Book : MonoBehaviour {
         else if(!switchPage && currentPage == 0)
         {
 
-            Debug.Log("exit book");
+            mainCharacter.SetActive(true);
+            mainCharacterScript.SetControl(true);
+            cameraScript.SetPosition(new Vector3(2.56f, 5.49f, -10f), 0.68f);
+            cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
 
         }
 
