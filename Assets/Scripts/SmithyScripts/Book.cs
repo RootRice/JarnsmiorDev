@@ -41,7 +41,7 @@ public class Book : MonoBehaviour {
     public void ModifyPage(bool switchPage)
     {
 
-        if (switchPage && currentPage < 3)
+        if (switchPage && currentPage < pages.Length - 1)
         {
 
             currentPage += 1;
@@ -51,6 +51,12 @@ public class Book : MonoBehaviour {
         {
 
             currentPage -= 1;
+
+        }
+        else if(!switchPage && currentPage == 0)
+        {
+
+            Debug.Log("exit book");
 
         }
 
@@ -63,6 +69,5 @@ public class Book : MonoBehaviour {
         mainCharacterScript.SetControl(true);
         cameraScript.SetPosition(new Vector3(2.56f, 5.49f, -10f), 0.68f);
         cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
-
     }
 }
