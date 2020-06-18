@@ -24,7 +24,7 @@ public class CameraScript : MonoBehaviour {
         gameCamera = gameObject.GetComponent<Camera>();
         gameCamera.transform.position = new Vector3(3.02f, 11.05f, -10f);
         gameCamera.orthographicSize = 1.354f;
-        SetTarget(new Vector3(11.45f, 7.31f, -10f), 6);
+        SetTarget(new Vector3(11.45f, 7.31f, -10f), 6.31f);
     }
 	
 	// Update is called once per frame

@@ -48,7 +48,7 @@ public class WallHanger : MonoBehaviour {
         
         
         
-        cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6);
+        cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
          
     }
 }

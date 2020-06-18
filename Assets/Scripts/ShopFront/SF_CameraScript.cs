@@ -18,31 +18,32 @@ public class SF_CameraScript : MonoBehaviour {
 
     private Camera gameCamera;
 
+    GameObject scrollView;
 
     void Start ()
     {
         gameCamera = gameObject.GetComponent<Camera>();
-        //gameCamera.transform.position = new Vector3(15.96f, 5.17f, -10f);
-        //gameCamera.orthographicSize = 2f;
-        //SetTarget(new Vector3(13.27f, 4f, -10f), new Vector3(11.4f, 7.2f, -10f), 6);
+        gameCamera.transform.position = new Vector3(15.15f, 5.17f, -10f);
+        gameCamera.orthographicSize = 1.27f;
+        SetTarget( new Vector3(11.42f, 7.2f, -10f), 6.31f);
 
-        gameCamera.transform.position = new Vector3(11.4f, 7.2f, -10f);
-        gameCamera.orthographicSize = 7f;
+        
+        //gameCamera.transform.position = new Vector3(11.4f, 7.2f, -10f);
+        //gameCamera.orthographicSize = 7f;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        /*
-		if(toMove)
+        if (toMove)
         {
 
             transform.position = Vector3.MoveTowards(transform.position, targets[numberOfTargets], 3f * Time.deltaTime);
-            if(transform.position == targets[numberOfTargets])
+            if (transform.position == targets[numberOfTargets])
             {
 
                 numberOfTargets -= 1;
-                if(numberOfTargets == 0)
+                if (numberOfTargets == 0)
                 {
 
                     toMove = false;
@@ -52,34 +53,39 @@ public class SF_CameraScript : MonoBehaviour {
             }
 
         }
-        if (Mathf.Abs(toZoom - gameCamera.orthographicSize) > 0.02f)
+        if (Mathf.Abs(toZoom - gameCamera.orthographicSize) > 0.06f)
         {
-
-            if(!zoomDir)
+            if (!zoomDir)
             {
 
-                gameCamera.orthographicSize += 0.02f;
+                gameCamera.orthographicSize += 0.06f;
 
             }
             else
             {
-                gameCamera.orthographicSize -= 0.02f;   
+                gameCamera.orthographicSize -= 0.06f;
             }
         }
         else
         {
             gameCamera.orthographicSize = toZoom;
-        }*/
-	}
+            if (numberOfTargets == 0)
+            {
+                scrollView.SetActive(true);
+            }
+        }
+    }
 
     public void SetTarget(Vector3 target, float zoom)
     {
+        scrollView = GameObject.FindGameObjectWithTag("ScrollView");
+        scrollView.SetActive(false);
         targets[1] = target;
         toMove = true;
         toZoom = zoom;
         if (toZoom > gameCamera.orthographicSize)
         {
-
+            
             zoomDir = false;
 
         }
@@ -93,7 +99,8 @@ public class SF_CameraScript : MonoBehaviour {
     }
     public void SetTarget(Vector3 target1, Vector3 target2, float zoom)
     {
-
+        scrollView = GameObject.FindGameObjectWithTag("ScrollView");
+        scrollView.SetActive(false);
         targets[1] = target2;
         targets[2] = target1;
         toMove = true;

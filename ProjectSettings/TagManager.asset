@@ -12,6 +12,7 @@ TagManager:
   - SF_Table
   - SF_NPCharacter
   - SF_GameManager
+  - ScrollView
   layers:
   - Default
   - TransparentFX

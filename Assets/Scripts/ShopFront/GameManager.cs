@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
         string path = "Assets/JSON/story.json";
         string contents = File.ReadAllText(path);
         textValues = JsonUtility.FromJson<TextChoices>(contents);
+        
 	}
 	
 	void Update () {
