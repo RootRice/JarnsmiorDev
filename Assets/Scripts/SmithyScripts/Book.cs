@@ -36,8 +36,23 @@ public class Book : MonoBehaviour {
     {
 
         myRenderer.sprite = pages[goToPage];
+        currentPage = goToPage;
 
     }
+
+    public void GoToChapter(int chapter)
+    {
+        if (currentPage == 0)
+        {
+            myRenderer.sprite = pages[chapter];
+            currentPage = chapter;
+        } else if(chapter == 0 && currentPage != 0)
+        {
+            myRenderer.sprite = pages[chapter];
+            currentPage = chapter;
+        }
+    }
+
     public void ModifyPage(bool switchPage)
     {
 

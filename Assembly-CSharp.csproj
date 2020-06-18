@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\SmithyScripts\MCAnvilSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MCBookSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MCFrunaceSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\NavigateToChapter.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\ParticleDestroy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\SmithyDoor.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\TroughSmithy.cs" />
