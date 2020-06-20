@@ -24,6 +24,8 @@ public class MainCharacterSmithy : MonoBehaviour
 
     Renderer myRenderer;
 
+    int stage;
+
     // Use this for initialization
     void Start()
     {

@@ -29,7 +29,7 @@ public class BookCaseSmithy : MonoBehaviour {
         if (mainCharacterScript != null && mainCharacterScript.GetControl())
         {
             mainCharacterScript.SetTarget(new Vector3(3.34f, 5.04f, 0));
-            cameraScript.SetTarget(new Vector3(2.56f, 4.74f, -10f), 0.68f);
+            cameraScript.SetTarget(new Vector3(2.45f, 5.78f, -10f), 1f);
         }
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - SF_NPCharacter
   - SF_GameManager
   - ScrollView
+  - beam
   layers:
   - Default
   - TransparentFX
