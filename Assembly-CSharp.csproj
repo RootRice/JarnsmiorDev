@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\ShopFront\SF_SmithyDoor.cs" />
      <Compile Include="Assets\Scripts\ShopFront\SF_SmithyTable.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\AnvilSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\BevelUI.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\Book.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\BookCaseSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\CameraScript.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Scripts\SmithyScripts\HeatTrackerSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MainCharacterSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MCAnvilSmithy.cs" />
+     <Compile Include="Assets\Scripts\SmithyScripts\MCBevelSmith.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MCBookSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\MCFrunaceSmithy.cs" />
      <Compile Include="Assets\Scripts\SmithyScripts\NavigateToChapter.cs" />

@@ -14,6 +14,7 @@ TagManager:
   - SF_GameManager
   - ScrollView
   - beam
+  - MCBevel
   layers:
   - Default
   - TransparentFX
