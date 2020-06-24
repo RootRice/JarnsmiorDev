@@ -33,7 +33,7 @@ public class GrindstoneSmithy : MonoBehaviour {
         {
 
             //mainCharacterScript.SetTarget;
-            mainCharacterScript.SetTarget(new Vector3(14.5f, 5.04f, 0));
+            mainCharacterScript.SetTarget(new Vector3(14.6f, 5.04f, 0));
             cameraScript.SetTarget(new Vector3(13.5f, 5.5f, -10f), 3.0f);
 
         }

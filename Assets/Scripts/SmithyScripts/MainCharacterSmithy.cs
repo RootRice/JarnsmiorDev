@@ -100,7 +100,7 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else
         {
-            if(grindstoneSmith.active)
+            if(grindstoneSmith.activeSelf)
             {
                 transform.localScale = new Vector3(-1f, 1, 1);
             }
@@ -152,7 +152,7 @@ public class MainCharacterSmithy : MonoBehaviour
             gameObject.SetActive(false);
 
         }
-        else if(transform.position.x == 14.5f)
+        else if(transform.position.x == 14.6f)
         {
 
             canControl = false;
