@@ -19,6 +19,7 @@ public class MainCharacterSmithy : MonoBehaviour
     GameObject furnaceSmith;
     GameObject bookSmith;
     GameObject elongateUI;
+    GameObject SharpeningAction;
 
     CameraScript cameraScript;
 
@@ -34,9 +35,11 @@ public class MainCharacterSmithy : MonoBehaviour
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
+        SharpeningAction = GameObject.FindGameObjectWithTag("SharpeningAction");
         bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
+        SharpeningAction.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 
