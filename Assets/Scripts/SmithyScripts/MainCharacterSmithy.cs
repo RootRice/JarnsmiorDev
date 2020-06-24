@@ -14,11 +14,13 @@ public class MainCharacterSmithy : MonoBehaviour
     Animator myAnimator;
 
     bool canControl = false;
+    bool elongateOrBevel = true;
 
     GameObject anvilSmith;
     GameObject furnaceSmith;
     GameObject bookSmith;
     GameObject elongateUI;
+    GameObject bevelUI;
 
     CameraScript cameraScript;
 
@@ -34,8 +36,10 @@ public class MainCharacterSmithy : MonoBehaviour
         myRenderer = GetComponent<Renderer>();
         SetTarget(new Vector3(12.48f, 10.02f, 0f), new Vector3(17.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
+        bevelUI = GameObject.FindGameObjectWithTag("MCBevel");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
+        bevelUI.SetActive(false);
         bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
@@ -124,10 +128,19 @@ public class MainCharacterSmithy : MonoBehaviour
 
         if (transform.position.x == 9.26f)
         {
+            if (!elongateOrBevel)
+            {
+                canControl = false;
+                anvilSmith.SetActive(true);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                canControl = false;
+                bevelUI.SetActive(true);
+                gameObject.SetActive(false);
 
-            canControl = false;
-            anvilSmith.SetActive(true);
-            gameObject.SetActive(false);
+            }
 
         }
         else if(transform.position.x == 7f)
