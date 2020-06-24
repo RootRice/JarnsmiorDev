@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SharpeningAlghoritm : MonoBehaviour {
 
+
+	int rangeImproverD = 15;
+	float speed = 1.0f; //how fast it shakes
+	float amount = 1.0f; //how much it shakes
+    float consistency = 0f;
+
 	// Use this for initialization
 	void Start () {	
 	}
@@ -15,16 +21,19 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		{
 			if (transform.rotation.z < 0.2f)
 			{
-				transform.Rotate (new Vector3 (0, 0, 10) * Time.deltaTime);
+				transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
 			}
 		}
 		else
 		{
 			if (transform.rotation.z > -0.2f)
 			{
-				transform.Rotate (new Vector3 (0, 0, -10) * Time.deltaTime);
+				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
 			}
 		}
+
+		print(consistency);
+		transform.Rotate (new Vector3 (0, 0, Random.Range(-0.1f, 0.1f) * rangeImproverD));
 
 	}
 
@@ -33,6 +42,14 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		return transform.position.x > mousePosition.x;
+
+	}
+
+	float rangePointer()
+	{
+
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		return rangeImproverD * Mathf.Abs(transform.position.x - mousePosition.x);
 
 	}
 
