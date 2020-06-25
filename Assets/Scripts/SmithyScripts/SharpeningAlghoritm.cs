@@ -95,6 +95,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	{
 		startTime = Time.time;
 		transform.Rotate (new Vector3 (0, 0, 0));
+		mSwordMovement.SetSize(2.0f);
 	}
 
 	public void Stop()

@@ -20,6 +20,8 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void Restart()
 	{
+        swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
+        mSharpeningAlghoritm = (SharpeningAlghoritm)swordHolder.GetComponent(typeof(SharpeningAlghoritm));
 		mSharpeningAlghoritm.Restart();
 	}
 
