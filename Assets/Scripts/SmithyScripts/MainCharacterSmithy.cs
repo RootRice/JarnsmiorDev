@@ -21,6 +21,8 @@ public class MainCharacterSmithy : MonoBehaviour
     GameObject elongateUI;
     GameObject grindstoneSmith;
 
+    private SharpeningAction mSharpeningAction;
+
     CameraScript cameraScript;
 
     Renderer myRenderer;
@@ -36,6 +38,7 @@ public class MainCharacterSmithy : MonoBehaviour
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
         grindstoneSmith = GameObject.FindGameObjectWithTag("SharpeningAction");
+        mSharpeningAction = (SharpeningAction)grindstoneSmith.GetComponent(typeof(SharpeningAction));
         bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
@@ -157,6 +160,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
             canControl = false;
             grindstoneSmith.SetActive(true);
+            mSharpeningAction.Restart();
 
         }
 
@@ -268,4 +272,22 @@ public class MainCharacterSmithy : MonoBehaviour
 
         }
     }
+
+    public void StopAction()
+    {
+        if(anvilSmith.activeSelf)
+        {
+            anvilSmith.SetActive(false);
+        }
+        if(furnaceSmith.activeSelf)
+        {
+            furnaceSmith.SetActive(false);
+        }
+        if(grindstoneSmith.activeSelf)
+        {
+            grindstoneSmith.SetActive(false);
+            mSharpeningAction.Stop();
+        }
+    }
+
 }

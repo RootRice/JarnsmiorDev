@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 359558561}
   m_Layer: 0
   m_Name: SwordHolder
-  m_TagString: Untagged
+  m_TagString: SwordHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 695736607}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,7 +1277,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695736604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00031250637, y: 0.0026905069, z: 0}
+  m_LocalPosition: {x: -0.00031250637, y: 0.002690507, z: 0}
   m_LocalScale: {x: 0.7342142, y: 0.463392, z: 1}
   m_Children: []
   m_Father: {fileID: 359558559}
@@ -2718,6 +2718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783351865}
   - component: {fileID: 1783351866}
+  - component: {fileID: 1783351867}
   m_Layer: 0
   m_Name: SharpeningAction
   m_TagString: SharpeningAction
@@ -2786,6 +2787,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1783351867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1783351864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067ac743bdfe6a34699c9127daf366dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867347969
 GameObject:
   m_ObjectHideFlags: 0

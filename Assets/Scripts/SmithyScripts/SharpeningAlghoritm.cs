@@ -14,13 +14,25 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	private float period = 0.1f;
 	private float rotationGravity = 0.0f;
 
+	private float startTime;
+	private float elapsedTime;
+
+    GameObject Sword;
+    SwordMovement mSwordMovement;
+
 	// Use this for initialization
-	void Start () {	
+	void Start ()
+	{	
+        Sword = GameObject.FindGameObjectWithTag("Sword");
+        mSwordMovement = (SwordMovement)Sword.GetComponent(typeof(SwordMovement));
+		startTime = Time.time;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
+		elapsedTime = Time.time - startTime;
 		if (MouseToLeft())
 		{
 			if (transform.rotation.z < 0.2f)
@@ -38,12 +50,14 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		
 		RotateAction();
 
+		mSwordMovement.SetRotation(transform.rotation.z);
+
 	}
 
 	void RotateAction()
 	{
 		
-		if (Time.time > nextActionTime)
+		if (elapsedTime > nextActionTime)
 		{
 			nextActionTime += period;
 			if (transform.rotation.z > -0.2f && rotationGravity < 0)
@@ -77,6 +91,18 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		return rangeImproverD * Mathf.Abs(transform.position.x - mousePosition.x);
 
+	}
+
+	public void Restart()
+	{
+		startTime = Time.time;
+		transform.Rotate (new Vector3 (0, 0, 0));
+	}
+
+	public void Stop()
+	{
+		startTime = Time.time;
+		transform.Rotate (new Vector3 (0, 0, 0));
 	}
 
 }
