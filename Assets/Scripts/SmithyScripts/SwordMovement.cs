@@ -5,7 +5,8 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 	
@@ -13,4 +14,5 @@ public class SwordMovement : MonoBehaviour {
 	void Update () {
         transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
 	}
+
 }
