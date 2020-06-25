@@ -50,8 +50,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		
 		RotateAction();
 
-		mSwordMovement.SetRotation(transform.rotation.z);
-
 	}
 
 	void RotateAction()
