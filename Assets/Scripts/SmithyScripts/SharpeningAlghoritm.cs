@@ -5,10 +5,11 @@ using UnityEngine;
 public class SharpeningAlghoritm : MonoBehaviour {
 
 
-	int rangeImproverD = 15;
-	float speed = 1.0f; //how fast it shakes
-	float amount = 1.0f; //how much it shakes
-    float consistency = 0f;
+	private int rangeImproverD = 30;
+	private int rangeImproverR = 10;
+	private float speed = 1.0f; //how fast it shakes
+	private float amount = 1.0f; //how much it shakes
+    private float consistency = 0f;
 	private float nextActionTime = 0.0f;
 	private float period = 0.1f;
 	private float rotationGravity = 0.0f;
@@ -24,19 +25,18 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		{
 			if (transform.rotation.z < 0.2f)
 			{
-				// transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
+				transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
 			}
 		}
 		else
 		{
 			if (transform.rotation.z > -0.2f)
 			{
-				// transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
+				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
 			}
 		}
 		
 		RotateAction();
-		// transform.Rotate (new Vector3 (0, 0, Random.Range(-0.1f, 0.1f) * rangeImproverD));
 
 	}
 
@@ -46,10 +46,19 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		if (Time.time > nextActionTime)
 		{
 			nextActionTime += period;
+			if (transform.rotation.z > -0.2f && rotationGravity < 0)
+			{
+				transform.Rotate (new Vector3 (0, 0, rotationGravity));
+			}
+			else if (transform.rotation.z < 0.2f && rotationGravity >= 0)
+			{
+				transform.Rotate (new Vector3 (0, 0, rotationGravity));
+			}
 		}
 		else
 		{
 			nextActionTime = Random.Range(1.0f, 3.0f);
+			rotationGravity = Random.Range(-0.2f, 0.2f) * rangeImproverR;
 		}
 
 	}
