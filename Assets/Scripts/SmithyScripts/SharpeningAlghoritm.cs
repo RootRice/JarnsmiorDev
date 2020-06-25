@@ -9,6 +9,8 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	float speed = 1.0f; //how fast it shakes
 	float amount = 1.0f; //how much it shakes
     float consistency = 0f;
+	private float nextActionTime = 0.0f;
+	private float period = 0.1f;
 
 	// Use this for initialization
 	void Start () {	
@@ -31,9 +33,23 @@ public class SharpeningAlghoritm : MonoBehaviour {
 				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
 			}
 		}
-
-		print(consistency);
+		
+		RotateAction();
 		transform.Rotate (new Vector3 (0, 0, Random.Range(-0.1f, 0.1f) * rangeImproverD));
+
+	}
+
+	void RotateAction()
+	{
+		
+		if (Time.time > nextActionTime)
+		{
+			nextActionTime += period;
+		}
+		else
+		{
+			print("done");
+		}
 
 	}
 
