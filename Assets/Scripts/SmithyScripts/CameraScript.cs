@@ -58,6 +58,7 @@ public class CameraScript : MonoBehaviour {
 
             if(!zoomDir)
             {
+
                 float opacity = gameCamera.orthographicSize / 6.3f;   
                 beamRenderer.color = new Color(1f, 1f, 1f, opacity);              
                 gameCamera.orthographicSize += 0.02f;
@@ -74,12 +75,10 @@ public class CameraScript : MonoBehaviour {
         {
             gameCamera.orthographicSize = toZoom;
         }
-
 	}
 
     public void SetTarget(Vector3 target, float zoom)
     {
-
         targets[1] = target;
         toMove = true;
         toZoom = zoom;

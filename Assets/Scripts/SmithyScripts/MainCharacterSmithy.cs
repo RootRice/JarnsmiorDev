@@ -20,6 +20,9 @@ public class MainCharacterSmithy : MonoBehaviour
     GameObject furnaceSmith;
     GameObject bookSmith;
     GameObject elongateUI;
+    GameObject grindstoneSmith;
+
+    private SharpeningAction mSharpeningAction;
     GameObject bevelUI;
 
     CameraScript cameraScript;
@@ -36,13 +39,16 @@ public class MainCharacterSmithy : MonoBehaviour
         myRenderer = GetComponent<Renderer>();
         SetTarget(new Vector3(12.48f, 10.02f, 0f), new Vector3(17.18f, 5.04f, 0f), new Vector3(19.68f, 5.04f, 0f));
         anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
-        bevelUI = GameObject.FindGameObjectWithTag("MCBevel");
         furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
-        bevelUI.SetActive(false);
+        grindstoneSmith = GameObject.FindGameObjectWithTag("SharpeningAction");
+        bevelUI = GameObject.FindGameObjectWithTag("MCBevel");
+        mSharpeningAction = (SharpeningAction)grindstoneSmith.GetComponent(typeof(SharpeningAction));
         bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
+        grindstoneSmith.SetActive(false);
+        bevelUI.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 
@@ -101,6 +107,13 @@ public class MainCharacterSmithy : MonoBehaviour
             }
 
         }
+        else
+        {
+            if(grindstoneSmith.activeSelf)
+            {
+                transform.localScale = new Vector3(-1f, 1, 1);
+            }
+        }
 
     }
 
@@ -128,6 +141,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
         if (transform.position.x == 9.26f)
         {
+
             if (!elongateOrBevel)
             {
                 canControl = false;
@@ -155,6 +169,14 @@ public class MainCharacterSmithy : MonoBehaviour
             canControl = false;
             bookSmith.SetActive(true);
             gameObject.SetActive(false);
+
+        }
+        else if(transform.position.x == 15.5f)
+        {
+
+            canControl = false;
+            grindstoneSmith.SetActive(true);
+            mSharpeningAction.Restart();
 
         }
 
@@ -266,4 +288,22 @@ public class MainCharacterSmithy : MonoBehaviour
 
         }
     }
+
+    public void StopAction()
+    {
+        if(anvilSmith.activeSelf)
+        {
+            anvilSmith.SetActive(false);
+        }
+        if(furnaceSmith.activeSelf)
+        {
+            furnaceSmith.SetActive(false);
+        }
+        if(grindstoneSmith.activeSelf)
+        {
+            grindstoneSmith.SetActive(false);
+            mSharpeningAction.Stop();
+        }
+    }
+
 }

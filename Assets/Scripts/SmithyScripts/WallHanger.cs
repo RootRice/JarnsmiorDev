@@ -52,6 +52,7 @@ public class WallHanger : MonoBehaviour {
         {
             furnaceSmith.SetActive(false);
         }
+        mainCharacterScript.StopAction();
 
         
         

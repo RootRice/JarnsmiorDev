@@ -6,6 +6,7 @@ public class GrindstoneSmithy : MonoBehaviour {
 
     MainCharacterSmithy mainCharacterScript;
     CameraScript cameraScript;
+
     // Use this for initialization
     void Start()
     {
@@ -30,8 +31,8 @@ public class GrindstoneSmithy : MonoBehaviour {
         {
 
             //mainCharacterScript.SetTarget;
-            mainCharacterScript.SetTarget(new Vector3(12.24f, 5.04f, 0));
-            cameraScript.SetTarget(new Vector3(12.58f, 4.65f, -10f), 3.0f);
+            mainCharacterScript.SetTarget(new Vector3(15.5f, 5.04f, 0));
+            cameraScript.SetTarget(new Vector3(13.5f, 5.5f, -10f), 3.0f);
 
         }
     }

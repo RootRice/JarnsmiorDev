@@ -15,6 +15,9 @@ TagManager:
   - ScrollView
   - beam
   - MCBevel
+  - SharpeningAction
+  - SwordHolder
+  - Sword
   layers:
   - Default
   - TransparentFX
