@@ -16,6 +16,8 @@ TagManager:
   - SharpeningAction
   - SwordHolder
   - Sword
+  - beam
+  - MCBevel
   layers:
   - Default
   - TransparentFX

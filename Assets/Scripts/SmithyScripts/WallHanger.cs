@@ -33,12 +33,20 @@ public class WallHanger : MonoBehaviour {
     {
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         GameObject furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
+        GameObject bevelSmith = GameObject.FindGameObjectWithTag("MCBevel");
         mainCharacter.SetActive(true);
         mainCharacterScript.SetControl(true);
         if (mainCharacterScript.GetTask() == 9.26f)
         {
+            if (bevelSmith != null)
+            {
+                bevelSmith.SetActive(false);
 
-            anvilSmith.SetActive(false);
+            }
+            else
+            {
+                anvilSmith.SetActive(false);
+            }
         }
         else if (mainCharacterScript.GetTask() == 7f)
         {

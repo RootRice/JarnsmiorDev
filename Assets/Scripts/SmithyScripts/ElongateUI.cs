@@ -24,13 +24,29 @@ public class ElongateUI : MonoBehaviour {
 
     public GameObject worldParticles;
     public GameObject UIParticles;
+    public Sprite hammerUp;
+    public Sprite hammerDown;
     bool particlesSpawned= false;
+
+    SpriteRenderer hammerRenderer;
 
     // Use this for initialization
     void Start ()
     {
-        topPosition = new Vector3(7.68f, 5.28f);
-        bottomPosition = new Vector3(7.68f, 3.38f);
+        topPosition = new Vector3(7.49f, 5.204f);
+        bottomPosition = new Vector3(7.49f, 3.41f);
+
+        SpriteRenderer[] uiSprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer uiSprite in uiSprites)
+        {
+            if (uiSprite.gameObject.transform.parent != null)
+            {
+                hammerRenderer = uiSprite; //this gameObject is a child, because its transform.parent is not null
+            }
+        }
+        
+
+
 	}
 	
 	// Update is called once per frame
@@ -108,6 +124,7 @@ public class ElongateUI : MonoBehaviour {
             
             if (gameObject.transform.position.y > bottomPosition.y)
             {
+                hammerRenderer.sprite = hammerDown;
                 transform.position = Vector3.MoveTowards(transform.position, bottomPosition, speed * Time.deltaTime);
             }
             else if(!particlesSpawned)
@@ -123,6 +140,7 @@ public class ElongateUI : MonoBehaviour {
 
             if (animationTimer >= 0.63)
             {
+                hammerRenderer.sprite = hammerUp;
                 slam = false;
                 animationTimer = 0;
                 particlesSpawned = false;

@@ -18,9 +18,14 @@ public class CameraScript : MonoBehaviour {
 
     private Camera gameCamera;
 
+    GameObject beams;
+    SpriteRenderer beamRenderer;
 
     void Start ()
     {
+
+        beams = GameObject.FindGameObjectWithTag("beam");
+        beamRenderer = beams.GetComponent<SpriteRenderer>();
         gameCamera = gameObject.GetComponent<Camera>();
         gameCamera.transform.position = new Vector3(3.02f, 11.05f, -10f);
         gameCamera.orthographicSize = 1.354f;
@@ -53,12 +58,15 @@ public class CameraScript : MonoBehaviour {
 
             if(!zoomDir)
             {
-
+                float opacity = gameCamera.orthographicSize / 6.3f;   
+                beamRenderer.color = new Color(1f, 1f, 1f, opacity);              
                 gameCamera.orthographicSize += 0.02f;
 
             }
             else
             {
+                float opacity = gameCamera.orthographicSize / 6.3f;
+                beamRenderer.color = new Color(1f, 1f, 1f, opacity);
                 gameCamera.orthographicSize -= 0.02f;   
             }
         }
@@ -66,10 +74,12 @@ public class CameraScript : MonoBehaviour {
         {
             gameCamera.orthographicSize = toZoom;
         }
+
 	}
 
     public void SetTarget(Vector3 target, float zoom)
     {
+
         targets[1] = target;
         toMove = true;
         toZoom = zoom;
