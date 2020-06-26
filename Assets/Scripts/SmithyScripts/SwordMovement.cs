@@ -16,13 +16,20 @@ public class SwordMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2)
+		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2  && !ActionDone)
 		{
 			ActionDone = true;
 		}
 		else
 		{
-			transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
+			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && !ActionDone)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
+			}
+			else if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && ActionDone)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y-0.02f, transform.position.z);
+			}
 		}
 	}
 
@@ -45,6 +52,11 @@ public class SwordMovement : MonoBehaviour {
 	public bool IsActionDone()
 	{
 		return ActionDone;
+	}
+
+	public bool IsItemInPos()
+	{
+		return transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2;
 	}
 
 }

@@ -177,7 +177,7 @@ public class MainCharacterSmithy : MonoBehaviour
             canControl = false;
             grindstoneSmith.SetActive(true);
             mSharpeningAction
-                .SetItemLength(0.6f)
+                .SetItemLength(Random.Range(0.3f, 1.0f))
                 .StartSharpeningAction();
 
         }

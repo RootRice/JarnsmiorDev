@@ -20,12 +20,19 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
     GameObject Sword;
     SwordMovement mSwordMovement;
+    GameObject mainCharacter;
+    MainCharacterSmithy mainCharacterScript;
+    CameraScript cameraScript;
 
 	// Use this for initialization
 	void Start ()
 	{	
         Sword = GameObject.FindGameObjectWithTag("Sword");
         mSwordMovement = (SwordMovement)Sword.GetComponent(typeof(SwordMovement));
+		mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
+        mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
+        GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 		startTime = Time.time;
 	}
 	
@@ -55,11 +62,17 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		}
 		else
 		{
-		print(transform.rotation.z);
 			if(Mathf.Abs(transform.rotation.z) > 0.001)
 			{
-				transform.Rotate(new Vector3(0.0f, 0.0f, -transform.rotation.z));
+				transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
 				mSwordMovement.ResetAxisX();
+			}
+			if(mSwordMovement.IsItemInPos())
+			{
+				mainCharacter.SetActive(true);
+				mainCharacterScript.SetControl(true);
+				mainCharacterScript.StopAction();
+				cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
 			}
 		}
 
