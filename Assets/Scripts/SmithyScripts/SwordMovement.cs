@@ -19,7 +19,7 @@ public class SwordMovement : MonoBehaviour {
 	void Update () {
 		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2)
 		{
-			
+			print("SharpeningAction\nJob Status: Done");
 		}
 		else
 		{
