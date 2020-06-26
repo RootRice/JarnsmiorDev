@@ -162,7 +162,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		
 		if (elapsedTime < nextActionTime)
 		{
-			nextActionTime += period;
 			if (transform.rotation.z > -degress && rotationGravity < 0)
 			{
 				transform.Rotate (new Vector3 (0, 0, rotationGravity));
