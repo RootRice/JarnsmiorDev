@@ -10,15 +10,15 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	private float speed = 0.5f; //how fast it shakes
 	private float amount = 1.0f; //how much it shakes
     private float consistency = 0f;
-	public float nextActionTime = 0.0f;
+	private float nextActionTime = 0.0f;
 	private float period = 0.1f;
-    public float rotationGravityLerp = 0.0f;
-	public float rotationGravity = 0.0f;
+    private float rotationGravityLerp = 0.0f;
+	private float rotationGravity = 0.0f;
 
     private float adjustTimer = 0f;
 
 	private float startTime;
-	public float elapsedTime = 0f;
+	private float elapsedTime = 0f;
 
     GameObject Sword;
     SwordMovement mSwordMovement;
