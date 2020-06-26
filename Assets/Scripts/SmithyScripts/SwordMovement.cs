@@ -5,9 +5,10 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour {
 
 	private float PivotAxisY = 4.28f;
+    bool mouseDown = false;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		transform.localScale = new Vector3(0.7f, 0.6f, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
@@ -15,14 +16,17 @@ public class SwordMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2)
-		{
-			
-		}
-		else
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
-		}
+        if (mouseDown)
+        {
+            if (transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y / 2)
+            {
+
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.002f, transform.position.z);
+            }
+        }
 	}
 
 	public void SetSize(float length)
@@ -31,5 +35,25 @@ public class SwordMovement : MonoBehaviour {
 		transform.localScale = new Vector3(0.7f, length/4, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
 	}
+
+    public bool GetMouseDown()
+    {
+
+        return mouseDown;
+
+    }
+
+    void OnMouseDown()
+    {
+
+        mouseDown = true;
+
+    }
+    void OnMouseUp()
+    {
+
+        mouseDown = false;
+
+    }
 
 }
