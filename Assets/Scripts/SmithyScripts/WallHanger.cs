@@ -8,7 +8,9 @@ public class WallHanger : MonoBehaviour {
    
     CameraScript cameraScript;
     MainCharacterSmithy mainCharacterScript;
+    MCFurnace myHeat;
 
+    GameObject heatUI;
 
     // Use this for initialization
     void Start ()
@@ -17,6 +19,8 @@ public class WallHanger : MonoBehaviour {
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
 
         
+
+
 
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
@@ -50,6 +54,10 @@ public class WallHanger : MonoBehaviour {
         }
         else if (mainCharacterScript.GetTask() == 7f)
         {
+            heatUI = GameObject.FindGameObjectWithTag("HeatUI");
+            myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
+            
+            myHeat.setHeat(-0.01f);
             furnaceSmith.SetActive(false);
         }
         mainCharacterScript.StopAction();
