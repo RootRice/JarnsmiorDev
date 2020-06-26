@@ -16,12 +16,13 @@ public class SwordMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2  && !ActionDone)
 		{
 			ActionDone = true;
 		}
-		else
+		else if(GetMouseDown())
 		{
 			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && !ActionDone)
 			{

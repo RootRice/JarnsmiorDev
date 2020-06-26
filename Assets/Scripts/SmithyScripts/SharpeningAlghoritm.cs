@@ -87,70 +87,74 @@ public class SharpeningAlghoritm : MonoBehaviour {
         if (mSwordMovement.GetMouseDown())
         {
             elapsedTime += Time.deltaTime;
-            if (MouseToLeft())
+                print("here");
+            if(!mSwordMovement.IsActionDone())
             {
-				if (transform.rotation.z < degress)
-				{
-					transform.Rotate(new Vector3(0, 0, rangePointer()) * Time.deltaTime);
-				}
-            }
-            else
-            {
-				if (transform.rotation.z > -degress)
-				{
-					transform.Rotate(new Vector3(0, 0, (-1) * rangePointer()) * Time.deltaTime);
-				}
-            }
-            if (rotationGravity < rotationGravityLerp)
-            {
-
-                if (adjustTimer > 0.03f)
+                if (MouseToLeft())
                 {
-                    adjustTimer = 0;
-                    rotationGravity += 0.01f;
+                    if (transform.rotation.z < degress)
+                    {
+                        transform.Rotate(new Vector3(0, 0, rangePointer()) * Time.deltaTime);
+                    }
                 }
                 else
                 {
+                    if (transform.rotation.z > -degress)
+                    {
+                        transform.Rotate(new Vector3(0, 0, (-1) * rangePointer()) * Time.deltaTime);
+                    }
+                }
+                if (rotationGravity < rotationGravityLerp)
+                {
 
-                    adjustTimer += Time.deltaTime;
+                    if (adjustTimer > 0.03f)
+                    {
+                        adjustTimer = 0;
+                        rotationGravity += 0.01f;
+                    }
+                    else
+                    {
+
+                        adjustTimer += Time.deltaTime;
+
+                    }
+
+                }
+                else if (rotationGravity > rotationGravityLerp)
+                {
+
+                    if (adjustTimer > 0.03f)
+                    {
+                        adjustTimer = 0;
+                        rotationGravity -= 0.01f;
+                    }
+                    else
+                    {
+
+                        adjustTimer += Time.deltaTime;
+
+                    }
 
                 }
 
+                RotateAction();
             }
-            else if (rotationGravity > rotationGravityLerp)
+            else if(mSwordMovement.IsActionDone())
             {
-
-                if (adjustTimer > 0.03f)
+                if(Mathf.Abs(transform.rotation.z) > 0.001)
                 {
-                    adjustTimer = 0;
-                    rotationGravity -= 0.01f;
+                    transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
+                    mSwordMovement.ResetAxisX();
                 }
-                else
+                if(mSwordMovement.IsItemInPos())
                 {
-
-                    adjustTimer += Time.deltaTime;
-
+                    mainCharacter.SetActive(true);
+                    mainCharacterScript.SetControl(true);
+                    mainCharacterScript.StopAction();
+                    cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
                 }
-
             }
-
-            RotateAction();
         }
-		else
-		{
-			if(Mathf.Abs(transform.rotation.z) > 0.001)
-			{
-				transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
-				mSwordMovement.ResetAxisX();
-			}
-			if(mSwordMovement.IsItemInPos())
-			{
-				mainCharacter.SetActive(true);
-				mainCharacterScript.SetControl(true);
-				mainCharacterScript.StopAction();
-				cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
-			}
-		}
 
 	}
 
