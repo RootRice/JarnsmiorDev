@@ -18,16 +18,20 @@ public class SharpeningAction : MonoBehaviour {
 		
 	}
 
-	public void Restart()
-	{
-        swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
-        mSharpeningAlghoritm = (SharpeningAlghoritm)swordHolder.GetComponent(typeof(SharpeningAlghoritm));
-		mSharpeningAlghoritm.Restart();
-	}
-
 	public void Stop()
 	{
 		mSharpeningAlghoritm.Stop();
+	}
+
+	public SharpeningAction SetItemLength(float length)
+	{
+		mSharpeningAlghoritm.SetItemLength(length);
+		return this;
+	}
+
+	public void StartSharpeningAction()
+	{
+		mSharpeningAlghoritm.StartSharpening();		
 	}
 
 }

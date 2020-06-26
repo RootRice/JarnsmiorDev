@@ -5,31 +5,58 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour {
 
 	private float PivotAxisY = 4.28f;
+	private float posX;
+	private bool ActionDone = true;
 
 	// Use this for initialization
 	void Start ()
 	{
-		transform.localScale = new Vector3(0.7f, 0.6f, 1.0f);
-		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
+		posX = transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2)
+		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2  && !ActionDone)
 		{
-			
+			ActionDone = true;
 		}
 		else
 		{
-			transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
+			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && !ActionDone)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
+			}
+			else if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && ActionDone)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y-0.02f, transform.position.z);
+			}
 		}
 	}
 
-	public void SetSize(float length)
+	public void SetLength(float length)
 	{
-		
-		transform.localScale = new Vector3(0.7f, length/4, 1.0f);
+		if(posX == 0)
+		{
+			posX = transform.position.x;
+		}
+		transform.localScale = new Vector3(0.7f, length/2, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
+		ActionDone = false;
+	}
+
+	public void ResetAxisX()
+	{
+		transform.position = new Vector3(posX, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
+	}
+
+	public bool IsActionDone()
+	{
+		return ActionDone;
+	}
+
+	public bool IsItemInPos()
+	{
+		return transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2;
 	}
 
 }

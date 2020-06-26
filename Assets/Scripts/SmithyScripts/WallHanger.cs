@@ -16,8 +16,6 @@ public class WallHanger : MonoBehaviour {
 		mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
 
-        
-
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 

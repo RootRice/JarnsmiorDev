@@ -5,8 +5,9 @@ using UnityEngine;
 public class SharpeningAlghoritm : MonoBehaviour {
 
 
-	private int rangeImproverD = 30;
-	private int rangeImproverR = 10;
+	private int rangeImproverD = 15;
+	private int rangeImproverR = 5;
+	private float degress = 0.15f;
 	private float speed = 1.0f; //how fast it shakes
 	private float amount = 1.0f; //how much it shakes
     private float consistency = 0f;
@@ -19,12 +20,19 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
     GameObject Sword;
     SwordMovement mSwordMovement;
+    GameObject mainCharacter;
+    MainCharacterSmithy mainCharacterScript;
+    CameraScript cameraScript;
 
 	// Use this for initialization
 	void Start ()
 	{	
         Sword = GameObject.FindGameObjectWithTag("Sword");
         mSwordMovement = (SwordMovement)Sword.GetComponent(typeof(SwordMovement));
+		mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
+        mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
+        GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 		startTime = Time.time;
 	}
 	
@@ -33,22 +41,40 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	{
 		
 		elapsedTime = Time.time - startTime;
-		if (MouseToLeft())
+		if(!mSwordMovement.IsActionDone())
 		{
-			if (transform.rotation.z < 0.2f)
+			if (MouseToLeft())
 			{
-				transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
+				if (transform.rotation.z < degress)
+				{
+					transform.Rotate(new Vector3(0, 0, rangePointer()) * Time.deltaTime);
+				}
 			}
+			else
+			{
+				if (transform.rotation.z > -degress)
+				{
+					transform.Rotate(new Vector3(0, 0, (-1) * rangePointer()) * Time.deltaTime);
+				}
+			}
+			
+			RotateAction();
 		}
 		else
 		{
-			if (transform.rotation.z > -0.2f)
+			if(Mathf.Abs(transform.rotation.z) > 0.001)
 			{
-				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
+				transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
+				mSwordMovement.ResetAxisX();
+			}
+			if(mSwordMovement.IsItemInPos())
+			{
+				mainCharacter.SetActive(true);
+				mainCharacterScript.SetControl(true);
+				mainCharacterScript.StopAction();
+				cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
 			}
 		}
-		
-		RotateAction();
 
 	}
 
@@ -58,11 +84,11 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		if (elapsedTime > nextActionTime)
 		{
 			nextActionTime += period;
-			if (transform.rotation.z > -0.2f && rotationGravity < 0)
+			if (transform.rotation.z > -degress && rotationGravity < 0)
 			{
 				transform.Rotate (new Vector3 (0, 0, rotationGravity));
 			}
-			else if (transform.rotation.z < 0.2f && rotationGravity >= 0)
+			else if (transform.rotation.z < degress && rotationGravity >= 0)
 			{
 				transform.Rotate (new Vector3 (0, 0, rotationGravity));
 			}
@@ -70,7 +96,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		else
 		{
 			nextActionTime = Random.Range(1.0f, 3.0f);
-			rotationGravity = Random.Range(-0.2f, 0.2f) * rangeImproverR;
+			rotationGravity = Random.Range(-degress, degress) * rangeImproverR;
 		}
 
 	}
@@ -91,11 +117,15 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
 	}
 
-	public void Restart()
+	public void SetItemLength(float length)
+	{
+		mSwordMovement.SetLength(length);
+	}
+
+	public void StartSharpening()
 	{
 		startTime = Time.time;
 		transform.Rotate (new Vector3 (0, 0, 0));
-		mSwordMovement.SetSize(2.0f);
 	}
 
 	public void Stop()
