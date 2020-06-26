@@ -34,22 +34,25 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	{
 		
 		elapsedTime = Time.time - startTime;
-		if (MouseToLeft())
+		if(!mSwordMovement.IsActionDone())
 		{
-			if (transform.rotation.z < degress)
+			if (MouseToLeft())
 			{
-				transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
+				if (transform.rotation.z < degress)
+				{
+					transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
+				}
 			}
-		}
-		else
-		{
-			if (transform.rotation.z > -degress)
+			else
 			{
-				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
+				if (transform.rotation.z > -degress)
+				{
+					transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
+				}
 			}
+			
+			RotateAction();
 		}
-		
-		RotateAction();
 
 	}
 

@@ -6,6 +6,7 @@ public class SwordMovement : MonoBehaviour {
 
 	private float PivotAxisY = 4.28f;
 	private float posX;
+	private bool ActionDone = true;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +21,7 @@ public class SwordMovement : MonoBehaviour {
 		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2)
 		{
 			print("SharpeningAction\nJob Status: Done");
+			ActionDone = true;
 		}
 		else
 		{
@@ -35,6 +37,12 @@ public class SwordMovement : MonoBehaviour {
 		}
 		transform.localScale = new Vector3(0.7f, length/4, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
+		ActionDone = false;
+	}
+
+	public bool IsActionDone()
+	{
+		return ActionDone;
 	}
 
 }
