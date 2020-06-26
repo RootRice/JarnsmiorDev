@@ -14,7 +14,7 @@ public class MainCharacterSmithy : MonoBehaviour
     Animator myAnimator;
 
     bool canControl = false;
-    bool elongateOrBevel = true;
+    bool elongateOrBevel = false;
 
     GameObject anvilSmith;
     GameObject furnaceSmith;
