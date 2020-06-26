@@ -40,14 +40,14 @@ public class SharpeningAlghoritm : MonoBehaviour {
 			{
 				if (transform.rotation.z < degress)
 				{
-					transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
+					transform.Rotate(new Vector3(0, 0, rangePointer()) * Time.deltaTime);
 				}
 			}
 			else
 			{
 				if (transform.rotation.z > -degress)
 				{
-					transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
+					transform.Rotate(new Vector3(0, 0, (-1) * rangePointer()) * Time.deltaTime);
 				}
 			}
 			
@@ -55,7 +55,12 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		}
 		else
 		{
-			transform.Rotate (new Vector3 (0, 0, 0));
+		print(transform.rotation.z);
+			if(Mathf.Abs(transform.rotation.z) > 0.001)
+			{
+				transform.Rotate(new Vector3(0.0f, 0.0f, -transform.rotation.z));
+				mSwordMovement.ResetAxisX();
+			}
 		}
 
 	}
