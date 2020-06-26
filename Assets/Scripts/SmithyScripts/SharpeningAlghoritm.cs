@@ -53,6 +53,10 @@ public class SharpeningAlghoritm : MonoBehaviour {
 			
 			RotateAction();
 		}
+		else
+		{
+			transform.Rotate (new Vector3 (0, 0, 0));
+		}
 
 	}
 
