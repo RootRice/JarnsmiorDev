@@ -5,8 +5,9 @@ using UnityEngine;
 public class SharpeningAlghoritm : MonoBehaviour {
 
 
-	private int rangeImproverD = 30;
-	private int rangeImproverR = 10;
+	private int rangeImproverD = 15;
+	private int rangeImproverR = 5;
+	private float degress = 0.15f;
 	private float speed = 1.0f; //how fast it shakes
 	private float amount = 1.0f; //how much it shakes
     private float consistency = 0f;
@@ -35,14 +36,14 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		elapsedTime = Time.time - startTime;
 		if (MouseToLeft())
 		{
-			if (transform.rotation.z < 0.2f)
+			if (transform.rotation.z < degress)
 			{
 				transform.Rotate (new Vector3 (0, 0, rangePointer()) * Time.deltaTime);
 			}
 		}
 		else
 		{
-			if (transform.rotation.z > -0.2f)
+			if (transform.rotation.z > -degress)
 			{
 				transform.Rotate (new Vector3 (0, 0, (-1) * rangePointer()) * Time.deltaTime);
 			}
@@ -58,11 +59,11 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		if (elapsedTime > nextActionTime)
 		{
 			nextActionTime += period;
-			if (transform.rotation.z > -0.2f && rotationGravity < 0)
+			if (transform.rotation.z > -degress && rotationGravity < 0)
 			{
 				transform.Rotate (new Vector3 (0, 0, rotationGravity));
 			}
-			else if (transform.rotation.z < 0.2f && rotationGravity >= 0)
+			else if (transform.rotation.z < degress && rotationGravity >= 0)
 			{
 				transform.Rotate (new Vector3 (0, 0, rotationGravity));
 			}
@@ -70,7 +71,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		else
 		{
 			nextActionTime = Random.Range(1.0f, 3.0f);
-			rotationGravity = Random.Range(-0.2f, 0.2f) * rangeImproverR;
+			rotationGravity = Random.Range(-degress, degress) * rangeImproverR;
 		}
 
 	}
@@ -91,11 +92,15 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
 	}
 
-	public void Restart()
+	public void SetItemLength(float length)
+	{
+		mSwordMovement.SetLength(length);
+	}
+
+	public void StartSharpening()
 	{
 		startTime = Time.time;
 		transform.Rotate (new Vector3 (0, 0, 0));
-		mSwordMovement.SetSize(2.0f);
 	}
 
 	public void Stop()
