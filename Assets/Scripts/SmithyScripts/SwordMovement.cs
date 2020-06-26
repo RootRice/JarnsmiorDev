@@ -75,6 +75,7 @@ public class SwordMovement : MonoBehaviour {
     {
 
         mouseDown = true;
+		print("OnMouseDown");
 
     }
     void OnMouseUp()
