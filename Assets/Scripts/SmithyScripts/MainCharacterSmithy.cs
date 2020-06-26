@@ -21,6 +21,7 @@ public class MainCharacterSmithy : MonoBehaviour
     GameObject bookSmith;
     GameObject elongateUI;
     GameObject grindstoneSmith;
+    GameObject heatUI;
 
     private SharpeningAction mSharpeningAction;
     GameObject bevelUI;
@@ -43,12 +44,14 @@ public class MainCharacterSmithy : MonoBehaviour
         bookSmith = GameObject.FindGameObjectWithTag("MCBook");
         grindstoneSmith = GameObject.FindGameObjectWithTag("SharpeningAction");
         bevelUI = GameObject.FindGameObjectWithTag("MCBevel");
+        heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         mSharpeningAction = (SharpeningAction)grindstoneSmith.GetComponent(typeof(SharpeningAction));
         bookSmith.SetActive(false);
         anvilSmith.SetActive(false);
         furnaceSmith.SetActive(false);
         grindstoneSmith.SetActive(false);
         bevelUI.SetActive(false);
+        heatUI.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
 
@@ -159,6 +162,8 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 7f)
         {
+            MCFurnace myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
+            myHeat.setHeat(0.1f);
             canControl = false;
             furnaceSmith.SetActive(true);
             gameObject.SetActive(false);
@@ -180,6 +185,11 @@ public class MainCharacterSmithy : MonoBehaviour
                 .SetItemLength(Random.Range(0.3f, 1.0f))
                 .StartSharpeningAction();
 
+        }
+        else if (transform.position.x == 2.24f)
+        {
+            canControl = true;
+            heatUI.SetActive(true);
         }
 
     }

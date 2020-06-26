@@ -7,9 +7,10 @@ public class SwordMovement : MonoBehaviour {
 	private float PivotAxisY = 4.28f;
 	private float posX;
 	private bool ActionDone = true;
+    bool mouseDown = false;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		posX = transform.position.x;
 	}
@@ -58,5 +59,25 @@ public class SwordMovement : MonoBehaviour {
 	{
 		return transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2;
 	}
+
+    public bool GetMouseDown()
+    {
+
+        return mouseDown;
+
+    }
+
+    void OnMouseDown()
+    {
+
+        mouseDown = true;
+
+    }
+    void OnMouseUp()
+    {
+
+        mouseDown = false;
+
+    }
 
 }
