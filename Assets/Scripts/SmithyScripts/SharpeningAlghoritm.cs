@@ -87,7 +87,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
         if (mSwordMovement.GetMouseDown())
         {
             elapsedTime += Time.deltaTime;
-                print("here");
             if(!mSwordMovement.IsActionDone())
             {
                 if (MouseToLeft())
@@ -139,20 +138,20 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
                 RotateAction();
             }
-            else if(mSwordMovement.IsActionDone())
+        }
+        if(mSwordMovement.IsActionDone())
+        {
+            if(Mathf.Abs(transform.rotation.z) > 0.001)
             {
-                if(Mathf.Abs(transform.rotation.z) > 0.001)
-                {
-                    transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
-                    mSwordMovement.ResetAxisX();
-                }
-                if(mSwordMovement.IsItemInPos())
-                {
-                    mainCharacter.SetActive(true);
-                    mainCharacterScript.SetControl(true);
-                    mainCharacterScript.StopAction();
-                    cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
-                }
+                transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
+                mSwordMovement.ResetAxisX();
+            }
+            else if(mSwordMovement.IsItemInPos())
+            {
+                mainCharacter.SetActive(true);
+                mainCharacterScript.SetControl(true);
+                mainCharacterScript.StopAction();
+                cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
             }
         }
 
