@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         string path = "Assets/JSON/story.json";
         string contents = File.ReadAllText(path);
-        textValues = JsonUtility.FromJson<TextChoices>(contents);
-        
+        textValues = JsonUtility.FromJson<TextChoices>(contents); 
 	}
 	
 	void Update () {
@@ -45,9 +44,9 @@ public class GameManager : MonoBehaviour {
 
 	public void OptionSelected(int msgID)
 	{
-		print("here");
 		TextChoice mTextChoice = getItemByID(msgID);
-		if(SLItemID < mTextChoice.id)
+		print(SLItemID + " <> " + mTextChoice.id);
+		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
 			SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
 			SLItemID = mTextChoice.child[0];

@@ -24,17 +24,19 @@ public class SF_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 	}
      public void OnPointerDown (PointerEventData eventData) {
          // Do action
-		if(isChoice) {
+		if(isChoice)
+		{
 			mGameManager.OptionSelected(msgID);
         }
      }
 
 	 public void SetID(int msgID) {
-		 this.msgID = msgID;
+		this.msgID = msgID;
 	 }
  
      public void OnPointerUp (PointerEventData eventData) {
-		if(isChoice) {
+		if(isChoice)
+		{
 
 		}
      }
