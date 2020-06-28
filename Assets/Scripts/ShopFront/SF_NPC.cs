@@ -10,15 +10,10 @@ public class SF_NPC : MonoBehaviour
     Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
     int numberOfTargets;
     bool isMoving = false;
-
     Animator myAnimator;
-
     bool canControl = false;
-
     private bool npcInteractionStarted = false;
-
     GameObject table;
-
     CameraScript cameraScript;
 
     public List<Vector3> npcDoorTable = new List<Vector3>(new Vector3[] {
