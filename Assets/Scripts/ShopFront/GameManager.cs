@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour {
 	public void OptionSelected(int msgID)
 	{
 		TextChoice mTextChoice = getItemByID(msgID);
-		print(SLItemID + " <> " + mTextChoice.id);
 		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
 			SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
