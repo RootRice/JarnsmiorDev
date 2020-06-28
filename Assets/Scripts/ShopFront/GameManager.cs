@@ -7,14 +7,10 @@ using System.IO;
 public class GameManager : MonoBehaviour {
 
 	public GameObject storyPanel, textObject;
-
 	[SerializeField]
 	List<Message> messageList = new List<Message>();
-
     private TextChoices textValues;
-
 	private bool StoryLive = false;
-
     private int SLItemID = 0;
 
 	void Start () {
@@ -49,10 +45,14 @@ public class GameManager : MonoBehaviour {
 
 	public void OptionSelected(int msgID)
 	{
+		print("here");
 		TextChoice mTextChoice = getItemByID(msgID);
-		SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
-		SLItemID = mTextChoice.child[0];
-		StoryLive = true;
+		if(SLItemID < mTextChoice.id)
+		{
+			SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
+			SLItemID = mTextChoice.child[0];
+			StoryLive = true;
+		}
 	}
 
 	public void ContinueStory()
