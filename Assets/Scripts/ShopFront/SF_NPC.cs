@@ -23,7 +23,7 @@ public class SF_NPC : MonoBehaviour
     {
         idle = 0,
         npcDoor = 1,
-        table = 1
+        table = 2
     }
     private Targets npcTarget = Targets.idle;
     private GameManager mGameManager;
