@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class S_GameManager : MonoBehaviour {
 
-    public enum GameStates : ushort
+    public enum GameState : ushort
     {
         JustStarted = 0,
         IgnotObtained = 1,
@@ -14,10 +14,11 @@ public class S_GameManager : MonoBehaviour {
         BarSharpened = 5,
         SwordQuenched = 6
     }
+	private GameState mGameState;
 	// Use this for initialization
 	void Start ()
 	{
-		
+		mGameState = GameState.JustStarted;
 	}
 	
 	// Update is called once per frame
@@ -25,4 +26,10 @@ public class S_GameManager : MonoBehaviour {
 	{
 		
 	}
+
+	public void SetGameState(GameState mGameState)
+	{
+		this.mGameState = mGameState;
+	}
+
 }
