@@ -19,6 +19,7 @@ TagManager:
   - SwordHolder
   - Sword
   - HeatUI
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ public class ParticleDestroy : MonoBehaviour {
 	void Update ()
     {
         currentTime += Time.deltaTime;
-		if(currentTime > 1.5f)
+		if(currentTime > 2.5f)
         {
 
             Destroy(gameObject);

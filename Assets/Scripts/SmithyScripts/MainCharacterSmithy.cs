@@ -189,6 +189,14 @@ public class MainCharacterSmithy : MonoBehaviour
             canControl = true;
             heatUI.SetActive(true);
         }
+        else if(transform.position.x == 14.58f)
+        {
+
+            GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+            QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+            myQuenchUI.showState(true);
+
+        }
 
     }
 
@@ -314,6 +322,13 @@ public class MainCharacterSmithy : MonoBehaviour
             grindstoneSmith.SetActive(false);
             mSharpeningAction.Stop();
         }
+    }
+
+    public void SetAnvilType(bool type)
+    {
+
+        elongateOrBevel = type;
+
     }
 
 }
