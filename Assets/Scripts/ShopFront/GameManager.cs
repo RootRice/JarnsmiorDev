@@ -7,21 +7,16 @@ using System.IO;
 public class GameManager : MonoBehaviour {
 
 	public GameObject storyPanel, textObject;
-
 	[SerializeField]
 	List<Message> messageList = new List<Message>();
-
     private TextChoices textValues;
-
 	private bool StoryLive = false;
-
     private int SLItemID = 0;
 
 	void Start () {
         string path = "Assets/JSON/story.json";
         string contents = File.ReadAllText(path);
-        textValues = JsonUtility.FromJson<TextChoices>(contents);
-        
+        textValues = JsonUtility.FromJson<TextChoices>(contents); 
 	}
 	
 	void Update () {
@@ -50,14 +45,18 @@ public class GameManager : MonoBehaviour {
 	public void OptionSelected(int msgID)
 	{
 		TextChoice mTextChoice = getItemByID(msgID);
-		SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
-		SLItemID = mTextChoice.child[0];
-		StoryLive = true;
+		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
+		{
+			SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
+			SLItemID = mTextChoice.child[0];
+			StoryLive = true;
+		}
 	}
 
 	public void ContinueStory()
 	{
-		if(StoryLive) {
+		if(StoryLive)
+		{
 			return;
 		}
 		StoryLive = true;

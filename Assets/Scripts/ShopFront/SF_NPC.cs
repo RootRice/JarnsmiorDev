@@ -10,38 +10,28 @@ public class SF_NPC : MonoBehaviour
     Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
     int numberOfTargets;
     bool isMoving = false;
-
     Animator myAnimator;
-
     bool canControl = false;
-
     private bool npcInteractionStarted = false;
-
     GameObject table;
-
     CameraScript cameraScript;
-
     public List<Vector3> npcDoorTable = new List<Vector3>(new Vector3[] {
         new Vector3(-1.22f, 4.23f, 0f),
         new Vector3(5.46f, 4.23f, 0f)
     });
-
     public enum Targets : ushort
     {
         idle = 0,
         npcDoor = 1,
         table = 1
     }
-
     private Targets npcTarget = Targets.idle;
-
     private GameManager mGameManager;
 
     public bool IsStaying()
     {
         return npcTarget == Targets.idle;
     }
-
     // Use this for initialization
     void Start()
     {
@@ -50,29 +40,22 @@ public class SF_NPC : MonoBehaviour
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
         mGameManager = (GameManager)GameObject.FindGameObjectWithTag("SF_GameManager").GetComponent(typeof(GameManager));
-
     }
-
     // Update is called once per frame
     void Update()
     {
         if (isMoving)
         {
-
             if (MoveTowards(targets[numberOfTargets]))
             {
-
                 numberOfTargets -= 1;
                 if (targets[numberOfTargets].x < transform.position.x)
                 {
-
                     transform.localScale = new Vector3(-1f, 1, 1);
                 }
                 else
                 {
-
                     transform.localScale = new Vector3(1f, 1, 1);
-
                 }
                 if (numberOfTargets == 0)
                 {
@@ -86,9 +69,7 @@ public class SF_NPC : MonoBehaviour
                 {
                     cameraScript.SetTarget(new Vector3(4.13f, 11.09f, -10f), 2f);
                 }
-
             }
-
         } else {
             if(npcTarget == Targets.table) {
                 transform.localScale = new Vector3(1f, 1, 1);
@@ -100,26 +81,18 @@ public class SF_NPC : MonoBehaviour
                 transform.localScale = new Vector3(-1f, 1, 1);
             }
         }
-
     }
-
     public bool GetControl()
     {
-
         return canControl;
-
     }
     public void SetControl(bool toSet)
     {
-
         canControl = toSet;
-
     }
     public float GetTask()
     {
-
         return transform.position.x;
-
     }
 
     void CheckTask()
@@ -127,10 +100,8 @@ public class SF_NPC : MonoBehaviour
 
         if (transform.position.x == 9.26f)
         {
-
             canControl = false;
             gameObject.SetActive(false);
-
         }
         else if(transform.position.x == 7f)
         {
@@ -139,10 +110,8 @@ public class SF_NPC : MonoBehaviour
         }
         else if(transform.position.x == 3.34f)
         {
-
             canControl = false;
             gameObject.SetActive(false);
-
         }
 
     }
