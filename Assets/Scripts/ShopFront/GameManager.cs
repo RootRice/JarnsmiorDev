@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour {
 
 	public void ContinueStory()
 	{
-		if(StoryLive) {
+		if(StoryLive)
+		{
 			return;
 		}
 		StoryLive = true;
