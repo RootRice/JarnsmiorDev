@@ -18,6 +18,7 @@ TagManager:
   - SharpeningAction
   - SwordHolder
   - Sword
+  - S_GameManager
   layers:
   - Default
   - TransparentFX
