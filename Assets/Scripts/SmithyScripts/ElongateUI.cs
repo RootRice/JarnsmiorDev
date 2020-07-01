@@ -30,9 +30,15 @@ public class ElongateUI : MonoBehaviour {
 
     SpriteRenderer hammerRenderer;
 
+    GameObject heatUI;
+    MCFurnace myFurnace;
+
     // Use this for initialization
     void Start ()
     {
+        heatUI = GameObject.FindGameObjectWithTag("HeatUI");
+        myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
+
         topPosition = new Vector3(7.49f, 5.204f);
         bottomPosition = new Vector3(7.49f, 3.41f);
 
@@ -44,7 +50,6 @@ public class ElongateUI : MonoBehaviour {
                 hammerRenderer = uiSprite; //this gameObject is a child, because its transform.parent is not null
             }
         }
-        
 
 
 	}
@@ -175,6 +180,7 @@ public class ElongateUI : MonoBehaviour {
             }
 
             hitStore[counter] = botdist;
+            myFurnace.CheckTemp();
             Debug.Log(hitStore[counter]);
             counter += 1;
             if (counter >= 10)

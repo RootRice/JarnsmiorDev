@@ -29,11 +29,15 @@ public class BevelUI : MonoBehaviour {
     bool particlesSpawned;
     public GameObject worldParticles;
     public GameObject UIParticles;
+    GameObject heatUI;
+    MCFurnace myFurnace;
     
 
     // Use this for initialization
     void Start()
     {
+        heatUI = GameObject.FindGameObjectWithTag("HeatUI");
+        myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
         _sensitivity = 0.2f;
         _rotation = Vector3.zero;
         Transform[] hammers = GetComponentsInChildren<Transform>();
@@ -155,6 +159,7 @@ public class BevelUI : MonoBehaviour {
             slam = true;
 
             hitStore[counter] = transform.rotation.eulerAngles.z;
+            myFurnace.CheckTemp();
             Debug.Log(hitStore[counter]);
             counter += 1;
             if (counter >= 10)

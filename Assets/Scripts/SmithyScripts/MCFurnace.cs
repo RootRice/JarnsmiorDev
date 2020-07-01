@@ -7,6 +7,9 @@ public class MCFurnace : MonoBehaviour {
     float hotOrCold = 0;
     float currentHeat = 0;
 
+    float currentScore = 1;
+    int counter = 0;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -41,5 +44,26 @@ public class MCFurnace : MonoBehaviour {
 
         hotOrCold = heatToSet;
 
+    }
+
+    public void CheckTemp()
+    {
+
+        if (currentHeat < 0.7f)
+        {
+
+            currentScore -= 0.7f - currentHeat;
+
+        }
+
+        counter++;
+        if (counter == 20)
+        {
+
+            GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+            QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+            myQuenchUI.SetValues(2, currentScore, 1);
+
+        }
     }
 }

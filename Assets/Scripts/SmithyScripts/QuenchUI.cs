@@ -7,6 +7,8 @@ public class QuenchUI : MonoBehaviour {
     Transform[] barTransforms = new Transform[4];
     float[] barLengths = new float[4];
     bool shouldShowScore = false;
+    float totalScore = 0;
+    float averageScore = 0;
 
 
 	// Use this for initialization
@@ -26,6 +28,8 @@ public class QuenchUI : MonoBehaviour {
                 barTransforms[3] = bar;
             }
         }
+        GameObject quenchUI = GameObject.FindGameObjectWithTag("QuenchingUI");
+        quenchUI.SetActive(false);
         
     }
 	
@@ -65,6 +69,20 @@ public class QuenchUI : MonoBehaviour {
         {
 
             barTransforms[2].localScale += new Vector3(0.005f, 0f, 0f);
+
+        }
+        else if(averageScore == 0)
+        {
+
+            averageScore = barTransforms[0].localScale.x + barTransforms[1].localScale.x + barTransforms[2].localScale.x;
+            averageScore = averageScore / 3;
+            barLengths[3] = averageScore;
+
+        }
+        else if(barLengths[3] > barTransforms[3].localScale.x)
+        {
+
+            barTransforms[3].localScale += new Vector3(0.005f, 0f, 0f);
 
         }
 

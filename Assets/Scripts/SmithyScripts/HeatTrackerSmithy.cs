@@ -7,7 +7,8 @@ public class HeatTrackerSmithy : MonoBehaviour {
     bool hotOrCold;
     float currentTemp = 0;
 
-    int idealTemp;
+    int idealTemp = 70;
+    int counter = 0;
 
     float currentScore;
 
@@ -50,5 +51,26 @@ public class HeatTrackerSmithy : MonoBehaviour {
 
         hotOrCold = tempToSet;
 
+    }
+
+    public void CheckTemp()
+    {
+
+        if(currentTemp < idealTemp)
+        {
+
+            currentScore -= idealTemp - currentTemp;
+
+        }
+
+        counter++;
+        if(counter == 20)
+        {
+
+            GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+            QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+            myQuenchUI.SetValues(2, currentScore, 50);
+
+        }
     }
 }

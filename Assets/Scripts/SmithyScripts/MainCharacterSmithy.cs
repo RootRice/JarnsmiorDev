@@ -60,7 +60,6 @@ public class MainCharacterSmithy : MonoBehaviour
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
         myGameManager = S_GameManager.GetGameManagerScript();
         QuenchingUI = GameObject.FindGameObjectWithTag("QuenchingUI");
-        QuenchingUI.SetActive(false);
 
 
     }
