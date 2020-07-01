@@ -30,7 +30,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
     MainCharacterSmithy mainCharacterScript;
     CameraScript cameraScript;
 
-    float[] hitStore = new float[10];
+    List<float> hitStore = new List<float>();
     int counter = 0;
 
     // Use this for initialization
@@ -177,7 +177,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
 			nextActionTime = Random.Range(1.0f, 3.0f);
 			rotationGravityLerp = Random.Range(-degress, degress) * rangeImproverR;
             hitStore[counter] = transform.rotation.z;
-            //Debug.Log(transform.rotation.z);
             counter += 1;
             if(counter >= 10)
             {
