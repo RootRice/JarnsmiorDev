@@ -5,6 +5,13 @@ using UnityEngine;
 public class SF_MainCharacterSmithy : MonoBehaviour
 {
 
+	// SF_MainCharacterSmithy mMainCharacter = SF_MainCharacterSmithy.GetScript();
+
+	public static SF_MainCharacterSmithy GetScript()
+	{
+		return (SF_MainCharacterSmithy)GameObject.FindGameObjectWithTag("MainCharacterSmithy").GetComponent(typeof(SF_MainCharacterSmithy));
+	}
+
     //Movement variables
     int speed = 5;
     Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };

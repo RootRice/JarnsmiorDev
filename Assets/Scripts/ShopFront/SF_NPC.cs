@@ -5,6 +5,13 @@ using UnityEngine;
 public class SF_NPC : MonoBehaviour
 {
 
+	// SF_NPC mNPCharacter = SF_NPC.GetScript();
+
+	public static SF_NPC GetScript()
+	{
+		return (SF_NPC)GameObject.FindGameObjectWithTag("SF_NPCharacter").GetComponent(typeof(SF_NPC));
+	}
+
     //Movement variables
     int speed = 5;
     Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };

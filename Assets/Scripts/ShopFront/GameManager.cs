@@ -19,21 +19,37 @@ public class GameManager : MonoBehaviour {
         textValues = JsonUtility.FromJson<TextChoices>(contents); 
 	}
 	
-	void Update () {
-		if(StoryLive && SLItemID != -1) {
+	private Timer mTimer;
+	void Update ()
+	{
+		if(mTimer != null)
+		{
+			mTimer.Update();
+			if(mTimer.TargetReached())
+			{
+				SF_NPC.GetScript().TableToDoor();
+				mTimer = null;
+			}
+		}
+		if(StoryLive && SLItemID != -1)
+		{
 			TextChoice mTextChoice = getItemByID(SLItemID);
 			if(SLItemID != mTextChoice.child[0]) {
 				SLItemID = mTextChoice.child[0];
 				if(!mTextChoice.choicePick) {
-					SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
+					SendStoryMessage(mTextChoice.text, false, mTextChoice.id, false);
+					if(mTextChoice.exitRoom)
+					{
+						mTimer = new Timer().SetTimer(3.4f).StartTimer();
+					}
 				}
 				if(mTextChoice.child.Capacity == 3) {
                     TextChoice mTextChoice1 = getItemByID(mTextChoice.child[0]);
                     TextChoice mTextChoice2 = getItemByID(mTextChoice.child[1]);
                     TextChoice mTextChoice3 = getItemByID(mTextChoice.child[2]);
-					SendStoryMessage(mTextChoice1.text, true, mTextChoice1.id);
-					SendStoryMessage(mTextChoice2.text, true, mTextChoice2.id);
-					SendStoryMessage(mTextChoice3.text, true, mTextChoice3.id);
+					SendStoryMessage(mTextChoice1.text, true, mTextChoice1.id, true);
+					SendStoryMessage(mTextChoice2.text, true, mTextChoice2.id, true);
+					SendStoryMessage(mTextChoice3.text, true, mTextChoice3.id, true);
 					StoryLive = false;
 				}
 			} else {
@@ -44,12 +60,19 @@ public class GameManager : MonoBehaviour {
 
 	public void OptionSelected(int msgID)
 	{
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 1).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 2).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 3).gameObject);
 		TextChoice mTextChoice = getItemByID(msgID);
 		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
-			SendStoryMessage(mTextChoice.text, false, mTextChoice.id);
+			SendStoryMessage(mTextChoice.text, false, mTextChoice.id, true);
 			SLItemID = mTextChoice.child[0];
 			StoryLive = true;
+			if(mTextChoice.exitRoom)
+			{
+				SF_NPC.GetScript().TableToDoor();
+			}
 		}
 	}
 
@@ -62,7 +85,7 @@ public class GameManager : MonoBehaviour {
 		StoryLive = true;
 	}
 
-	public void SendStoryMessage(string text, bool isChoice, int msgID)
+	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored)
 	{
 		Message mMessage = new Message();
 		mMessage.text = text;
@@ -74,9 +97,13 @@ public class GameManager : MonoBehaviour {
         SF_Click mClick = (SF_Click)mMessage.textObject.GetComponent(typeof(SF_Click));
 		mClick.setChoice(isChoice);
 
-		if(isChoice) {
-			mMessage.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
+		if(isChoice)
+		{
 			mClick.SetID(msgID);
+		}
+		if(isColored)
+		{
+			mMessage.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
 		}
 
 		messageList.Add(mMessage);
@@ -111,6 +138,7 @@ public class TextChoice
     public List<int> child;
     public int choice = -1;
     public bool choicePick;
+	public bool exitRoom;
 }
 
 [System.Serializable]

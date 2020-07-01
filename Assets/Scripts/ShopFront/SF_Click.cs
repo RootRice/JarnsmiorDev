@@ -13,7 +13,8 @@ public class SF_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
 	private int msgID;
 
-	void Start () {
+	void Start ()
+	{
         mGameManager = (GameManager)GameObject.FindGameObjectWithTag("SF_GameManager").GetComponent(typeof(GameManager));
 	}
 	
@@ -22,7 +23,8 @@ public class SF_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 	{
 		this.isChoice = isChoice;
 	}
-     public void OnPointerDown (PointerEventData eventData) {
+     public void OnPointerDown (PointerEventData eventData)
+	 {
          // Do action
 		if(isChoice)
 		{
@@ -30,11 +32,13 @@ public class SF_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
      }
 
-	 public void SetID(int msgID) {
+	 public void SetID(int msgID)
+	 {
 		this.msgID = msgID;
 	 }
  
-     public void OnPointerUp (PointerEventData eventData) {
+     public void OnPointerUp (PointerEventData eventData)
+	 {
 		if(isChoice)
 		{
 
