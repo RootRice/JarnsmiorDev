@@ -30,8 +30,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
     MainCharacterSmithy mainCharacterScript;
     CameraScript cameraScript;
 
-    float[] hitStore = new float[10];
-    int counter = 0;
+    private List<float> hitStore = new List<float>();
 
     // Use this for initialization
     void Start ()
@@ -152,6 +151,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
                 mainCharacterScript.SetControl(true);
                 mainCharacterScript.StopAction();
                 cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
+                CalculateScore();
             }
         }
 
@@ -176,15 +176,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
             elapsedTime = 0f;
 			nextActionTime = Random.Range(1.0f, 3.0f);
 			rotationGravityLerp = Random.Range(-degress, degress) * rangeImproverR;
-            hitStore[counter] = transform.rotation.z;
-            //Debug.Log(transform.rotation.z);
-            counter += 1;
-            if(counter >= 10)
-            {
-
-                CalculateScore();
-
-            }
+            hitStore.Add(transform.rotation.z);
 		}
 
 	}
@@ -232,7 +224,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
         float angleCalculator = 0;
         float maxVal = 0;
         float minVal = 10000;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < hitStore.Count; i++)
         {
             if (hitStore[i] > maxVal)
             {
@@ -251,9 +243,9 @@ public class SharpeningAlghoritm : MonoBehaviour {
         }
 
         totalVal = calculator*10;
-        calculator = totalVal / counter;
+        calculator = totalVal / hitStore.Count;
         //Debug.Log(angleCalculator);
-        angleCalculator = (angleCalculator * 100) / counter;
+        angleCalculator = (angleCalculator * 100) / hitStore.Count;
         //Debug.Log(angleCalculator);
         consistencyVal += Mathf.Abs(calculator - minVal);
         consistencyVal += Mathf.Abs(calculator - maxVal);
@@ -266,8 +258,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
         myQuenchUI.AdjustValues(1, totalScore, 50);
-
-
+        hitStore = new List<float>();
 
     }
 

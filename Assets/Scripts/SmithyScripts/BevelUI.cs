@@ -60,17 +60,20 @@ public class BevelUI : MonoBehaviour {
 
     void Update()
     {
-        if (canSmith && !slam)
-        {
-            CalculateRotation();
-            hammerPivot.localRotation = transform.rotation;
-        }
-        else if(slam && canSmith)
-        {
-            SlamDown();
 
+        if(canSmith)
+        {
+            if(slam)
+            {
+                SlamDown();
+            }
+            else
+            {
+                CalculateRotation();
+                hammerPivot.localRotation = transform.rotation;
+            }
         }
-        
+
     }
     void CalculateRotation()
     {
@@ -277,7 +280,6 @@ public class BevelUI : MonoBehaviour {
         S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
         mGameManager.SetGameState(S_GameManager.GameState.BarBevelled);
         myQuenchUI.SetValues(1, totalScore, 50);
-
 
     }
 
