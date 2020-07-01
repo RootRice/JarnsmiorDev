@@ -38,28 +38,29 @@
 		},
 		{
 			"id": 6,
-			"text": "choice text 1",
-			"child": [9],
+			"text": "You are going to receive your part, so help me out.",
+			"child": [3, 4, 5],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 7,
-			"text": "choice text 2",
+			"text": "Exatcly how a smithy should be. I would like to order a sword.",
 			"child": [9],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 8,
-			"text": "choice text 3",
+			"text": "Perfect. Then I am going to order the strongest sword that you can make.",
 			"child": [9],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 9,
-			"text": "text 4",
+			"text": "Understood. I will start the work and get back to you once the sword is ready.",
+			"exitRoom": true,
 			"child": [-1]
 		}
 	]
