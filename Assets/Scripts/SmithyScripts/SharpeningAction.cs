@@ -7,6 +7,7 @@ public class SharpeningAction : MonoBehaviour {
     GameObject swordHolder;
     SharpeningAlghoritm mSharpeningAlghoritm;
 
+
 	// Use this for initialization
 	void Start () {
         swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
@@ -33,5 +34,7 @@ public class SharpeningAction : MonoBehaviour {
 	{
 		mSharpeningAlghoritm.StartSharpening();		
 	}
+
+
 
 }

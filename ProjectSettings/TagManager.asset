@@ -18,6 +18,7 @@ TagManager:
   - SharpeningAction
   - SwordHolder
   - Sword
+  - HeatUI
   layers:
   - Default
   - TransparentFX
