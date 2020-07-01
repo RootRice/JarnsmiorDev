@@ -21,6 +21,8 @@ TagManager:
   - HeatUI
   - ScoreManager
   - S_GameManager
+  - Grindstone
+  - GrindParticles
   layers:
   - Default
   - TransparentFX

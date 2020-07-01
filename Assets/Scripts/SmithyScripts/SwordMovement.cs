@@ -9,10 +9,12 @@ public class SwordMovement : MonoBehaviour {
 	private bool ActionDone = true;
     bool mouseDown = false;
 	bool finalAnimation = false;
+    public GameObject sharpeningParticles;
 
     // Use this for initialization
     void Start ()
 	{
+        sharpeningParticles.SetActive(false);
 		posX = transform.position.x;
 	}
 	
@@ -73,13 +75,13 @@ public class SwordMovement : MonoBehaviour {
 
     void OnMouseDown()
     {
-
+        sharpeningParticles.SetActive(true);
         mouseDown = true;
 
     }
     void OnMouseUp()
     {
-
+        sharpeningParticles.SetActive(false);
         mouseDown = false;
 
     }

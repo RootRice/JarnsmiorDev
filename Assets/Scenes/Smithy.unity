@@ -1371,6 +1371,79 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &483710719
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 13.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.056204103
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7048695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.7048697
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.056204088
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -279.11798
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928125090545442, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 198361781622188166, guid: 0908e3a4fb567b14187134e4cd7b8591,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 199037011499863338, guid: 0908e3a4fb567b14187134e4cd7b8591,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104859531203244, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_TagString
+      value: GrindParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104859531203244, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114392279993828270, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 0908e3a4fb567b14187134e4cd7b8591, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &487288679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +2055,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &669453805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1104859531203244, guid: 0908e3a4fb567b14187134e4cd7b8591,
+    type: 2}
+  m_PrefabInternal: {fileID: 483710719}
 --- !u!1 &775730103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,9 +2847,10 @@ GameObject:
   - component: {fileID: 1094480430}
   - component: {fileID: 1094480433}
   - component: {fileID: 1094480432}
+  - component: {fileID: 1094480434}
   m_Layer: 0
   m_Name: TempStone
-  m_TagString: Untagged
+  m_TagString: Grindstone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2810,7 +2889,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 2b038f58d4184b74fa2e6d6f4472b803, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2872,6 +2951,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.99, y: 2.69}
   m_EdgeRadius: 0
+--- !u!95 &1094480434
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1094480429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6667e630ed647340a59c603e601a301, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1108612729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,7 +4765,7 @@ SpriteRenderer:
   m_Size: {x: 4.48, y: 4.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1905970182
@@ -5154,6 +5251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6a66735c24bff47b80cd55273b20d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sharpeningParticles: {fileID: 669453805}
 --- !u!61 &2013412129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5163,7 +5261,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
