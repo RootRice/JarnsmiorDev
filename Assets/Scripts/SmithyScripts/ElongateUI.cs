@@ -181,7 +181,6 @@ public class ElongateUI : MonoBehaviour {
 
             hitStore[counter] = botdist;
             myFurnace.CheckTemp();
-            Debug.Log(hitStore[counter]);
             counter += 1;
             if (counter >= 10)
             {
