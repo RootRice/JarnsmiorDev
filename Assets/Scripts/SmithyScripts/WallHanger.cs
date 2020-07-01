@@ -45,6 +45,13 @@ public class WallHanger : MonoBehaviour {
             else
             {
                 anvilSmith.SetActive(false);
+                ElongateUI myElongateUI = (ElongateUI)anvilSmith.GetComponentInChildren(typeof(ElongateUI));
+                if (myElongateUI.GetCounter() == 10)
+                {
+
+                    mainCharacterScript.SetAnvilType(true);
+
+                }
             }
         }
         else if (mainCharacterScript.GetTask() == 7f)
