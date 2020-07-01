@@ -10,13 +10,14 @@ public class SwordMovement : MonoBehaviour {
     bool mouseDown = false;
 	bool finalAnimation = false;
     public GameObject sharpeningParticles;
+    ParticleSystem myParticles;
 
     // Use this for initialization
     void Start ()
 	{
-        sharpeningParticles.SetActive(false);
 		posX = transform.position.x;
-	}
+        myParticles = sharpeningParticles.GetComponent<ParticleSystem>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -76,12 +77,13 @@ public class SwordMovement : MonoBehaviour {
     void OnMouseDown()
     {
         sharpeningParticles.SetActive(true);
+        myParticles.Play();
         mouseDown = true;
 
     }
     void OnMouseUp()
     {
-        sharpeningParticles.SetActive(false);
+        myParticles.Stop();
         mouseDown = false;
 
     }
