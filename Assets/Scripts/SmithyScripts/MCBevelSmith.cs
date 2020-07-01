@@ -14,7 +14,6 @@ public class MCBevelSmith : MonoBehaviour {
         myAnimator.ResetTrigger("Slam");
         GameObject bevelUI;
         bevelUI = GameObject.FindGameObjectWithTag("MCBevel");
-        Debug.Log(bevelUI.transform.position.x);
         myBevelScript = (BevelUI)bevelUI.GetComponentInChildren(typeof(BevelUI));
     }
 	

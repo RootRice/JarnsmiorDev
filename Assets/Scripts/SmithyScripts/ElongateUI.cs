@@ -193,6 +193,7 @@ public class ElongateUI : MonoBehaviour {
         float calculator = 0;
         float maxVal = 0;
         float minVal = 10000;
+        float lengthVal = 0;
         for (int i = 0; i < 10; i++)
         {
             if (hitStore[i] > maxVal)
@@ -215,13 +216,32 @@ public class ElongateUI : MonoBehaviour {
         consistencyVal += Mathf.Abs(calculator - minVal);
         consistencyVal += Mathf.Abs(calculator - maxVal);
         totalScore += 50 - (consistencyVal * 25);
+        lengthVal = totalVal;
+        lengthVal = lengthVal / 12.5f;
+        if(lengthVal > 1f)
+        {
+            lengthVal = 1 / lengthVal;
+        }
+        lengthVal = lengthVal * 50;
+        totalScore += lengthVal;
+
         print(consistencyVal);
         print(totalVal);
         print(totalScore);
+        GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+        QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+        myQuenchUI.SetValues(0, totalScore, 100);
         canSmith = false;
 
 
     } 
+
+    public int GetCounter()
+    {
+
+        return counter;
+
+    }
 
 
 }

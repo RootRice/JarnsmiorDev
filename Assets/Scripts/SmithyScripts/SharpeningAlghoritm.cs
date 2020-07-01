@@ -224,6 +224,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 
     void CalculateScore()
     {
+        
         float totalVal;
         float consistencyVal = 0;
         float totalScore = 0;
@@ -257,9 +258,13 @@ public class SharpeningAlghoritm : MonoBehaviour {
         consistencyVal += Mathf.Abs(calculator - minVal);
         consistencyVal += Mathf.Abs(calculator - maxVal);
         totalScore += 50 - (angleCalculator*3);
-        print(consistencyVal);
-        print(calculator);
-        print(totalScore);
+        //print(consistencyVal);
+        //print(calculator);
+        //print(totalScore);
+
+        GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+        QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+        myQuenchUI.AdjustValues(1, totalScore, 50);
 
 
 

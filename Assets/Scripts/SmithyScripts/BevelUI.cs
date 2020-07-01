@@ -267,6 +267,10 @@ public class BevelUI : MonoBehaviour {
         print(totalScore);
         canSmith = false;
 
+        GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
+        QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+        myQuenchUI.SetValues(1, totalScore, 50);
+
 
     }
 
