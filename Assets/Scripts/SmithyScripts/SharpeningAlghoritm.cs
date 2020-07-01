@@ -261,7 +261,8 @@ public class SharpeningAlghoritm : MonoBehaviour {
         //print(consistencyVal);
         //print(calculator);
         //print(totalScore);
-
+        S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
+        mGameManager.SetGameState(S_GameManager.GameState.BarSharpened);
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
         myQuenchUI.AdjustValues(1, totalScore, 50);

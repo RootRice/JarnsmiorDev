@@ -269,6 +269,8 @@ public class BevelUI : MonoBehaviour {
 
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+        S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
+        mGameManager.SetGameState(S_GameManager.GameState.BarBevelled);
         myQuenchUI.SetValues(1, totalScore, 50);
 
 

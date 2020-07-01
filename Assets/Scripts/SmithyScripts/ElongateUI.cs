@@ -226,10 +226,14 @@ public class ElongateUI : MonoBehaviour {
         totalScore += lengthVal;
 
         print(consistencyVal);
-        print(totalVal);
+        print(lengthVal);
         print(totalScore);
+        S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
+        mGameManager.SetGameState(S_GameManager.GameState.BarElongated);
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
+        GameObject sword = GameObject.FindGameObjectWithTag("Sword");
+        PlayerPrefs.SetFloat("SwordLength", lengthVal/50);
         myQuenchUI.SetValues(0, totalScore, 100);
         canSmith = false;
 

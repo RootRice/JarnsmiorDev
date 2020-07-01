@@ -25,7 +25,8 @@ public class S_GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		mGameState = GameState.JustStarted;
+		mGameState = GameState.BarElongated;
+        PlayerPrefs.SetFloat("SwordLength", 1.0f);
 	}
 	
 	// Update is called once per frame

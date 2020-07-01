@@ -623,7 +623,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23, y: 0.55}
+  m_Offset: {x: 0.35, y: -0.36}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -634,7 +634,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.19, y: 2.1}
+  m_Size: {x: 2.63, y: 3.69}
   m_EdgeRadius: 0
 --- !u!4 &222335109
 Transform:
@@ -1227,7 +1227,7 @@ Transform:
   m_Children:
   - {fileID: 38108723}
   m_Father: {fileID: 1682757531}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &451990249
 BoxCollider2D:
@@ -2999,7 +2999,7 @@ Transform:
   - {fileID: 222335109}
   - {fileID: 1351866442}
   m_Father: {fileID: 1682757531}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122251598
 GameObject:
@@ -3247,7 +3247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682757531}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1239200982
 BoxCollider2D:
@@ -3933,7 +3933,7 @@ GameObject:
   - component: {fileID: 1487701997}
   m_Layer: 0
   m_Name: anvil
-  m_TagString: Untagged
+  m_TagString: Anvil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4020,7 +4020,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682757531}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1487701997
 MonoBehaviour:
@@ -4515,10 +4515,10 @@ Transform:
   m_Children:
   - {fileID: 1463856443}
   - {fileID: 1094480431}
+  - {fileID: 1108612730}
   - {fileID: 1487701996}
   - {fileID: 1239200981}
   - {fileID: 451990248}
-  - {fileID: 1108612730}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

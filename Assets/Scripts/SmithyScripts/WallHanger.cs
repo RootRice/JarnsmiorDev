@@ -5,7 +5,8 @@ using UnityEngine;
 public class WallHanger : MonoBehaviour {
 
     GameObject mainCharacter;
-   
+    GameObject anvil;
+
     CameraScript cameraScript;
     MainCharacterSmithy mainCharacterScript;
     MCFurnace myHeat;
@@ -19,7 +20,7 @@ public class WallHanger : MonoBehaviour {
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
-
+        anvil = GameObject.FindGameObjectWithTag("Anvil");
     }
 	
 	// Update is called once per frame
@@ -37,12 +38,13 @@ public class WallHanger : MonoBehaviour {
         mainCharacterScript.SetControl(true);
         if (mainCharacterScript.GetTask() == 9.26f)
         {
+            anvil.GetComponent<BoxCollider2D>().enabled = true;
             if (bevelSmith != null)
             {
                 bevelSmith.SetActive(false);
 
             }
-            else
+            else if(anvilSmith!= null)
             {
                 anvilSmith.SetActive(false);
                 ElongateUI myElongateUI = (ElongateUI)anvilSmith.GetComponentInChildren(typeof(ElongateUI));
@@ -54,7 +56,7 @@ public class WallHanger : MonoBehaviour {
                 }
             }
         }
-        else if (mainCharacterScript.GetTask() == 7f)
+        else if (furnaceSmith != null)
         {
             heatUI = GameObject.FindGameObjectWithTag("HeatUI");
             myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));

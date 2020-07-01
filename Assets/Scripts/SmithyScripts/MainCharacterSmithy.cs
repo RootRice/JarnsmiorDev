@@ -32,6 +32,8 @@ public class MainCharacterSmithy : MonoBehaviour
 
     int stage;
 
+    S_GameManager myGameManager;
+
     // Use this for initialization
     void Start()
     {
@@ -54,6 +56,8 @@ public class MainCharacterSmithy : MonoBehaviour
         heatUI.SetActive(false);
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
+        myGameManager = S_GameManager.GetGameManagerScript();
+
 
     }
 
@@ -142,9 +146,9 @@ public class MainCharacterSmithy : MonoBehaviour
     void CheckTask()
     {
 
-        if (transform.position.x == 9.26f)
+        if (transform.position.x == 9.26f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {
-
+            GameObject.FindGameObjectWithTag("Anvil").GetComponent<BoxCollider2D>().enabled = false;
             if (!elongateOrBevel)
             {
                 canControl = false;
@@ -160,8 +164,14 @@ public class MainCharacterSmithy : MonoBehaviour
             }
 
         }
-        else if(transform.position.x == 7f)
+        else if(transform.position.x == 7f && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled)
         {
+            if(myGameManager.GetGameState() < S_GameManager.GameState.IngotHeated)
+            {
+
+                myGameManager.SetGameState(S_GameManager.GameState.IngotHeated);
+
+            }
             MCFurnace myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
             myHeat.setHeat(0.1f);
             canControl = false;
@@ -176,7 +186,7 @@ public class MainCharacterSmithy : MonoBehaviour
             gameObject.SetActive(false);
 
         }
-        else if(transform.position.x == 15.5f)
+        else if(transform.position.x == 15.5f && myGameManager.GetGameState() == S_GameManager.GameState.BarBevelled)
         {
 
             canControl = false;
@@ -186,12 +196,13 @@ public class MainCharacterSmithy : MonoBehaviour
                 .StartSharpeningAction();
 
         }
-        else if (transform.position.x == 2.24f)
+        else if (transform.position.x == 2.24f && myGameManager.GetGameState() == S_GameManager.GameState.JustStarted)
         {
+            myGameManager.SetGameState(S_GameManager.GameState.IngotObtained);
             canControl = true;
             heatUI.SetActive(true);
         }
-        else if(transform.position.x == 14.58f)
+        else if(transform.position.x == 14.58f && myGameManager.GetGameState() == S_GameManager.GameState.BarSharpened)
         {
 
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");

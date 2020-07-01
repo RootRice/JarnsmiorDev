@@ -28,6 +28,7 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void Stop()
 	{
+        grindStone.GetComponent<BoxCollider2D>().enabled = true;
         mainCharacter.SetActive(true);
         grindStoneAnimator.SetBool("IsSharpening", false);
         mSharpeningAlghoritm.Stop();
@@ -41,8 +42,10 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void StartSharpeningAction()
 	{
+        grindStone.GetComponent<BoxCollider2D>().enabled = false;
         mainCharacter.SetActive(false);
         grindStoneAnimator.SetBool("IsSharpening", true);
+        SetItemLength(PlayerPrefs.GetFloat("SwordLength"));
 		mSharpeningAlghoritm.StartSharpening();		
 	}
 

@@ -23,6 +23,7 @@ TagManager:
   - S_GameManager
   - Grindstone
   - GrindParticles
+  - Anvil
   layers:
   - Default
   - TransparentFX
