@@ -65,7 +65,7 @@ public class BevelUI : MonoBehaviour {
             CalculateRotation();
             hammerPivot.localRotation = transform.rotation;
         }
-        else if(slam)
+        else if(slam && canSmith)
         {
             SlamDown();
 
