@@ -267,8 +267,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
         myQuenchUI.AdjustValues(1, totalScore, 50);
 
-
-
     }
 
 }
