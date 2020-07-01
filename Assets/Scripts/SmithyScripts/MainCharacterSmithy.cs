@@ -34,6 +34,8 @@ public class MainCharacterSmithy : MonoBehaviour
 
     S_GameManager myGameManager;
 
+    GameObject QuenchingUI;
+
     // Use this for initialization
     void Start()
     {
@@ -57,6 +59,8 @@ public class MainCharacterSmithy : MonoBehaviour
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
         myGameManager = S_GameManager.GetGameManagerScript();
+        QuenchingUI = GameObject.FindGameObjectWithTag("QuenchingUI");
+        QuenchingUI.SetActive(false);
 
 
     }
@@ -204,7 +208,7 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 14.58f && myGameManager.GetGameState() == S_GameManager.GameState.BarSharpened)
         {
-
+            QuenchingUI.SetActive(true);
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
             QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
             myQuenchUI.showState(true);

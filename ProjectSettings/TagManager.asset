@@ -24,6 +24,7 @@ TagManager:
   - Grindstone
   - GrindParticles
   - Anvil
+  - QuenchingUI
   layers:
   - Default
   - TransparentFX
