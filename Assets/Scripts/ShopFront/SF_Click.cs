@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEngine.UI; // This is so that it should find the Text component
-using UnityEngine.Events; // This is so that you can extend the pointer handlers
-using UnityEngine.EventSystems; // This is so that you can extend the pointer handlers
+using UnityEngine.UI;
 
 public class SF_Click : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler {
  
