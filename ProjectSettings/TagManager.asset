@@ -25,6 +25,8 @@ TagManager:
   - GrindParticles
   - Anvil
   - QuenchingUI
+  - ToDoList
+  - ToDoListHint
   layers:
   - Default
   - TransparentFX
