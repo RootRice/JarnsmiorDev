@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Timer
 {
@@ -11,7 +9,6 @@ public class Timer
 
     public void Update()
     {
-		Debug.Log(timeStart);
         if (timerIsRunning)
         {
             timeStart += Time.deltaTime;
