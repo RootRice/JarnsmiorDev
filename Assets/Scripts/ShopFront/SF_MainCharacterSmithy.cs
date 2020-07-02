@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SF_MainCharacterSmithy : MonoBehaviour
 {
@@ -132,11 +133,10 @@ public class SF_MainCharacterSmithy : MonoBehaviour
     void CheckTask()
     {
 
-        if (transform.position.x == 9.26f)
+        if (transform.position.x == 15.68f)
         {
 
-            canControl = false;
-            gameObject.SetActive(false);
+            SceneManager.LoadScene(2);
 
         }
         else if(transform.position.x == 7f)

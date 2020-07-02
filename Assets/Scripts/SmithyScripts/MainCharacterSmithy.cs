@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainCharacterSmithy : MonoBehaviour
 {
@@ -216,6 +217,12 @@ public class MainCharacterSmithy : MonoBehaviour
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
             QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
             myQuenchUI.showState(true);
+
+        }
+        else if(transform.position.x == 2.65f)
+        {
+
+            SceneManager.LoadScene(1);
 
         }
 
