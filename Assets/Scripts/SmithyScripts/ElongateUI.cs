@@ -137,7 +137,7 @@ public class ElongateUI : MonoBehaviour {
 
                 particlesSpawned = true;
                 Instantiate(worldParticles, new Vector3(9.93f, 4.49f, 0f), worldParticles.transform.rotation);
-                Instantiate(UIParticles, new Vector3(7.68f, 4.31f, 0f), worldParticles.transform.rotation);
+                Instantiate(UIParticles, new Vector3(6.54f, 4.41f, 0f), worldParticles.transform.rotation);
                 //Instantiate(particles, new Vector3(7.68f, 4.31f, 0f), transform.rotation);
                 //particles.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
 

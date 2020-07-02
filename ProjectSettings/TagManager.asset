@@ -25,6 +25,7 @@ TagManager:
   - GrindParticles
   - Anvil
   - QuenchingUI
+  - Wedge
   layers:
   - Default
   - TransparentFX

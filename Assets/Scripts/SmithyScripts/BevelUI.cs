@@ -31,11 +31,18 @@ public class BevelUI : MonoBehaviour {
     public GameObject UIParticles;
     GameObject heatUI;
     MCFurnace myFurnace;
+
+    GameObject wedge;
+    SpriteRenderer wedgeRenderer;
+    public Sprite half;
+    public Sprite full;
     
 
     // Use this for initialization
     void Start()
     {
+        wedge = GameObject.FindGameObjectWithTag("Wedge");
+        wedgeRenderer = wedge.GetComponent<SpriteRenderer>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
         _sensitivity = 0.2f;
@@ -165,6 +172,7 @@ public class BevelUI : MonoBehaviour {
             myFurnace.CheckTemp();
             Debug.Log(hitStore[counter]);
             counter += 1;
+            
             if (counter >= 10)
             {
                 canSmith = false;
@@ -194,6 +202,18 @@ public class BevelUI : MonoBehaviour {
                 if (hammerHead.transform.position == hammerPivot.transform.position)
                 {
                     slamComplete = true;
+                    if (counter == 4)
+                    {
+
+                        wedgeRenderer.sprite = half;
+
+                    }
+                    else if (counter == 8)
+                    {
+
+                        wedgeRenderer.sprite = full;
+
+                    }
                 }
             }
             else if (!particlesSpawned)
