@@ -22,10 +22,21 @@ public class S_GameManager : MonoBehaviour {
         SwordQuenched = 6
     }
 	private GameState mGameState;
+
+	private bool tutorialEnded = false;
+    public enum TutorialState : ushort
+    {
+        None = 0,
+        Elongation = 1,
+        Bevelling = 2,
+        Heating = 3
+    }
+	private TutorialState mTutorialState;
 	// Use this for initialization
 	void Start ()
 	{
 		mGameState = GameState.JustStarted;
+		mTutorialState = TutorialState.None;
 	}
 	
 	// Update is called once per frame
@@ -52,5 +63,23 @@ public class S_GameManager : MonoBehaviour {
 			mGameState++;
 		}
 	}
+
+	public void SetTutorialState(TutorialState mTutorialState)
+	{
+		if(!tutorialEnded)
+		{
+			this.mTutorialState = mTutorialState;
+		}
+		if(mTutorialState == TutorialState.None)
+		{
+			// tutorialEnded = true;
+		}
+	}
+
+	public TutorialState GetTutorialState()
+	{
+		return this.mTutorialState;
+	}
+
 
 }

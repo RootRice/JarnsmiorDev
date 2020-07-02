@@ -25,17 +25,17 @@ public class ToDoListHint : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(mGameManager.GetGameState() == S_GameManager.GameState.IngotObtained)
+		if(mGameManager.GetTutorialState() == S_GameManager.TutorialState.Heating)
 		{
 			transform.localScale = new Vector3(1, 1, 1);
 			gameObject.GetComponent<Image>().sprite = toDoListHint1;
 		}
-		else if(mGameManager.GetGameState() == S_GameManager.GameState.IngotHeated)
+		else if(mGameManager.GetTutorialState() == S_GameManager.TutorialState.Elongation)
 		{
 			transform.localScale = new Vector3(1, 1, 1);
 			gameObject.GetComponent<Image>().sprite = toDoListHint2;
 		}
-		else if(mGameManager.GetGameState() == S_GameManager.GameState.BarElongated)
+		else if(mGameManager.GetTutorialState() == S_GameManager.TutorialState.Bevelling)
 		{
 			transform.localScale = new Vector3(1, 1, 1);
 			gameObject.GetComponent<Image>().sprite = toDoListHint3;

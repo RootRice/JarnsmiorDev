@@ -39,10 +39,14 @@ public class BevelUI : MonoBehaviour {
 
     AudioSource myAudioSource;
 
+    S_GameManager myGameManager;
+
     // Use this for initialization
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
+        myGameManager = S_GameManager.GetGameManagerScript();
+
         wedge = GameObject.FindGameObjectWithTag("Wedge");
         wedgeRenderer = wedge.GetComponent<SpriteRenderer>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
@@ -72,6 +76,7 @@ public class BevelUI : MonoBehaviour {
 
         if(canSmith)
         {
+            myGameManager.SetTutorialState(S_GameManager.TutorialState.Bevelling);
             if(slam)
             {
                 SlamDown();

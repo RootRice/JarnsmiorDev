@@ -181,6 +181,7 @@ public class MainCharacterSmithy : MonoBehaviour
             MCFurnace myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
             myHeat.setHeat(0.1f);
             canControl = false;
+            myGameManager.SetTutorialState(S_GameManager.TutorialState.Heating);
             furnaceSmith.SetActive(true);
             gameObject.SetActive(false);
         }
