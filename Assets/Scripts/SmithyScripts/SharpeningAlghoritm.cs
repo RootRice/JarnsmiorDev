@@ -258,7 +258,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
         myQuenchUI.AdjustValues(1, totalScore, 50);
-        hitStore = new List<float>();
 
     }
 
