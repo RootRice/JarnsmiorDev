@@ -31,8 +31,8 @@ public class AnvilSmithy : MonoBehaviour {
         {
 
             //mainCharacterScript.SetTarget;
-            mainCharacterScript.SetTarget(new Vector3(9.26f, 5.04f, 0));
-            cameraScript.SetTarget(new Vector3(9.64f, 4.91f, -10f), 3.0f);
+            mainCharacterScript.SetTarget(new Vector3(8.11f, 5.04f, 0));
+            cameraScript.SetTarget(new Vector3(8.49f, 4.91f, -10f), 3.0f);
 
         }
     }

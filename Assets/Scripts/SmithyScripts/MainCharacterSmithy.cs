@@ -149,7 +149,7 @@ public class MainCharacterSmithy : MonoBehaviour
     void CheckTask()
     {
 
-        if (transform.position.x == 9.26f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
+        if (transform.position.x == 8.11f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {
             GameObject.FindGameObjectWithTag("Anvil").GetComponent<BoxCollider2D>().enabled = false;
             if (!elongateOrBevel)

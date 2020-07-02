@@ -36,7 +36,7 @@ public class WallHanger : MonoBehaviour {
         GameObject bevelSmith = GameObject.FindGameObjectWithTag("MCBevel");
         mainCharacter.SetActive(true);
         mainCharacterScript.SetControl(true);
-        if (mainCharacterScript.GetTask() == 9.26f)
+        if (mainCharacterScript.GetTask() == 8.11f)
         {
             anvil.GetComponent<BoxCollider2D>().enabled = true;
             if (bevelSmith != null)
