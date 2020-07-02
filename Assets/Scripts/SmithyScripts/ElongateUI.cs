@@ -35,12 +35,15 @@ public class ElongateUI : MonoBehaviour {
     MCFurnace myFurnace;
     AudioSource myAudioSource;
 
+    S_GameManager myGameManager;
+
     // Use this for initialization
     void Start ()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
+        myGameManager = S_GameManager.GetGameManagerScript();
 
         topPosition = new Vector3(6.54f, 5.204f);
         bottomPosition = new Vector3(6.54f, 3.41f);
@@ -62,6 +65,7 @@ public class ElongateUI : MonoBehaviour {
     {
         if (canSmith)
         {
+            myGameManager.SetTutorialState(S_GameManager.TutorialState.Elongation);
             if (!slam)
             {
                 CalculateSpeed();

@@ -14,9 +14,12 @@ public class WallHanger : MonoBehaviour {
     GameObject heatUI;
     GameObject quenchingUI;
 
+    S_GameManager myGameManager;
+
     // Use this for initialization
     void Start ()
     {
+        myGameManager = S_GameManager.GetGameManagerScript();
         quenchingUI = GameObject.FindGameObjectWithTag("QuenchingUI");
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
@@ -33,6 +36,7 @@ public class WallHanger : MonoBehaviour {
 
     void OnMouseDown()
     {
+        myGameManager.SetTutorialState(S_GameManager.TutorialState.None);
         PlayerPrefs.SetFloat("Fade", 0f);
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         GameObject furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
