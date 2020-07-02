@@ -11,11 +11,12 @@ public class SwordMovement : MonoBehaviour {
 	bool finalAnimation = false;
     public GameObject sharpeningParticles;
     ParticleSystem myParticles;
-
+    AudioSource myAudioSource;
     // Use this for initialization
     void Start ()
 	{
-		posX = transform.position.x;
+        myAudioSource = gameObject.GetComponent<AudioSource>();
+        posX = transform.position.x;
         myParticles = sharpeningParticles.GetComponent<ParticleSystem>();
     }
 	
@@ -46,7 +47,7 @@ public class SwordMovement : MonoBehaviour {
 		{
 			posX = transform.position.x;
 		}
-		transform.localScale = new Vector3(0.7f, length/2, 1.0f);
+		transform.localScale = new Vector3(0.2f, length/4, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
 		ActionDone = false;
 		finalAnimation = false;
@@ -76,6 +77,7 @@ public class SwordMovement : MonoBehaviour {
 
     void OnMouseDown()
     {
+        myAudioSource.Play();
         sharpeningParticles.SetActive(true);
         myParticles.Play();
         mouseDown = true;
@@ -83,6 +85,7 @@ public class SwordMovement : MonoBehaviour {
     }
     void OnMouseUp()
     {
+        myAudioSource.Stop();
         myParticles.Stop();
         mouseDown = false;
 

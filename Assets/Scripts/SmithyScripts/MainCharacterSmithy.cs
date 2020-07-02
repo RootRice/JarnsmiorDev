@@ -35,10 +35,12 @@ public class MainCharacterSmithy : MonoBehaviour
     S_GameManager myGameManager;
 
     GameObject QuenchingUI;
+    AudioSource myAudioSource;
 
     // Use this for initialization
     void Start()
     {
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         isMoving = true;
         myAnimator = GetComponent<Animator>();
         myRenderer = GetComponent<Renderer>();
@@ -205,6 +207,7 @@ public class MainCharacterSmithy : MonoBehaviour
             myGameManager.SetGameState(S_GameManager.GameState.IngotObtained);
             canControl = true;
             heatUI.SetActive(true);
+            myAudioSource.Play();
         }
         else if(transform.position.x == 14.58f && myGameManager.GetGameState() == S_GameManager.GameState.BarSharpened)
         {

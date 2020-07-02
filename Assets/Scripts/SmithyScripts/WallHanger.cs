@@ -12,11 +12,13 @@ public class WallHanger : MonoBehaviour {
     MCFurnace myHeat;
 
     GameObject heatUI;
+    GameObject quenchingUI;
 
     // Use this for initialization
     void Start ()
     {
-		mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
+        quenchingUI = GameObject.FindGameObjectWithTag("QuenchingUI");
+        mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         cameraScript = (CameraScript)cameraObj.GetComponent(typeof(CameraScript));
@@ -67,7 +69,12 @@ public class WallHanger : MonoBehaviour {
         }
         mainCharacterScript.StopAction();
 
-        
+        if(quenchingUI != null)
+        {
+
+            quenchingUI.SetActive(false);
+
+        }
         
         
         cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);

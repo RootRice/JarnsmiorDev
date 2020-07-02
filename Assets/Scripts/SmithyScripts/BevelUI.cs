@@ -36,11 +36,13 @@ public class BevelUI : MonoBehaviour {
     SpriteRenderer wedgeRenderer;
     public Sprite half;
     public Sprite full;
-    
+
+    AudioSource myAudioSource;
 
     // Use this for initialization
     void Start()
     {
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         wedge = GameObject.FindGameObjectWithTag("Wedge");
         wedgeRenderer = wedge.GetComponent<SpriteRenderer>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
@@ -163,7 +165,7 @@ public class BevelUI : MonoBehaviour {
 
     public float BeginSlam()
     {
-
+        myAudioSource.Play();
         if (!slam)
         {
             slam = true;

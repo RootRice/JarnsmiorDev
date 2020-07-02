@@ -9,11 +9,13 @@ public class SharpeningAction : MonoBehaviour {
     GameObject mainCharacter;
     SharpeningAlghoritm mSharpeningAlghoritm;
     Animator grindStoneAnimator;
+    
 
 
     // Use this for initialization
     void Start ()
     {
+        
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
         mSharpeningAlghoritm = (SharpeningAlghoritm)swordHolder.GetComponent(typeof(SharpeningAlghoritm));

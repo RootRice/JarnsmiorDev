@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ElongateUI : MonoBehaviour {
 
@@ -32,10 +33,12 @@ public class ElongateUI : MonoBehaviour {
 
     GameObject heatUI;
     MCFurnace myFurnace;
+    AudioSource myAudioSource;
 
     // Use this for initialization
     void Start ()
     {
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
 
@@ -124,6 +127,7 @@ public class ElongateUI : MonoBehaviour {
     void SlamDown()
     {
         animationTimer += Time.deltaTime;
+        
         if (animationTimer >= timeToWait)
         {
             
@@ -131,12 +135,13 @@ public class ElongateUI : MonoBehaviour {
             {
                 hammerRenderer.sprite = hammerDown;
                 transform.position = Vector3.MoveTowards(transform.position, bottomPosition, speed * Time.deltaTime);
+                
             }
             else if(!particlesSpawned)
             {
-
+                
                 particlesSpawned = true;
-                Instantiate(worldParticles, new Vector3(9.93f, 4.49f, 0f), worldParticles.transform.rotation);
+                Instantiate(worldParticles, new Vector3(8.6f, 4.49f, 0f), worldParticles.transform.rotation);
                 Instantiate(UIParticles, new Vector3(6.54f, 4.41f, 0f), worldParticles.transform.rotation);
                 //Instantiate(particles, new Vector3(7.68f, 4.31f, 0f), transform.rotation);
                 //particles.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
@@ -164,7 +169,7 @@ public class ElongateUI : MonoBehaviour {
 
     public float BeginSlam()
     {
-
+        myAudioSource.Play();
         if (!slam)
         {
             slam = true;

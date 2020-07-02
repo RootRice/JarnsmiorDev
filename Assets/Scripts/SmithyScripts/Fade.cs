@@ -20,7 +20,6 @@ public class Fade : MonoBehaviour {
         
         if (PlayerPrefs.GetFloat("Fade") > currentAlpha)
         {
-            Debug.Log("Happening");
             currentAlpha += 0.5f * Time.deltaTime;
             if(currentAlpha > 1)
             {
@@ -33,7 +32,6 @@ public class Fade : MonoBehaviour {
         }
         else if(PlayerPrefs.GetFloat("Fade") < currentAlpha)
         {
-            Debug.Log("Happening");
             currentAlpha -= 0.5f * Time.deltaTime;
             if (currentAlpha < 0)
             {
