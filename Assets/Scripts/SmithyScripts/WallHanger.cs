@@ -31,6 +31,7 @@ public class WallHanger : MonoBehaviour {
 
     void OnMouseDown()
     {
+        PlayerPrefs.SetFloat("Fade", 0f);
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         GameObject furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         GameObject bevelSmith = GameObject.FindGameObjectWithTag("MCBevel");
