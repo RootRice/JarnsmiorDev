@@ -149,8 +149,9 @@ public class MainCharacterSmithy : MonoBehaviour
     void CheckTask()
     {
 
-        if (transform.position.x == 9.26f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
+        if (transform.position.x == 8.11f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {
+            PlayerPrefs.SetFloat("Fade", 0.7f);
             GameObject.FindGameObjectWithTag("Anvil").GetComponent<BoxCollider2D>().enabled = false;
             if (!elongateOrBevel)
             {
@@ -195,7 +196,7 @@ public class MainCharacterSmithy : MonoBehaviour
             canControl = false;
             grindstoneSmith.SetActive(true);
             mSharpeningAction
-                .SetItemLength(Random.Range(0.3f, 1.0f))
+                //.SetItemLength(Random.Range(0.7f, 1.0f))
                 .StartSharpeningAction();
 
         }

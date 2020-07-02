@@ -31,12 +31,13 @@ public class WallHanger : MonoBehaviour {
 
     void OnMouseDown()
     {
+        PlayerPrefs.SetFloat("Fade", 0f);
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
         GameObject furnaceSmith = GameObject.FindGameObjectWithTag("MCFurnace");
         GameObject bevelSmith = GameObject.FindGameObjectWithTag("MCBevel");
         mainCharacter.SetActive(true);
         mainCharacterScript.SetControl(true);
-        if (mainCharacterScript.GetTask() == 9.26f)
+        if (mainCharacterScript.GetTask() == 8.11f)
         {
             anvil.GetComponent<BoxCollider2D>().enabled = true;
             if (bevelSmith != null)

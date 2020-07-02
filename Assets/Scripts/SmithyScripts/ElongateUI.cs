@@ -39,8 +39,8 @@ public class ElongateUI : MonoBehaviour {
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
 
-        topPosition = new Vector3(7.49f, 5.204f);
-        bottomPosition = new Vector3(7.49f, 3.41f);
+        topPosition = new Vector3(6.54f, 5.204f);
+        bottomPosition = new Vector3(6.54f, 3.41f);
 
         SpriteRenderer[] uiSprites = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer uiSprite in uiSprites)
@@ -181,7 +181,6 @@ public class ElongateUI : MonoBehaviour {
 
             hitStore[counter] = botdist;
             myFurnace.CheckTemp();
-            Debug.Log(hitStore[counter]);
             counter += 1;
             if (counter >= 10)
             {

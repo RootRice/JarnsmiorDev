@@ -31,11 +31,12 @@ public class S_GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		
+
 	}
 
 	public void SetGameState(GameState mGameState)
 	{
+        Debug.Log(mGameState);
 		this.mGameState = mGameState;
 	}
 
