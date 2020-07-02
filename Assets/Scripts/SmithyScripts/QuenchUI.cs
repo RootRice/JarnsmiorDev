@@ -10,10 +10,13 @@ public class QuenchUI : MonoBehaviour {
     float totalScore = 0;
     float averageScore = 0;
 
+    public GameObject steam;
+
 
 	// Use this for initialization
 	void Start ()
     {
+        steam.SetActive(false);
         Transform[] temp = gameObject.GetComponentsInChildren<Transform>();
         int i = 0;
         foreach (Transform bar in temp)
@@ -44,7 +47,7 @@ public class QuenchUI : MonoBehaviour {
 
     public void showState(bool state)
     {
-
+        steam.SetActive(true);
         shouldShowScore = state;
 
     }
