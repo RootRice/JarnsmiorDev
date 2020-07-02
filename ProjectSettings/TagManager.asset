@@ -26,6 +26,8 @@ TagManager:
   - Anvil
   - QuenchingUI
   - Wedge
+  - ToDoList
+  - ToDoListHint
   layers:
   - Default
   - TransparentFX
