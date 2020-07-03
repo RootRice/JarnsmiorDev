@@ -37,10 +37,19 @@ public class MainCharacterSmithy : MonoBehaviour
 
     GameObject QuenchingUI;
     AudioSource myAudioSource;
+    AudioSource footSteps;
 
     // Use this for initialization
     void Start()
     {
+        AudioSource[] footStepArray = gameObject.GetComponentsInChildren<AudioSource>();
+        foreach (AudioSource footStep in footStepArray)
+        {
+            if (footStep.gameObject.transform.parent.localPosition.x == 0.0f)
+            {
+                footSteps = footStep; 
+            }
+        }
         myAudioSource = gameObject.GetComponent<AudioSource>();
         isMoving = true;
         myAnimator = GetComponent<Animator>();
@@ -94,6 +103,7 @@ public class MainCharacterSmithy : MonoBehaviour
                     isMoving = false;
                     canControl = true;
                     targets[0] = gameObject.transform.position;
+                    footSteps.Stop();
                     CheckTask();
                 }
                 else if (targets[numberOfTargets] == new Vector3(12.98f, 10.02f, 0f) && targets[1] == new Vector3(2.65f, 10.04f, 0f))// checks if the player is headed for the door
@@ -251,6 +261,7 @@ public class MainCharacterSmithy : MonoBehaviour
     public void SetTarget(Vector3 target)
     {
         myAnimator.SetBool("Walking", true);
+        footSteps.Play();
         targets[1] = target;
         isMoving = true;
         canControl = false;
@@ -271,6 +282,7 @@ public class MainCharacterSmithy : MonoBehaviour
     public void SetTarget(Vector3 target1, Vector3 target2)
     {
         myAnimator.SetBool("Walking", true);
+        footSteps.Play();
         targets[1] = target2;
         targets[2] = target1;
         isMoving = true;
@@ -292,6 +304,7 @@ public class MainCharacterSmithy : MonoBehaviour
     public void SetTarget(Vector3 target1, Vector3 target2, Vector3 target3)
     {
         myAnimator.SetBool("Walking", true);
+        footSteps.Play();
         targets[1] = target3;
         targets[2] = target2;
         targets[3] = target1;
@@ -314,6 +327,7 @@ public class MainCharacterSmithy : MonoBehaviour
     public void SetTarget(Vector3 target1, Vector3 target2, Vector3 target3, Vector3 target4)
     {
         myAnimator.SetBool("Walking", true);
+        footSteps.Play();
         targets[1] = target4;
         targets[2] = target3;
         targets[3] = target2;
