@@ -29,7 +29,8 @@ public class S_GameManager : MonoBehaviour {
         None = 0,
         Elongation = 1,
         Bevelling = 2,
-        Heating = 3
+        Heating = 3,
+        Sharpening = 4
     }
 	private TutorialState mTutorialState;
 	// Use this for initialization

@@ -21,10 +21,18 @@ public class ToDoList : MonoBehaviour {
 	public Sprite toDoList6;
 	public Sprite toDoList7;
 
-	// Use this for initialization
-	void Start ()
+    RectTransform myTransform;
+    public Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
+    int numberOfTargets;
+    bool isMoving = false;
+    float speed = 12.5f;
+    bool upOrDown = true;
+
+    // Use this for initialization
+    void Start ()
 	{
-		mGameManager = S_GameManager.GetGameManagerScript();
+        myTransform = gameObject.GetComponent<RectTransform>();
+        mGameManager = S_GameManager.GetGameManagerScript();
 	}
 	
 	// Update is called once per frame
@@ -58,5 +66,74 @@ public class ToDoList : MonoBehaviour {
 		{
 			gameObject.GetComponent<Image>().sprite = toDoList7;
 		}
-	}
+        if (isMoving)
+        {
+            if (MoveTowards(targets[numberOfTargets]))
+            {
+                speed = 12.5f;
+                numberOfTargets -= 1;
+                Debug.Log(numberOfTargets);
+                if (numberOfTargets == 0)
+                {
+                    speed = 12.5f;
+                    upOrDown = !upOrDown;
+                    isMoving = false;
+
+                }
+            }
+
+        }
+    }
+
+    bool MoveTowards(Vector3 target)
+    {
+
+        myTransform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        speed = speed * 1.2f;
+
+
+        Debug.Log(myTransform.position);
+        Debug.Log(target);
+        if (myTransform.position.y <= target.y && target.y < 414.63f)
+        {
+
+            return true;
+
+        }
+        else if (myTransform.position.y >= target.y - 1 && target.y > 413.63f)
+        {
+
+            return true;
+
+        }
+        else
+        {
+
+            return false;
+
+        }
+
+        
+    }
+
+    public void SetTarget(Vector3 target1, Vector3 target2)
+    {
+        targets[1] = target2;
+        targets[2] = target1;
+        isMoving = true;
+        numberOfTargets = 2;
+    }
+
+    public void Click()
+    {
+        if (upOrDown)
+        {
+            SetTarget(new Vector3(918.16f, 413.63f, 0f), new Vector3(918.16f, 624.18f, 0f));
+        }
+        else
+        {
+            SetTarget(new Vector3(918.16f, 413.63f, 0f), new Vector3(918.16f, 424.6f, 0f));
+        }
+
+    }
 }

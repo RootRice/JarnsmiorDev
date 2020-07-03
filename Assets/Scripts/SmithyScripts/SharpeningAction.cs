@@ -9,13 +9,14 @@ public class SharpeningAction : MonoBehaviour {
     GameObject mainCharacter;
     SharpeningAlghoritm mSharpeningAlghoritm;
     Animator grindStoneAnimator;
-    
+
+    S_GameManager gameManager;
 
 
     // Use this for initialization
     void Start ()
     {
-        
+        gameManager = S_GameManager.GetGameManagerScript();
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
         mSharpeningAlghoritm = (SharpeningAlghoritm)swordHolder.GetComponent(typeof(SharpeningAlghoritm));
@@ -30,6 +31,7 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void Stop()
 	{
+        gameManager.SetTutorialState(S_GameManager.TutorialState.None);
         PlayerPrefs.SetFloat("Fade", 0f);
         grindStone.GetComponent<SpriteRenderer>().sortingOrder = 3;
         grindStone.GetComponent<BoxCollider2D>().enabled = true;
@@ -46,6 +48,7 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void StartSharpeningAction()
 	{
+        gameManager.SetTutorialState(S_GameManager.TutorialState.Sharpening);
         PlayerPrefs.SetFloat("Fade", 0.7f);
         grindStone.GetComponent<SpriteRenderer>().sortingOrder = 5;
         grindStone.GetComponent<BoxCollider2D>().enabled = false;

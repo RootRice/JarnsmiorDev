@@ -40,7 +40,7 @@ public class LandingCamera : MonoBehaviour {
                 numberOfTargets -= 1;
                 if (numberOfTargets == 0)
                 {
-
+                    SceneManager.LoadScene(1);
                     toMove = false;
 
                 }
@@ -48,20 +48,20 @@ public class LandingCamera : MonoBehaviour {
             }
 
         }
-        if (Mathf.Abs(toZoom - gameCamera.orthographicSize) > 0.02f)
+        if (Mathf.Abs(toZoom - gameCamera.orthographicSize) > 0.05f)
         {
 
             if (!zoomDir)
             {
 
                 float opacity = gameCamera.orthographicSize / 6.3f;
-                gameCamera.orthographicSize += 0.02f;
+                gameCamera.orthographicSize += 0.05f;
 
             }
             else
             {
                 float opacity = gameCamera.orthographicSize / 6.3f;
-                gameCamera.orthographicSize -= 0.02f;
+                gameCamera.orthographicSize -= 0.05f;
             }
         }
         else
@@ -72,7 +72,7 @@ public class LandingCamera : MonoBehaviour {
         if(gameCamera.orthographicSize == toZoom && transform.position.x != 0)
         {
 
-            SceneManager.LoadScene(1);
+            
 
         }
     }
