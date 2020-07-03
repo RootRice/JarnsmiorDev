@@ -21,6 +21,10 @@ public class ToDoList : MonoBehaviour {
 	public Sprite toDoList6;
 	public Sprite toDoList7;
 
+    public GameObject up;
+    public GameObject down;
+    public GameObject rest;
+
     RectTransform myTransform;
     public Vector3[] targets = { new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f) };
     int numberOfTargets;
@@ -72,7 +76,6 @@ public class ToDoList : MonoBehaviour {
             {
                 speed = 12.5f;
                 numberOfTargets -= 1;
-                Debug.Log(numberOfTargets);
                 if (numberOfTargets == 0)
                 {
                     speed = 12.5f;
@@ -91,16 +94,12 @@ public class ToDoList : MonoBehaviour {
         myTransform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         speed = speed * 1.2f;
 
-
-        Debug.Log(myTransform.position);
-        Debug.Log(target);
-        if (myTransform.position.y <= target.y && target.y < 414.63f)
+        if (myTransform.position.y == target.y)// && target.y < rest.transform.position.y+10)
         {
-
             return true;
 
         }
-        else if (myTransform.position.y >= target.y - 1 && target.y > 413.63f)
+        else if (myTransform.position.y == target.y)// && target.y > rest.transform.position.y +1)
         {
 
             return true;
@@ -128,11 +127,11 @@ public class ToDoList : MonoBehaviour {
     {
         if (upOrDown)
         {
-            SetTarget(new Vector3(918.16f, 413.63f, 0f), new Vector3(918.16f, 624.18f, 0f));
+            SetTarget(down.transform.position, up.transform.position);
         }
         else
         {
-            SetTarget(new Vector3(918.16f, 413.63f, 0f), new Vector3(918.16f, 424.6f, 0f));
+            SetTarget(down.transform.position, rest.transform.position);
         }
 
     }

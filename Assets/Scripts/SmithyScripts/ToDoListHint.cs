@@ -24,6 +24,10 @@ public class ToDoListHint : MonoBehaviour {
     float speed = 12.5f;
     bool upOrDown = true;
 
+    public GameObject up;
+    public GameObject down;
+    public GameObject rest;
+
     // Use this for initialization
     void Start ()
 	{
@@ -87,13 +91,13 @@ public class ToDoListHint : MonoBehaviour {
 
         Debug.Log(myTransform.position);
         Debug.Log(target);
-        if (myTransform.position.y >= target.y && target.y > 117.4f)
+        if (myTransform.position.y+1 >= target.y && target.y > rest.transform.position.y)
         {
 
             return true;
 
         }
-        else if (myTransform.position.y <= target.y+1 && target.y < 116.5f)
+        else if (myTransform.position.y -1 <= target.y && target.y < rest.transform.position.y+1)
         {
 
             return true;
@@ -120,11 +124,11 @@ public class ToDoListHint : MonoBehaviour {
     {
         if (upOrDown)
         {
-            SetTarget(new Vector3(108.8f, 122.3f, 0f), new Vector3(108.8f, -76.7f, 0f));
+            SetTarget(up.transform.position, down.transform.position);
         }
         else
         {
-            SetTarget(new Vector3(108.8f, 122.3f, 0f), new Vector3(108.8f, 116.4f, 0f));
+            SetTarget(up.transform.position, rest.transform.position);
         }
 
     }
