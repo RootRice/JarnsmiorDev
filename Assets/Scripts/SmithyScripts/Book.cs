@@ -15,10 +15,21 @@ public class Book : MonoBehaviour {
 
     CameraScript cameraScript;
     MainCharacterSmithy mainCharacterScript;
+    AudioSource myAudioSource;
+    AudioSource closeAudioSource;
 
     // Use this for initialization
     void Start ()
     {
+        AudioSource[] bookArray = gameObject.GetComponentsInChildren<AudioSource>();
+        foreach (AudioSource book in bookArray)
+        {
+            if (book.gameObject.transform.parent.localPosition.x == 21.55f)
+            {
+                closeAudioSource = book;
+            }
+        }
+        myAudioSource = GetComponent<AudioSource>();
         myRenderer = GetComponent<SpriteRenderer>();
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         mainCharacterScript = (MainCharacterSmithy)mainCharacter.GetComponent(typeof(MainCharacterSmithy));
@@ -42,6 +53,7 @@ public class Book : MonoBehaviour {
 
     public void GoToChapter(int chapter)
     {
+        myAudioSource.Play();
         if (currentPage == 0)
         {
             myRenderer.sprite = pages[chapter];
@@ -55,22 +67,22 @@ public class Book : MonoBehaviour {
 
     public void ModifyPage(bool switchPage)
     {
-
+        
         if (switchPage && currentPage < pages.Length - 1)
         {
-
+            myAudioSource.Play();
             currentPage += 1;
 
         }
         else if(!switchPage && currentPage > 0)
         {
-
+            myAudioSource.Play();
             currentPage -= 1;
 
         }
         else if(!switchPage && currentPage == 0)
         {
-
+            closeAudioSource.Play();
             mainCharacter.SetActive(true);
             mainCharacterScript.SetControl(true);
             cameraScript.SetPosition(new Vector3(2.56f, 5.49f, -10f), 0.68f);
@@ -83,6 +95,7 @@ public class Book : MonoBehaviour {
 
     void OnMouseDown()
     {
+        closeAudioSource.Play();
         mainCharacter.SetActive(true);
         mainCharacterScript.SetControl(true);
         cameraScript.SetPosition(new Vector3(2.56f, 5.49f, -10f), 0.68f);
