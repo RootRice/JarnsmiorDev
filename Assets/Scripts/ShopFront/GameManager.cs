@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
 			if(mTimer.TargetReached())
 			{
 				SF_NPC.GetScript().TableToDoor();
+				SF_MainCharacterSmithy.GetScript().SetControl(true);
 				mTimer = null;
 			}
 		}
