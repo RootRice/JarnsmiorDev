@@ -32,9 +32,12 @@ public class ToDoList : MonoBehaviour {
     float speed = 12.5f;
     bool upOrDown = true;
 
+    AudioSource myAudioSource;
+
     // Use this for initialization
     void Start ()
 	{
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         myTransform = gameObject.GetComponent<RectTransform>();
         mGameManager = S_GameManager.GetGameManagerScript();
 	}
@@ -125,6 +128,7 @@ public class ToDoList : MonoBehaviour {
 
     public void Click()
     {
+        myAudioSource.Play();
         if (upOrDown)
         {
             SetTarget(down.transform.position, up.transform.position);

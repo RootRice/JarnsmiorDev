@@ -28,9 +28,11 @@ public class ToDoListHint : MonoBehaviour {
     public GameObject down;
     public GameObject rest;
 
+    AudioSource myAudioSource;
     // Use this for initialization
     void Start ()
 	{
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         myTransform = gameObject.GetComponent<RectTransform>();
 		mGameManager = S_GameManager.GetGameManagerScript();
 	}
@@ -122,6 +124,7 @@ public class ToDoListHint : MonoBehaviour {
 
     public void Click()
     {
+        myAudioSource.Play();
         if (upOrDown)
         {
             SetTarget(up.transform.position, down.transform.position);

@@ -11,11 +11,14 @@ public class SharpeningAction : MonoBehaviour {
     Animator grindStoneAnimator;
 
     S_GameManager gameManager;
-
+    GameObject theWallHanger;
+    WallHanger myWallHanger;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
+        theWallHanger = GameObject.FindGameObjectWithTag("WallHanger");
+        myWallHanger = (WallHanger)theWallHanger.GetComponent(typeof(WallHanger));
         gameManager = S_GameManager.GetGameManagerScript();
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
         swordHolder = GameObject.FindGameObjectWithTag("SwordHolder");
@@ -31,6 +34,7 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void Stop()
 	{
+        myWallHanger.SetHangerState(0);
         gameManager.SetTutorialState(S_GameManager.TutorialState.None);
         PlayerPrefs.SetFloat("Fade", 0f);
         grindStone.GetComponent<SpriteRenderer>().sortingOrder = 3;

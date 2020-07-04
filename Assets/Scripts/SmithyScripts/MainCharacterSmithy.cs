@@ -39,9 +39,14 @@ public class MainCharacterSmithy : MonoBehaviour
     AudioSource myAudioSource;
     AudioSource footSteps;
 
+    GameObject theWallHanger;
+    WallHanger myWallHanger;
+
     // Use this for initialization
     void Start()
     {
+        theWallHanger = GameObject.FindGameObjectWithTag("WallHanger");
+        myWallHanger = (WallHanger)theWallHanger.GetComponent(typeof(WallHanger));
         AudioSource[] footStepArray = gameObject.GetComponentsInChildren<AudioSource>();
         foreach (AudioSource footStep in footStepArray)
         {
@@ -164,6 +169,7 @@ public class MainCharacterSmithy : MonoBehaviour
 
         if (transform.position.x == 8.11f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {
+            myWallHanger.SetHangerState(1);
             PlayerPrefs.SetFloat("Fade", 0.7f);
             GameObject.FindGameObjectWithTag("Anvil").GetComponent<BoxCollider2D>().enabled = false;
             if (!elongateOrBevel)
@@ -183,7 +189,8 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 7f && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled)
         {
-            if(myGameManager.GetGameState() < S_GameManager.GameState.IngotHeated)
+            myWallHanger.SetHangerState(1);
+            if (myGameManager.GetGameState() < S_GameManager.GameState.IngotHeated)
             {
 
                 myGameManager.SetGameState(S_GameManager.GameState.IngotHeated);
@@ -206,7 +213,7 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 15.5f && myGameManager.GetGameState() == S_GameManager.GameState.BarBevelled)
         {
-
+            myWallHanger.SetHangerState(1);
             canControl = false;
             grindstoneSmith.SetActive(true);
             mSharpeningAction
@@ -223,6 +230,7 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 14.58f && myGameManager.GetGameState() == S_GameManager.GameState.BarSharpened)
         {
+            myWallHanger.SetHangerState(1);
             QuenchingUI.SetActive(true);
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
             QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));

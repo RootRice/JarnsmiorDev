@@ -28,6 +28,7 @@ TagManager:
   - Wedge
   - ToDoList
   - ToDoListHint
+  - WallHanger
   layers:
   - Default
   - TransparentFX

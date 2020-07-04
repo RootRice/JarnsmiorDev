@@ -15,10 +15,12 @@ public class WallHanger : MonoBehaviour {
     GameObject quenchingUI;
 
     S_GameManager myGameManager;
+    Animator myAnimator;
 
     // Use this for initialization
     void Start ()
     {
+        myAnimator = gameObject.GetComponent<Animator>();
         myGameManager = S_GameManager.GetGameManagerScript();
         quenchingUI = GameObject.FindGameObjectWithTag("QuenchingUI");
         mainCharacter = GameObject.FindGameObjectWithTag("MainCharacterSmithy");
@@ -36,6 +38,7 @@ public class WallHanger : MonoBehaviour {
 
     void OnMouseDown()
     {
+        myAnimator.SetInteger("HangerState", 0);
         myGameManager.SetTutorialState(S_GameManager.TutorialState.None);
         PlayerPrefs.SetFloat("Fade", 0f);
         GameObject anvilSmith = GameObject.FindGameObjectWithTag("MCAnvil");
@@ -83,5 +86,11 @@ public class WallHanger : MonoBehaviour {
         
         cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
          
+    }
+
+    public void SetHangerState(int state)
+    {
+        myAnimator.SetInteger("HangerState", state);
+
     }
 }
