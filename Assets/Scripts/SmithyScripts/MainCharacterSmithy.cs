@@ -202,7 +202,7 @@ public class MainCharacterSmithy : MonoBehaviour
             }
 
         }
-        else if(transform.position.x == 7f && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled)
+        else if(transform.position.x == 7f && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {
             myWallHanger.SetHangerState(1);
             if (myGameManager.GetGameState() < S_GameManager.GameState.IngotHeated)
@@ -247,6 +247,8 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 14.58f && myGameManager.GetGameState() == S_GameManager.GameState.BarSharpened)
         {
+            MCFurnace myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
+            myHeat.CheckQuench();
             myWallHanger.SetHangerState(1);
             QuenchingUI.SetActive(true);
             GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
