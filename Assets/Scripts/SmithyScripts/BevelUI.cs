@@ -39,11 +39,14 @@ public class BevelUI : MonoBehaviour {
 
     AudioSource myAudioSource;
 
+    WallHanger myWallHanger;
     S_GameManager myGameManager;
 
     // Use this for initialization
     void Start()
     {
+        GameObject theWallHanger = GameObject.FindGameObjectWithTag("WallHanger");
+        myWallHanger = (WallHanger)theWallHanger.GetComponent(typeof(WallHanger));
         myAudioSource = gameObject.GetComponent<AudioSource>();
         myGameManager = S_GameManager.GetGameManagerScript();
 
@@ -80,9 +83,16 @@ public class BevelUI : MonoBehaviour {
             if(slam)
             {
                 SlamDown();
+                
             }
             else
             {
+                if (counter >= 10)
+                {
+
+                    canSmith = false;
+
+                }
                 CalculateRotation();
                 hammerPivot.localRotation = transform.rotation;
             }
@@ -182,7 +192,6 @@ public class BevelUI : MonoBehaviour {
             
             if (counter >= 10)
             {
-                canSmith = false;
                 CalculateScore();
             }
             return hitStore[counter-1];
@@ -262,6 +271,11 @@ public class BevelUI : MonoBehaviour {
                 slam = false;
                 animationTimer = 0;
                 particlesSpawned = false;
+                if (counter >= 10)
+                {
+                    myWallHanger.TriggerExit();
+
+                }
             }
 
         }
@@ -304,13 +318,15 @@ public class BevelUI : MonoBehaviour {
         print(consistencyVal);
         print(calculator);
         print(totalScore);
-        canSmith = false;
+        
 
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         QuenchUI myQuenchUI = (QuenchUI)scoreManager.GetComponent(typeof(QuenchUI));
         S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
         mGameManager.SetGameState(S_GameManager.GameState.BarBevelled);
         myQuenchUI.SetValues(1, totalScore, 100);
+
+
 
     }
 

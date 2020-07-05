@@ -38,6 +38,17 @@ public class WallHanger : MonoBehaviour {
 
     void OnMouseDown()
     {
+        Exit();
+
+    }
+    public void TriggerExit()
+    {
+        Exit();
+
+    }
+
+    void Exit()
+    {
         mainCharacter.GetComponent<Animator>().SetBool("Cloth", true);
         myAnimator.SetInteger("HangerState", 0);
         myGameManager.SetTutorialState(S_GameManager.TutorialState.None);
@@ -56,7 +67,7 @@ public class WallHanger : MonoBehaviour {
                 bevelSmith.SetActive(false);
 
             }
-            else if(anvilSmith!= null)
+            else if (anvilSmith != null)
             {
                 anvilSmith.SetActive(false);
                 ElongateUI myElongateUI = (ElongateUI)anvilSmith.GetComponentInChildren(typeof(ElongateUI));
@@ -72,13 +83,13 @@ public class WallHanger : MonoBehaviour {
         {
             heatUI = GameObject.FindGameObjectWithTag("HeatUI");
             myHeat = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
-            
+
             myHeat.setHeat(-0.01f);
             furnaceSmith.SetActive(false);
         }
         mainCharacterScript.StopAction();
 
-        if(quenchingUI != null)
+        if (quenchingUI != null)
         {
 
             quenchingUI.SetActive(false);

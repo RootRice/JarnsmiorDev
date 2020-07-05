@@ -35,11 +35,14 @@ public class ElongateUI : MonoBehaviour {
     MCFurnace myFurnace;
     AudioSource myAudioSource;
 
+    WallHanger myWallHanger;
     S_GameManager myGameManager;
 
     // Use this for initialization
     void Start ()
     {
+        GameObject theWallHanger = GameObject.FindGameObjectWithTag("WallHanger");
+        myWallHanger = (WallHanger)theWallHanger.GetComponent(typeof(WallHanger));
         myAudioSource = gameObject.GetComponent<AudioSource>();
         heatUI = GameObject.FindGameObjectWithTag("HeatUI");
         myFurnace = (MCFurnace)heatUI.GetComponentInChildren(typeof(MCFurnace));
@@ -70,6 +73,12 @@ public class ElongateUI : MonoBehaviour {
             {
                 CalculateSpeed();
                 Move();
+                if (counter >= 10)
+                {
+
+                    canSmith = false;
+
+                }
             }
             else
             {
@@ -158,6 +167,12 @@ public class ElongateUI : MonoBehaviour {
                 slam = false;
                 animationTimer = 0;
                 particlesSpawned = false;
+                if (counter >= 10)
+                {
+                    myWallHanger.TriggerExit();
+
+                }
+
             }
 
         }
@@ -249,7 +264,7 @@ public class ElongateUI : MonoBehaviour {
         GameObject sword = GameObject.FindGameObjectWithTag("Sword");
         PlayerPrefs.SetFloat("SwordLength", lengthVal/50);
         myQuenchUI.SetValues(0, totalScore, 100);
-        canSmith = false;
+        
 
 
     } 
