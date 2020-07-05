@@ -48,41 +48,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	void Update ()
 	{
 		
-		// elapsedTime = Time.time - startTime;
-		// if(!mSwordMovement.IsActionDone())
-		// {
-		// 	if (MouseToLeft())
-		// 	{
-		// 		if (transform.rotation.z < degress)
-		// 		{
-		// 			transform.Rotate(new Vector3(0, 0, rangePointer()) * Time.deltaTime);
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		if (transform.rotation.z > -degress)
-		// 		{
-		// 			transform.Rotate(new Vector3(0, 0, (-1) * rangePointer()) * Time.deltaTime);
-		// 		}
-		// 	}
-			
-		// 	RotateAction();
-		// }
-		// else
-		// {
-		// 	if(Mathf.Abs(transform.rotation.z) > 0.001)
-		// 	{
-		// 		transform.localRotation = Quaternion.Euler(0, 0, -transform.rotation.z);
-		// 		mSwordMovement.ResetAxisX();
-		// 	}
-		// 	if(mSwordMovement.IsItemInPos())
-		// 	{
-		// 		mainCharacter.SetActive(true);
-		// 		mainCharacterScript.SetControl(true);
-		// 		mainCharacterScript.StopAction();
-		// 		cameraScript.SetTarget(new Vector3(11.45f, 7.31f, -10), 6.31f);
-		// 	}
-		// }
         if (mSwordMovement.GetMouseDown())
         {
             elapsedTime += Time.deltaTime;
