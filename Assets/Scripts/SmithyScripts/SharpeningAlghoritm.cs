@@ -47,7 +47,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		
         if (mSwordMovement.GetMouseDown())
         {
             elapsedTime += Time.deltaTime;
@@ -69,7 +68,6 @@ public class SharpeningAlghoritm : MonoBehaviour {
                 }
                 if (rotationGravity < rotationGravityLerp)
                 {
-
                     if (adjustTimer > 0.03f)
                     {
                         adjustTimer = 0;
@@ -77,15 +75,11 @@ public class SharpeningAlghoritm : MonoBehaviour {
                     }
                     else
                     {
-
                         adjustTimer += Time.deltaTime;
-
                     }
-
                 }
                 else if (rotationGravity > rotationGravityLerp)
                 {
-
                     if (adjustTimer > 0.03f)
                     {
                         adjustTimer = 0;
@@ -93,16 +87,13 @@ public class SharpeningAlghoritm : MonoBehaviour {
                     }
                     else
                     {
-
                         adjustTimer += Time.deltaTime;
-
                     }
-
                 }
-
                 RotateAction();
             }
         }
+        
         if(mSwordMovement.IsActionDone())
         {
             if(Mathf.Abs(transform.rotation.z) > 0.001)
