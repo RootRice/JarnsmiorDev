@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour {
 
 		GameObject newText = Instantiate(textObject, storyPanel.transform);
 		mMessage.textObject = newText.GetComponent<Text>();
+        mMessage.textObject.fontSize = 30;
 		mMessage.textObject.text = mMessage.text;
 		mMessage.textObject.name = "StoryLine_MSG_" + msgID;
         SF_Click mClick = (SF_Click)mMessage.textObject.GetComponent(typeof(SF_Click));

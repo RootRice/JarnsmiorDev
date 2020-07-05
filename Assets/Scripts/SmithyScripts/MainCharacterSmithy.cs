@@ -145,6 +145,11 @@ public class MainCharacterSmithy : MonoBehaviour
 
     }
 
+    public bool GetMove()
+    {
+        return isMoving;
+
+    }
     public bool GetControl()
     {
 
@@ -166,6 +171,13 @@ public class MainCharacterSmithy : MonoBehaviour
 
     void CheckTask()
     {
+        Debug.Log(transform.position.x);
+        if(transform.position.x != 19.68f && transform.position.x != 2.24f && transform.position.x != 3.34f)
+        {
+            myWallHanger.SetHangerState(1);
+            myAnimator.SetBool("Cloth", false);
+            canControl = false;
+        }
 
         if (transform.position.x == 8.11f && myGameManager.GetGameState() < S_GameManager.GameState.BarBevelled && myGameManager.GetGameState() > S_GameManager.GameState.JustStarted)
         {

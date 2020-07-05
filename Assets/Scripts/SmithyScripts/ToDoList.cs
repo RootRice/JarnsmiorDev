@@ -96,13 +96,20 @@ public class ToDoList : MonoBehaviour {
 
         myTransform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         speed = speed * 1.2f;
+        Debug.Log(target);
 
-        if (myTransform.position.y == target.y)// && target.y < rest.transform.position.y+10)
+        if (myTransform.position.y == target.y) //&& target.y < rest.transform.position.y+1)
         {
             return true;
 
         }
-        else if (myTransform.position.y == target.y)// && target.y > rest.transform.position.y +1)
+        else if (myTransform.position.y == target.y)// && target.y < rest.transform.position.y +1)
+        {
+
+            return true;
+
+        }
+        else if (myTransform.position.y >= target.y-1 && target == rest.transform.position)
         {
 
             return true;
