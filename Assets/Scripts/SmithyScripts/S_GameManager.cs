@@ -36,7 +36,7 @@ public class S_GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		mGameState = GameState.JustStarted;
+		mGameState = GameState.BarBevelled;
 		mTutorialState = TutorialState.None;
 	}
 	

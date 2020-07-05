@@ -21,38 +21,26 @@ GameObject:
   - component: {fileID: 4928125090545442}
   - component: {fileID: 198361781622188166}
   - component: {fileID: 199037011499863338}
-  - component: {fileID: 114392279993828270}
   m_Layer: 0
   m_Name: sharpeningParticles
-  m_TagString: Untagged
+  m_TagString: GrindParticles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4928125090545442
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104859531203244}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.93, y: 4.49, z: 0.03}
+  m_LocalRotation: {x: 0.056204103, y: 0.7048695, z: -0.7048697, w: -0.056204088}
+  m_LocalPosition: {x: 13.79, y: 3.835, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &114392279993828270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1104859531203244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a769aa51be06f140a2a87784982e2ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_LocalEulerAnglesHint: {x: -279.11798, y: -90.00001, z: 90.00001}
 --- !u!198 &198361781622188166
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -826,7 +814,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4679,7 +4667,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 6
   m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0

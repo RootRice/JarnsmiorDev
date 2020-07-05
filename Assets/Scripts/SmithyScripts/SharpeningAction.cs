@@ -34,6 +34,7 @@ public class SharpeningAction : MonoBehaviour {
 
 	public void Stop()
 	{
+        GameObject.FindGameObjectWithTag("MCGrindstone").SetActive(false);
         myWallHanger.SetHangerState(0);
         gameManager.SetTutorialState(S_GameManager.TutorialState.None);
         PlayerPrefs.SetFloat("Fade", 0f);

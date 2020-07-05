@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 242ed8e2add5fce4a88563f7634b9cda
+guid: 468f2ec2a1148da46ad0a9e2b31f9dbf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Smith grindstone_0
-    21300002: Smith grindstone_1
-    21300004: Smith grindstone_2
-    21300006: Smith grindstone_3
-    21300008: Smith grindstone_4
+    21300000: Smith grindstone (3) 1_0
+    21300002: Smith grindstone (3) 1_1
+    21300004: Smith grindstone (3) 1_2
+    21300006: Smith grindstone (3) 1_3
+    21300008: Smith grindstone (3) 1_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Smith grindstone_0
+      name: Smith grindstone (3) 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -103,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e12459733c41741b032f0e257b8909
+      spriteID: 222eac8a1822e9c46ac7d6dc06b0e1af
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith grindstone_1
+      name: Smith grindstone (3) 1_1
       rect:
         serializedVersion: 2
         x: 448
@@ -123,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3ba721557409e4985db587eddd61a5
+      spriteID: 466f69cfe8eb9bb46b15cdd075a0e9cb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith grindstone_2
+      name: Smith grindstone (3) 1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -143,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb13da09cc477c7409257ab17c7c72b7
+      spriteID: 59f4f0ed3c688d543995917d80874687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith grindstone_3
+      name: Smith grindstone (3) 1_3
       rect:
         serializedVersion: 2
         x: 448
@@ -163,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f7e85be27180684cadaf4aed0bcb7cc
+      spriteID: b6fc6b79c51c6c24598145deb99cbe00
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smith grindstone_4
+      name: Smith grindstone (3) 1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -183,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39b962125676aea409678464eb9b1c98
+      spriteID: 9a6b6480c37069b4b8157172cfe32969
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cadd9d076f528d14d81cbf6745c29124
+    spriteID: 6516f5189f9ef1e41b33166a5a0060a4
     vertices: []
     indices: 
     edges: []

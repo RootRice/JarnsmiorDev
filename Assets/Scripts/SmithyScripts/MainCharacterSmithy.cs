@@ -42,9 +42,12 @@ public class MainCharacterSmithy : MonoBehaviour
     GameObject theWallHanger;
     WallHanger myWallHanger;
 
+    GameObject MCGrindstone;
     // Use this for initialization
     void Start()
     {
+        MCGrindstone = GameObject.FindGameObjectWithTag("MCGrindstone");
+        MCGrindstone.SetActive(false);
         theWallHanger = GameObject.FindGameObjectWithTag("WallHanger");
         myWallHanger = (WallHanger)theWallHanger.GetComponent(typeof(WallHanger));
         AudioSource[] footStepArray = gameObject.GetComponentsInChildren<AudioSource>();
@@ -225,7 +228,9 @@ public class MainCharacterSmithy : MonoBehaviour
         }
         else if(transform.position.x == 15.5f && myGameManager.GetGameState() == S_GameManager.GameState.BarBevelled)
         {
+            
             myWallHanger.SetHangerState(1);
+            MCGrindstone.SetActive(true);
             canControl = false;
             grindstoneSmith.SetActive(true);
             mSharpeningAction

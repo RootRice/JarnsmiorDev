@@ -29,6 +29,7 @@ TagManager:
   - ToDoList
   - ToDoListHint
   - WallHanger
+  - MCGrindstone
   layers:
   - Default
   - TransparentFX
