@@ -8,7 +8,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 	// private int rangeImproverD = 15;
 	// private int rangeImproverR = 5;
 	// private float speed = 1.0f; //how fast it shakes
-	private float degress = 0.15f;
+	private float degress = 0.1f;
 	private int rangeImproverD = 30;
 	private int rangeImproverR = 10;
 	private float speed = 0.5f; //how fast it shakes
@@ -130,7 +130,7 @@ public class SharpeningAlghoritm : MonoBehaviour {
 		else
 		{
             elapsedTime = 0f;
-			nextActionTime = Random.Range(1.0f, 3.0f);
+			nextActionTime = Random.Range(2.0f, 3.0f);
 			rotationGravityLerp = Random.Range(-degress, degress) * rangeImproverR;
             hitStore.Add(transform.rotation.z);
 		}

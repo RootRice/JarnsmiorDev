@@ -14,6 +14,7 @@ public class SwordMovement : MonoBehaviour {
 	bool firstSide = true;
     ParticleSystem myParticles;
     AudioSource myAudioSource;
+    float particleMod = -0.1f;
     // Use this for initialization
     void Start ()
 	{
@@ -35,17 +36,20 @@ public class SwordMovement : MonoBehaviour {
 			ResetAxisX();
 			firstSide = false;
 		}
-		else if(GetMouseDown())
+        else if (transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y / 2 + distance && ActionDone && finalAnimation)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.04f, transform.position.z);
+        }
+        else if(GetMouseDown())
 		{
 			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance && !ActionDone)
 			{
-				transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
-			}
+				transform.position = new Vector3(transform.position.x, transform.position.y-0.004f, transform.position.z);
+                myParticles.transform.position = new Vector3(13.72f, myParticles.transform.position.y - 0.0004f, myParticles.transform.position.z);
+
+            }
 		}
-		else if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance && ActionDone && finalAnimation)
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y-0.02f, transform.position.z);
-		}
+		
 	}
 
 	public void SetLength(float length)
@@ -64,7 +68,11 @@ public class SwordMovement : MonoBehaviour {
 
 	public void ResetAxisX()
 	{
-		transform.position = new Vector3(posX, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
+        myAudioSource.Stop();
+        myParticles.Stop();
+        mouseDown = false;
+        myParticles.transform.position = new Vector3(myParticles.transform.position.x, 4.269f, myParticles.transform.position.z);
+        transform.position = new Vector3(13.63f, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
 	}
 
 	public bool IsActionDone()
@@ -86,9 +94,12 @@ public class SwordMovement : MonoBehaviour {
 
     void OnMouseDown()
     {
-        myAudioSource.Play();
-        sharpeningParticles.SetActive(true);
-        myParticles.Play();
+        if (!finalAnimation)
+        {
+            myAudioSource.Play();
+            sharpeningParticles.SetActive(true);
+            myParticles.Play();
+        }
         mouseDown = true;
 
     }
