@@ -12,9 +12,14 @@ public class GameManager : MonoBehaviour {
     private TextChoices textValues;
 	private bool StoryLive = false;
     private int SLItemID = 0;
+	private bool originalStory = true;
 
 	void Start () {
         string path = "Assets/JSON/story.json";
+		if(!originalStory)
+		{
+			path = "Assets/JSON/story2.json";
+		}
         string contents = File.ReadAllText(path);
         textValues = JsonUtility.FromJson<TextChoices>(contents);
 		mTimerMessage = new Timer().SetTimer(0.0f).StartTimer();
