@@ -87,7 +87,6 @@ public class MainCharacterSmithy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(myGameManager.GetGameState());
         if (isMoving)
         {
 

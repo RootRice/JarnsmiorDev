@@ -246,7 +246,7 @@ public class ElongateUI : MonoBehaviour {
         consistencyVal += Mathf.Abs(calculator - maxVal);
         totalScore += 50 - (consistencyVal * 25);
         lengthVal = totalVal;
-        lengthVal = lengthVal / 12.5f;
+        lengthVal = lengthVal / 13f;
         if(lengthVal > 1f)
         {
             lengthVal = 1 / lengthVal;
@@ -254,7 +254,7 @@ public class ElongateUI : MonoBehaviour {
         lengthVal = lengthVal * 50;
         totalScore += lengthVal;
 
-        print(consistencyVal);
+        print(totalVal);
         print(lengthVal);
         print(totalScore);
         S_GameManager mGameManager = S_GameManager.GetGameManagerScript();
