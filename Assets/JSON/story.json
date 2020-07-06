@@ -12,54 +12,84 @@
 		},
 		{
 			"id": 2,
-			"text": "I've received a sudden request.",
+			"text": "Orion: Apologies for intruding so early.",
 			"child": [3, 4, 5]
 		},
 		{
 			"id": 3,
-			"text": "...",
+			"text": "Smith: .......",
 			"child": [6],
 			"choice": 1,
 			"choicePick": true
 		},
 		{
 			"id": 4,
-			"text": "I've got work to do, be brief.",
+			"text": "Smith: I've got work to do, be brief.",
 			"child": [7],
 			"choice": 2,
 			"choicePick": true
 		},
 		{
 			"id": 5,
-			"text": "No issue, I'm here to help.",
-			"child": [8],
+			"text": "Smith: No issue, I'm here to help.",
+			"child": [9],
 			"choice": 3,
 			"choicePick": true
 		},
 		{
 			"id": 6,
-			"text": "You are going to receive your part, so help me out.",
-			"child": [3, 4, 5],
+			"text": "Orion: I'll get on with it, then",
+			"child": [9],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 7,
-			"text": "Exatcly how a smithy should be. I would like to order a sword.",
+			"text": "Orion: Impressive attitude. I won't take much of your time",
 			"child": [9],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 8,
-			"text": "Perfect. Then I am going to order the strongest sword that you can make.",
+			"text": "Orion: Perfect. Then I am going to order the strongest sword that you can make.",
 			"child": [9],
 			"choice": 1,
 			"choicePick": false
 		},
 		{
 			"id": 9,
-			"text": "Understood. I will start the work and get back to you once the sword is ready.",
+			"text": "Orion: A frog like creature, Ktinos, has been rampaging in the Sena swamp. I needn't tell you why this is problematic...",
+			"choicePick": false,
+			"child": [10]
+		},
+		{
+			"id": 10,
+			"text": "*The Ruthless Orion gives the Smith a questioning look*",
+			"choicePick": false,
+			"child": [11]
+		},
+		{
+			"id": 11,
+			"text": "*Sigh* The herbalists gather their medicinal plants from the Swamp outskirts. Apparently the frog is usually pretty docile",
+			"choicePick": false,
+			"child": [12]
+		},
+		{
+			"id": 12,
+			"text": "*The orion looks away for a moment* Something seems to be setting the creature off. It... and others",
+			"choicePick": false,
+			"child": [13]
+		},
+		{
+			"id": 13,
+			"text": "*They look back at the smith* You needn't be concerned. It will be dealt with. We've Orions with festering wounds and children with fevers, so I apologise for rushing you, but this request is urgent.",
+			"choicePick": false,
+			"child": [14]
+		},
+		{
+			"id": 14,
+			"text": "Orion: I'll see you soon, then. Be ready",
 			"exitRoom": true,
 			"child": [-1]
 		}
