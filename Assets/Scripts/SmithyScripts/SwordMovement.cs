@@ -11,6 +11,7 @@ public class SwordMovement : MonoBehaviour {
     bool mouseDown = false;
 	bool finalAnimation = false;
     public GameObject sharpeningParticles;
+	bool firstSide = true;
     ParticleSystem myParticles;
     AudioSource myAudioSource;
     // Use this for initialization
@@ -24,10 +25,15 @@ public class SwordMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance  && !ActionDone)
+		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance  && !ActionDone && !firstSide)
 		{
 			ActionDone = true;
 			finalAnimation = true;
+		}
+		else if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance  && !ActionDone && firstSide)
+		{
+			ResetAxisX();
+			firstSide = false;
 		}
 		else if(GetMouseDown())
 		{
@@ -48,7 +54,8 @@ public class SwordMovement : MonoBehaviour {
 		{
 			posX = transform.position.x;
 		}
-		distance*=length/4;
+		distance*=(length*2);
+		firstSide = true;
 		transform.localScale = new Vector3(0.2f, length/4, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
 		ActionDone = false;
