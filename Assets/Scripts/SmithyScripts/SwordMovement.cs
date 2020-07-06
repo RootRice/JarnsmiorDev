@@ -6,10 +6,12 @@ public class SwordMovement : MonoBehaviour {
 
 	private float PivotAxisY = 4.28f;
 	private float posX;
+	private float distance = 0.5f;
 	private bool ActionDone = true;
     bool mouseDown = false;
 	bool finalAnimation = false;
     public GameObject sharpeningParticles;
+	bool firstSide = true;
     ParticleSystem myParticles;
     AudioSource myAudioSource;
     // Use this for initialization
@@ -23,19 +25,24 @@ public class SwordMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2  && !ActionDone)
+		if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance  && !ActionDone && !firstSide)
 		{
 			ActionDone = true;
 			finalAnimation = true;
 		}
+		else if(transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance  && !ActionDone && firstSide)
+		{
+			ResetAxisX();
+			firstSide = false;
+		}
 		else if(GetMouseDown())
 		{
-			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && !ActionDone)
+			if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance && !ActionDone)
 			{
 				transform.position = new Vector3(transform.position.x, transform.position.y-0.002f, transform.position.z);
 			}
 		}
-		else if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && ActionDone && finalAnimation)
+		else if(transform.position.y >= PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance && ActionDone && finalAnimation)
 		{
 			transform.position = new Vector3(transform.position.x, transform.position.y-0.02f, transform.position.z);
 		}
@@ -47,6 +54,8 @@ public class SwordMovement : MonoBehaviour {
 		{
 			posX = transform.position.x;
 		}
+		distance*=(length*2);
+		firstSide = true;
 		transform.localScale = new Vector3(0.2f, length/4, 1.0f);
 		transform.position = new Vector3(transform.position.x, PivotAxisY + GetComponent<Renderer>().bounds.size.y/2, transform.position.z);
 		ActionDone = false;
@@ -65,7 +74,7 @@ public class SwordMovement : MonoBehaviour {
 
 	public bool IsItemInPos()
 	{
-		return transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 && finalAnimation;
+		return transform.position.y < PivotAxisY - GetComponent<Renderer>().bounds.size.y/2 + distance && finalAnimation;
 	}
 
     public bool GetMouseDown()
