@@ -110,24 +110,27 @@ public class GameManager : MonoBehaviour {
 	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored, TextChoice mTextChoice)
 	{
 
-		Message mMessageS = new Message();
-		mMessageS.text = "\n";
-		GameObject newTextS = Instantiate(textObject, storyPanel.transform);
-		mMessageS.textObject = newTextS.GetComponent<Text>();
-        mMessageS.textObject.fontSize = 10;
-		mMessageS.textObject.text = "\n";
-		mMessageS.textObject.name = "StoryLine_Space";
-		messageList.Add(mMessageS);
+		if(!isChoice)
+		{
+			Message mMessageS = new Message();
+			mMessageS.text = "\n";
+			GameObject newTextS = Instantiate(textObject, storyPanel.transform);
+			mMessageS.textObject = newTextS.GetComponent<Text>();
+			mMessageS.textObject.fontSize = 10;
+			mMessageS.textObject.text = "\n";
+			mMessageS.textObject.name = "StoryLine_Space";
+			messageList.Add(mMessageS);
 
-		Message mMessageC = new Message();
-		mMessageC.text = mTextChoice.character + ":";
-		GameObject newTextC = Instantiate(textObject, storyPanel.transform);
-		mMessageC.textObject = newTextC.GetComponent<Text>();
-        mMessageC.textObject.fontSize = 25;
-		mMessageC.textObject.text = mTextChoice.character + ":";
-		mMessageC.textObject.name = "StoryLine_Character";
-		mMessageC.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
-		messageList.Add(mMessageC);
+			Message mMessageC = new Message();
+			mMessageC.text = mTextChoice.character + ":";
+			GameObject newTextC = Instantiate(textObject, storyPanel.transform);
+			mMessageC.textObject = newTextC.GetComponent<Text>();
+			mMessageC.textObject.fontSize = 25;
+			mMessageC.textObject.text = mTextChoice.character + ":";
+			mMessageC.textObject.name = "StoryLine_Character";
+			mMessageC.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
+			messageList.Add(mMessageC);
+		}
 
 		Message mMessage = new Message();
 		mMessage.text = text;
