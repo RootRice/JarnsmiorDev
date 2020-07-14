@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
 					{
 						SLItemID = mTextChoice.child[0];
 						if(!mTextChoice.choicePick) {
-							SendStoryMessage(mTextChoice.text, false, mTextChoice.id, false);
+							SendStoryMessage(mTextChoice.text, false, mTextChoice.id, false, mTextChoice);
 							mTimerMessage = new Timer().SetTimer(mTextChoice.text.Length * 0.05f).StartTimer();
 							if(mTextChoice.exitRoom)
 							{
@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour {
 							TextChoice mTextChoice1 = getItemByID(mTextChoice.child[0]);
 							TextChoice mTextChoice2 = getItemByID(mTextChoice.child[1]);
 							TextChoice mTextChoice3 = getItemByID(mTextChoice.child[2]);
-							SendStoryMessage(mTextChoice1.text, true, mTextChoice1.id, true);
-							SendStoryMessage(mTextChoice2.text, true, mTextChoice2.id, true);
-							SendStoryMessage(mTextChoice3.text, true, mTextChoice3.id, true);
+							SendStoryMessage(mTextChoice1.text, true, mTextChoice1.id, true, mTextChoice1);
+							SendStoryMessage(mTextChoice2.text, true, mTextChoice2.id, true, mTextChoice2);
+							SendStoryMessage(mTextChoice3.text, true, mTextChoice3.id, true, mTextChoice3);
 							mTimerMessage = new Timer().SetTimer(0f).StartTimer();
 							StoryLive = false;
 						}
@@ -82,10 +82,13 @@ public class GameManager : MonoBehaviour {
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 1).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 2).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 3).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 4).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 5).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 6).gameObject);
 		TextChoice mTextChoice = getItemByID(msgID);
 		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
-			SendStoryMessage(mTextChoice.text, false, mTextChoice.id, true);
+			SendStoryMessage(mTextChoice.text, false, mTextChoice.id, true, mTextChoice);
 			SLItemID = mTextChoice.child[0];
 			StoryLive = true;
 			if(mTextChoice.exitRoom)
@@ -104,8 +107,31 @@ public class GameManager : MonoBehaviour {
 		StoryLive = true;
 	}
 
-	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored)
+	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored, TextChoice mTextChoice)
 	{
+
+		if(!isChoice)
+		{
+			Message mMessageS = new Message();
+			mMessageS.text = "\n";
+			GameObject newTextS = Instantiate(textObject, storyPanel.transform);
+			mMessageS.textObject = newTextS.GetComponent<Text>();
+			mMessageS.textObject.fontSize = 10;
+			mMessageS.textObject.text = "\n";
+			mMessageS.textObject.name = "StoryLine_Space";
+			messageList.Add(mMessageS);
+
+			Message mMessageC = new Message();
+			mMessageC.text = mTextChoice.character + ":";
+			GameObject newTextC = Instantiate(textObject, storyPanel.transform);
+			mMessageC.textObject = newTextC.GetComponent<Text>();
+			mMessageC.textObject.fontSize = 25;
+			mMessageC.textObject.text = mTextChoice.character + ":";
+			mMessageC.textObject.name = "StoryLine_Character";
+			mMessageC.textObject.color = new Color(240.0f/255.0f, 76.0f/255.0f, 31.0f/255.0f);
+			messageList.Add(mMessageC);
+		}
+
 		Message mMessage = new Message();
 		mMessage.text = text;
 
@@ -127,6 +153,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		messageList.Add(mMessage);
+
 	}
 
     TextChoice getItemByID(int id)
@@ -159,6 +186,7 @@ public class TextChoice
     public int choice = -1;
     public bool choicePick;
 	public bool exitRoom;
+	public string character = "UNK";
 }
 
 [System.Serializable]
