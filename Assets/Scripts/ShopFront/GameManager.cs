@@ -85,6 +85,9 @@ public class GameManager : MonoBehaviour {
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 4).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 5).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 6).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 7).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 8).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 9).gameObject);
 		TextChoice mTextChoice = getItemByID(msgID);
 		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
