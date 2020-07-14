@@ -85,6 +85,9 @@ public class GameManager : MonoBehaviour {
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 4).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 5).gameObject);
 		Destroy(storyPanel.transform.GetChild(messageList.Count - 6).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 7).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 8).gameObject);
+		Destroy(storyPanel.transform.GetChild(messageList.Count - 9).gameObject);
 		TextChoice mTextChoice = getItemByID(msgID);
 		if(SLItemID <= mTextChoice.id && SLItemID >= 0)
 		{
@@ -110,17 +113,14 @@ public class GameManager : MonoBehaviour {
 	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored, TextChoice mTextChoice)
 	{
 
-		if(!isChoice)
-		{
-			Message mMessageS = new Message();
-			mMessageS.text = "\n";
-			GameObject newTextS = Instantiate(textObject, storyPanel.transform);
-			mMessageS.textObject = newTextS.GetComponent<Text>();
-			mMessageS.textObject.fontSize = 10;
-			mMessageS.textObject.text = "\n";
-			mMessageS.textObject.name = "StoryLine_Space";
-			messageList.Add(mMessageS);
-		}
+		Message mMessageS = new Message();
+		mMessageS.text = "\n";
+		GameObject newTextS = Instantiate(textObject, storyPanel.transform);
+		mMessageS.textObject = newTextS.GetComponent<Text>();
+		mMessageS.textObject.fontSize = 10;
+		mMessageS.textObject.text = "\n";
+		mMessageS.textObject.name = "StoryLine_Space";
+		messageList.Add(mMessageS);
 
 		if(mTextChoice.character != null)
 		{
