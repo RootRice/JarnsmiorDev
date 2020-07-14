@@ -120,7 +120,10 @@ public class GameManager : MonoBehaviour {
 			mMessageS.textObject.text = "\n";
 			mMessageS.textObject.name = "StoryLine_Space";
 			messageList.Add(mMessageS);
+		}
 
+		if(mTextChoice.character != null)
+		{
 			Message mMessageC = new Message();
 			mMessageC.text = mTextChoice.character + ":";
 			GameObject newTextC = Instantiate(textObject, storyPanel.transform);
@@ -186,7 +189,7 @@ public class TextChoice
     public int choice = -1;
     public bool choicePick;
 	public bool exitRoom;
-	public string character = "UNK";
+	public string character;
 }
 
 [System.Serializable]
