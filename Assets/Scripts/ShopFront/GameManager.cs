@@ -110,17 +110,14 @@ public class GameManager : MonoBehaviour {
 	public void SendStoryMessage(string text, bool isChoice, int msgID, bool isColored, TextChoice mTextChoice)
 	{
 
-		if(!isChoice)
-		{
-			Message mMessageS = new Message();
-			mMessageS.text = "\n";
-			GameObject newTextS = Instantiate(textObject, storyPanel.transform);
-			mMessageS.textObject = newTextS.GetComponent<Text>();
-			mMessageS.textObject.fontSize = 10;
-			mMessageS.textObject.text = "\n";
-			mMessageS.textObject.name = "StoryLine_Space";
-			messageList.Add(mMessageS);
-		}
+		Message mMessageS = new Message();
+		mMessageS.text = "\n";
+		GameObject newTextS = Instantiate(textObject, storyPanel.transform);
+		mMessageS.textObject = newTextS.GetComponent<Text>();
+		mMessageS.textObject.fontSize = 10;
+		mMessageS.textObject.text = "\n";
+		mMessageS.textObject.name = "StoryLine_Space";
+		messageList.Add(mMessageS);
 
 		if(mTextChoice.character != null)
 		{
