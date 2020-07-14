@@ -73,7 +73,7 @@ public class MCFurnace : MonoBehaviour {
 
         if (currentHeat < 0.95f)
         {
-            currentScore += Mathf.Abs((1-currentHeat)/2);
+            currentScore += currentHeat/2;
             
 
         }
